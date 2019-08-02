@@ -1,14 +1,14 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React, { Component } from 'react';
+import { graphql } from 'gatsby'
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
 
-class AboutPage extends React.Component {
+export default class AboutPage extends Component {
     render() {
-      const { data } = this.props
-      const siteTitle = data.site.siteMetadata.title
-  
+      const { data } = this.props;
+      const siteTitle = data.site.siteMetadata.title;
+
       return (
         <Layout location={this.props.location} title={siteTitle}>
           <SEO title="About" />
@@ -18,8 +18,6 @@ class AboutPage extends React.Component {
       )
     }
 }
-  
-export default AboutPage;
 
 export const pageQuery = graphql`
   query {
@@ -29,4 +27,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

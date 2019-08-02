@@ -1,17 +1,15 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
+import React, { Component } from 'react';
+import { Link, graphql } from 'gatsby'
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
 
-import { rhythm } from '../utils/typography';
-
-class BlogPage extends React.Component {
+export default class BlogPage extends Component {
     render() {
       const { data } = this.props;
       const siteTitle = data.site.siteMetadata.title;
       const posts = data.allMarkdownRemark.edges;
-  
+
       return (
         <Layout location={this.props.location} title={siteTitle}>
           <SEO title="Blog" />
@@ -22,7 +20,7 @@ class BlogPage extends React.Component {
               <div key={node.fields.slug}>
                 <h3
                   style={{
-                    marginBottom: rhythm(1 / 4),
+                    marginBottom: '20px',
                   }}
                 >
                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
@@ -42,8 +40,6 @@ class BlogPage extends React.Component {
       )
     }
 }
-  
-export default BlogPage;
 
 export const pageQuery = graphql`
   query {
@@ -68,4 +64,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

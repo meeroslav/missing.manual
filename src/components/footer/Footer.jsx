@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import style from './footer.module.scss';
 
-const Footer = props => (
+const Footer = () => (
   <footer className={`${style.footer}`}>
         <Link to={`/`}>Home</Link>
         <Link to={`/about`}>About</Link>

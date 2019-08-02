@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './layout.scss';
 import Header from './header/Header.jsx';
 import Footer from './footer/Footer.jsx';
+import '../styles/main.scss';
 
-import { rhythm } from '../utils/typography';
-
-class Layout extends React.Component {
+export default class Layout extends Component {
   render() {
     const { title, children } = this.props;
 
@@ -14,16 +13,13 @@ class Layout extends React.Component {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          padding: `20px 20px`,
         }}
       >
-        <Header title={title}></Header>
+        <Header title={title}/>
         <main>{children}</main>
-        <Footer></Footer>
+        <Footer/>
       </div>
     )
   }
 }
-
-export default Layout
