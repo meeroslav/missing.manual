@@ -1,0 +1,27 @@
+[
+  {
+    "title": "How to cook with RxJS",
+    "date": "2019-09-19T09:15:00.000Z",
+    "event": "ArmadaJS",
+    "image": "Armada-JS.png",
+    "link": "https://www.armada-js.com/speakers/miroslav-jonas/"
+  },
+  {
+    "title": "Reactive Vue",
+    "date": "2018-11-30T19:15:00.000Z",
+    "event": "Vue.js Vienna",
+    "image": "vuejs-vienna.jpeg",
+    "video": "https://www.youtube.com/embed/K1rckjbSN08",
+    "link": "https://www.meetup.com/Vue-js-Vienna/events/njtrhqyxpbnc/",
+    "slides": "https://speakerdeck.com/meeroslav/reactive-vue"
+  },
+  {
+    "title": "Reactive State of Mind",
+    "date": "2018-02-08T20:15:00.000Z",
+    "event": "Angular Vienna",
+    "image": "angular-vienna.jpeg",
+    "video": "https://www.youtube.com/embed/Doyn3oZPrY4",
+    "link": "https://www.meetup.com/Angular-Vienna/events/247035489/",
+    "slides": "https://speakerdeck.com/meeroslav/reactive-state-of-mind"
+  }
+]
