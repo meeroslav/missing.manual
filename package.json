@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "missing-manual",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "The missing manual",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Miroslav Jonas <missing.manual@gmail.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
@@ -15,8 +15,11 @@
     "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-offline": "^2.2.4",
     "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-sass": "^2.1.3",
     "gatsby-plugin-sharp": "^2.2.9",
+    "gatsby-plugin-react-svg": "^2.1.1",
     "gatsby-plugin-typography": "^2.3.2",
+    "gatsby-prismjs-dracula": "^0.1.15",
     "gatsby-remark-copy-linked-files": "^2.1.3",
     "gatsby-remark-images": "^3.1.7",
     "gatsby-remark-prismjs": "^3.3.3",
@@ -25,6 +28,7 @@
     "gatsby-source-filesystem": "^2.1.6",
     "gatsby-transformer-remark": "^2.6.9",
     "gatsby-transformer-sharp": "^2.2.4",
+    "node-sass": "^4.12.0",
     "prismjs": "^1.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -33,7 +37,7 @@
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-funston": "^0.16.19"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
