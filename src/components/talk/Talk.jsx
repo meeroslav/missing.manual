@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 
 const Talk = props => {
@@ -32,10 +32,11 @@ const Talk = props => {
         /> }
         <div>Title: {title}</div>
         <div>Date: {date}</div>
-        <div>Event: <Link to={link}>{event}</Link></div>
-        { slides && <div><Link to={slides}>Slides</Link></div> }
+        <div>Event: <a href={link} target="_blank">{event}</a></div>
+        { slides && <div><a href={slides} target="_blank">Slides</a></div> }
         { video && <div><iframe width="560" height="315"
                                 src={video}
+                                title="video"
                                 frameBorder="0"
                                 allow="encrypted-media"
                                 allowFullScreen/></div> }
