@@ -4,9 +4,6 @@
   "description": "The missing manual",
   "version": "0.1.0",
   "author": "Miroslav Jonas <missing.manual@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
   "dependencies": {
     "gatsby": "^2.13.39",
     "gatsby-image": "^2.2.6",
@@ -25,6 +22,7 @@
     "gatsby-remark-responsive-iframe": "^2.2.4",
     "gatsby-remark-smartypants": "^2.1.2",
     "gatsby-source-filesystem": "^2.1.6",
+    "gatsby-transformer-json": "^2.2.2",
     "gatsby-transformer-remark": "^2.6.9",
     "gatsby-transformer-sharp": "^2.2.4",
     "node-sass": "^4.12.0",
@@ -36,7 +34,7 @@
   "devDependencies": {
     "prettier": "^1.18.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/meeroslav/missing.manual#readme",
   "keywords": [
     "gatsby"
   ],
@@ -44,7 +42,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/meeroslav/missing.manual.git"
   },
   "scripts": {
     "build": "gatsby build",
