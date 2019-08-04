@@ -1,0 +1,10 @@
+@import '../styles/variables/colors';
+@import '../styles/variables/layout';
+@import '../styles/variables/typography';
+
+.blogPostHeading {
+  color: $cl-background;
+  margin-top: -$headline-font-size;
+  position: absolute;
+  z-index: $zHeading;
+}

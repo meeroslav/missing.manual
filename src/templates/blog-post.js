@@ -5,6 +5,7 @@ import Bio from '../components/bio';
 import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
 import Image from 'gatsby-image';
+import style from './blog-post.module.scss';
 
 export default class BlogPostTemplate extends Component {
   render() {
@@ -22,20 +23,11 @@ export default class BlogPostTemplate extends Component {
           description={post.frontmatter.description || post.excerpt}
         />
         {cover && <Image sizes={cover.childImageSharp.sizes}/> }
-        <h1
-          style={{
-            marginTop: '10px',
-            marginBottom: 0,
-          }}
-        >
+        <h1 className={style.blogPostHeading}>
           {post.frontmatter.title}
         </h1>
-        <p
-          style={{
-            display: `block`
-          }}
-        >
-          {post.frontmatter.date}
+        <p>
+          <small>{post.frontmatter.date}</small>
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
@@ -89,7 +81,7 @@ export const pageQuery = graphql`
         cover {
           publicURL
           childImageSharp {
-            sizes(maxWidth: 2000) {
+            sizes(maxWidth: 2000, maxHeight: 600) {
               ...GatsbyImageSharpSizes
             }
           }
