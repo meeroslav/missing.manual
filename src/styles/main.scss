@@ -1,6 +1,7 @@
 @import "fonts.scss";
 @import "./variables/colors";
 @import "./variables/typography";
+@import "./variables/layout";
 
 html {
   box-sizing: border-box;
@@ -53,17 +54,23 @@ body {
 
 // SOME OVERRIDES TO DEFINE LATER
 .gatsby-highlight {
-  border-radius: 10px;
+  border-radius: $block-radius;
+  margin-bottom: $spacing;
 }
 
 .gatsby-highlight pre[class*="language-"] {
-  padding: 10px;
+  padding: $spacing;
+}
+
+:not(pre) code.language-text {
+  color: inherit;
+  background: $cl-light-gray;
 }
 
 // SOME HACKS
 .iframeContainer {
   overflow: hidden;
-  padding-top: 56.25%;
+  padding-top: 56.25%; // hack
   position: relative;
 
   iframe {
