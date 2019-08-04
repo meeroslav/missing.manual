@@ -16,6 +16,7 @@ export default class Home extends Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home" />
+        <h2>Latest posts</h2>
         { posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (

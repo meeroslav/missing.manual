@@ -9,13 +9,7 @@ export default class Layout extends Component {
     const { title, children } = this.props;
 
     return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          padding: `20px 20px`,
-        }}
-      >
+      <div>
         <Header title={title}/>
         <main>{children}</main>
         <Footer/>
