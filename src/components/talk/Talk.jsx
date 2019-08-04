@@ -4,8 +4,8 @@ import Image from 'gatsby-image';
 import ExternalLink from '../external-link/ExternalLink';
 
 const Talk = props => {
-    const { title, date, event, slides, video, link, image } = props;
-    const data = useStaticQuery(graphql`
+  const { title, date, event, slides, video, link, image } = props;
+  const data = useStaticQuery(graphql`
       query {
         images: allFile {
           edges {
@@ -13,7 +13,7 @@ const Talk = props => {
               relativePath
               name
               childImageSharp {
-                fixed(height: 100) {
+                fixed(height: 260, width: 320) {
                   ...GatsbyImageSharpFixed
                 }
               }
@@ -22,27 +22,31 @@ const Talk = props => {
         }
       }
     `);
-    const fixedImage = data.images.edges.find(({ node }) =>
-      node.relativePath.match('talks') && node.relativePath.includes(image));
+  const fixedImage = data.images.edges.find(({ node }) =>
+    node.relativePath.match('talks') && node.relativePath.includes(image));
 
-    return (
-      <div>
-        { fixedImage && <Image
+  return (
+    <div>
+      <h3>{title}</h3>
+      <div>Date: {date}</div>
+      <div>Event: <ExternalLink to={link}>{event}</ExternalLink></div>
+      {slides && <div><ExternalLink to={slides}>Slides</ExternalLink></div>}
+      {video ?
+        <div>
+          <iframe width="320" height="260"
+                  src={video}
+                  title="video"
+                  frameBorder="0"
+                  allow="encrypted-media"
+                  allowFullScreen/>
+        </div> :
+        fixedImage && <Image
           fixed={fixedImage.node.childImageSharp.fixed}
           alt={title}
-        /> }
-        <div>Title: {title}</div>
-        <div>Date: {date}</div>
-        <div>Event: <ExternalLink to={link}>{event}</ExternalLink></div>
-        { slides && <div><ExternalLink to={slides}>Slides</ExternalLink></div> }
-        { video && <div><iframe width="560" height="315"
-                                src={video}
-                                title="video"
-                                frameBorder="0"
-                                allow="encrypted-media"
-                                allowFullScreen/></div> }
-      </div>
-    );
+        />
+      }
+    </div>
+  );
 };
 
 export default Talk;
