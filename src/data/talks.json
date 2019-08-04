@@ -1,6 +1,7 @@
 [
   {
     "title": "How to cook with RxJS",
+    "type": "Talk",
     "date": "2019-09-19T09:15:00.000Z",
     "event": "ArmadaJS",
     "image": "Armada-JS.png",
@@ -8,20 +9,45 @@
   },
   {
     "title": "Reactive Vue",
+    "type": "Talk",
     "date": "2018-11-30T19:15:00.000Z",
     "event": "Vue.js Vienna",
-    "image": "vuejs-vienna.jpeg",
     "video": "https://www.youtube.com/embed/K1rckjbSN08",
     "link": "https://www.meetup.com/Vue-js-Vienna/events/njtrhqyxpbnc/",
     "slides": "https://speakerdeck.com/meeroslav/reactive-vue"
   },
   {
+    "type": "MC",
+    "date": "2018-05-17T09:15:00.000Z",
+    "event": "We Are Developers",
+    "video": "https://www.youtube.com/embed/WMPpOY_a900",
+    "link": "https://www.meetup.com/Angular-Vienna/events/247035489/"
+  },
+  {
     "title": "Reactive State of Mind",
+    "type": "Talk",
     "date": "2018-02-08T20:15:00.000Z",
     "event": "Angular Vienna",
-    "image": "angular-vienna.jpeg",
     "video": "https://www.youtube.com/embed/Doyn3oZPrY4",
     "link": "https://www.meetup.com/Angular-Vienna/events/247035489/",
     "slides": "https://speakerdeck.com/meeroslav/reactive-state-of-mind"
+  },
+  {
+    "title": "Angular route localization",
+    "type": "Talk",
+    "date": "2017-05-10T20:15:00.000Z",
+    "event": "Angular Vienna",
+    "image": "angular-vienna.jpeg",
+    "link": "https://www.meetup.com/Angular-Vienna/events/239381695/",
+    "slides": "https://speakerdeck.com/meeroslav/angular-route-localization"
+  },
+  {
+    "title": "Cooking with RxJS",
+    "type": "Talk",
+    "date": "2018-09-27T20:15:00.000Z",
+    "event": "Angular Finland",
+    "image": "angular-finland.jpeg",
+    "link": "https://www.meetup.com/Angular-Finland/events/254556097/",
+    "slides": "https://speakerdeck.com/meeroslav/cooking-with-rxjs"
   }
 ]

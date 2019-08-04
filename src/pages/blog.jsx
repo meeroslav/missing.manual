@@ -16,6 +16,7 @@ export default class BlogPage extends Component {
         <h1>Blog</h1>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
+          const excerpt = node.frontmatter.description || node.excerpt;
           return (
             <div key={node.fields.slug}>
               <h3
@@ -30,7 +31,7 @@ export default class BlogPage extends Component {
               <small>{node.frontmatter.date}</small>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
+                  __html: excerpt,
                 }}
               />
             </div>

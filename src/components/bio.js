@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
+import ExternalLink from './external-link/ExternalLink';
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -47,9 +48,9 @@ const Bio = () => {
       <p>
         Written by <strong>{author}</strong> who lives and works on front-end of things in Vienna, Austria.
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
+        <ExternalLink to={`https://twitter.com/${social.twitter}`}>
           Stalk him on Twitter
-        </a>
+        </ExternalLink>
       </p>
     </div>
   )

@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
+import ExternalLink from '../components/external-link/ExternalLink';
 
 export default class AboutPage extends Component {
     render() {
@@ -20,8 +21,8 @@ export default class AboutPage extends Component {
           </p>
           <p>
             I occasionally write. You can find some of my thoughts on technology in the <Link to={'blog'}>blog</Link> section.
-            I also organize meetups for <a href="https://www.meetup.com/Angular-Vienna/">Angular Vienna</a> and try to
-            help and grow the Angular community in Austria via <a href="https://angular-austria.at">Angular Austria Association</a>.
+            I also organize meetups for <ExternalLink to="https://www.meetup.com/Angular-Vienna/">Angular Vienna</ExternalLink> and try to
+            help and grow the Angular community in Austria via <ExternalLink to="https://angular-austria.at">Angular Austria Association</ExternalLink>.
             When I learn something cool, I like to share it live on stage. You can see the list of my past and upcoming talks in the <Link to={'talks'}>talks</Link> section.
           </p>
           <p>

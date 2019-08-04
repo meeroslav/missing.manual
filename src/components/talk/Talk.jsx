@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
+import ExternalLink from '../external-link/ExternalLink';
 
 const Talk = props => {
     const { title, date, event, slides, video, link, image } = props;
@@ -32,8 +33,8 @@ const Talk = props => {
         /> }
         <div>Title: {title}</div>
         <div>Date: {date}</div>
-        <div>Event: <a href={link} target="_blank">{event}</a></div>
-        { slides && <div><a href={slides} target="_blank">Slides</a></div> }
+        <div>Event: <ExternalLink to={link}>{event}</ExternalLink></div>
+        { slides && <div><ExternalLink to={slides}>Slides</ExternalLink></div> }
         { video && <div><iframe width="560" height="315"
                                 src={video}
                                 title="video"

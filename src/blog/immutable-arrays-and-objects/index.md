@@ -1,6 +1,7 @@
 ---
 title: Immutable arrays and objects
 date: "2019-07-19T09:00:00.121Z"
+description: This is a custom description for SEO and Open Graph
 ---
 
 Recently there has been an explosion of popularity of libraries like **Redux** and **NGRX**. One common requirement they have is an **immutable state**. The state of the application is a result of a list of actions sequentially applied to the initial state. Each state of the application is unchangeable. A new action uses the existing state to calculate a new one. This helps us to avoid accidental state changes via mutable operations. It also allows us to investigate which actions led to our current state.
