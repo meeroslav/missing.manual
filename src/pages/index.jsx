@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
 import Talk from '../components/talk/Talk.jsx';
-import Image from 'gatsby-image';
+import MiniPost from '../components/mini-post/MiniPost';
 
 export default class Home extends Component {
   render() {
@@ -17,29 +17,7 @@ export default class Home extends Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home" />
         <h2>Latest posts</h2>
-        { posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
-            <div key={node.fields.slug}>
-              <Image fixed={node.frontmatter.cover.childImageSharp.fixed}/>
-              <h3
-                style={{
-                  marginBottom: '14px',
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </div>
-          )
-        }) }
+        {posts.map(({ node }) => <MiniPost {...node} />)}
         <h2>Upcoming talks</h2>
         { upcomingTalks.map(({ node }, i) => <Talk {...node} key={i}/>) }
       </Layout>
@@ -68,8 +46,8 @@ export const pageQuery = graphql`
             cover {
               publicURL
               childImageSharp {
-                fixed(height: 100) {
-                  ...GatsbyImageSharpFixed
+                sizes(maxWidth: 320) {
+                  ...GatsbyImageSharpSizes
                 }
               }
             }
