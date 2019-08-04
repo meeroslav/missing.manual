@@ -4,12 +4,16 @@ import { Link, graphql } from 'gatsby';
 import Bio from '../components/bio';
 import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
+import Image from 'gatsby-image';
 
 export default class BlogPostTemplate extends Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
+    const cover = post.frontmatter.cover;
+
+    console.log(post);
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -17,6 +21,7 @@ export default class BlogPostTemplate extends Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
+        {cover && <Image sizes={cover.childImageSharp.sizes}/> }
         <h1
           style={{
             marginTop: '10px',
@@ -81,6 +86,14 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        cover {
+          publicURL
+          childImageSharp {
+            sizes(maxWidth: 2000) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }
