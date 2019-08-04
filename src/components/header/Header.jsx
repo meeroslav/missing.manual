@@ -18,27 +18,33 @@ const Header = props => {
   const menuItems = data.allMenuJson.edges;
 
   return (
-    <header className={`${style.header}`}>
-      <h1
-        style={{
-          marginTop: 0,
-          display: 'inline-block',
-        }}
-      >
+    <header className={style.header}>
+      <nav>
+        { menuItems
+          .filter((item, i) => i < menuItems.length / 2)
+          .filter(({ node }) => node.link !== '/')
+          .map(({ node }, i) => {
+          return <Link
+            to={node.link}
+            className={style.link}
+            key={i}>{ node.label }</Link>
+        }) }
         <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
+          className={`${style.link} ${style.mainLink}`}
           to={`/`}
         >
           {props.title}
         </Link>
-      </h1>
-      { menuItems.map(({ node }, i) => {
-        return <Link to={node.link} key={i}>{ node.label }</Link>
-      }) }
+        { menuItems
+          .filter((item, i) => i >= menuItems.length / 2)
+          .filter(({ node }) => node.link !== '/')
+          .map(({ node }, i) => {
+          return <Link
+            to={node.link}
+            className={style.link}
+            key={i}>{ node.label }</Link>
+        }) }
+      </nav>
     </header>
   );
 };

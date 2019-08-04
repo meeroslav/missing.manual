@@ -1,0 +1,24 @@
+@import '../../styles/variables/layout';
+@import '../../styles/variables/colors';
+@import '../../styles/variables/typography';
+
+.miniPost {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr $spacing;
+}
+
+.miniPostImage {
+  grid-column: 1/4;
+  grid-row: 1;
+}
+
+.miniPostText {
+  grid-column: 5/13;
+  grid-row: 1;
+}
+
+.miniPostDate {
+  font-size: $footnote-font-size;
+  color: $cl-secondary;
+}

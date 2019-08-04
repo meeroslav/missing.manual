@@ -1,8 +1,22 @@
-.header {
-  border-bottom: 2px solid teal;
-  padding: 10px;
+@import '../../styles/variables/typography';
+@import '../../styles/variables/layout';
+@import '../../styles/variables/colors';
 
-  a {
-    padding: 10px;
+.header {
+  padding: $spacing 0;
+
+  nav {
+    text-align: center;
+  }
+
+  .link {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: $spacing;
+    color: $cl-foreground;
+    font-weight: $font-weight-light;
+  }
+  .mainLink {
+    font-family: $headline-font-family;
   }
 }

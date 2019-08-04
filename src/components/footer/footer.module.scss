@@ -1,9 +1,30 @@
-.footer {
-  text-align: center;
-  border-top: 2px solid teal;
-  padding: 10px;
+@import '../../styles/variables/typography';
+@import '../../styles/variables/layout';
+@import '../../styles/variables/colors';
 
-  a {
-    padding: 10px;
+.footer {
+  padding: $spacing 0;
+  text-align: center;
+
+  nav {
+    text-align: center;
+  }
+
+  .link {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: $spacing;
+    color: $cl-foreground;
+    font-weight: $font-weight-light;
+  }
+
+  .socialLink {
+    padding: $spacing;
+    font-size: $social-icon-font-size;
+    color: $cl-focus;
+  }
+
+  .footnote {
+    font-size: $footnote-font-size;
   }
 }

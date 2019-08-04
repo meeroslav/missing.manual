@@ -45,6 +45,7 @@ export const pageQuery = graphql`
           video
           link
           slides
+          type
         }
       }
     }
@@ -61,6 +62,7 @@ export const pageQuery = graphql`
           video
           link
           slides
+          type
         }
       }
     }

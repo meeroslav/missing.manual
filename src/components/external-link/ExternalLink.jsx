@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const ExternalLink = props => {
-  const { to, children } = props;
+export default class ExternalLink extends Component {
+  render() {
+    const { to, children, className } = this.props;
 
-  return (
-    <a href={to} target="_blank" rel="noopener noreferrer">{children}</a>
-  );
+    return (
+      <a className={className} href={to} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    );
+  }
 };
-
-export default ExternalLink;

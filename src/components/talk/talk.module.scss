@@ -1,0 +1,19 @@
+@import '../../styles/variables/layout';
+@import '../../styles/variables/colors';
+@import '../../styles/variables/typography';
+
+.talk {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr $spacing;
+}
+
+.talkImage {
+  grid-column: 1/4;
+  grid-row: 1;
+}
+
+.talkText {
+  grid-column: 5/13;
+  grid-row: 1;
+}

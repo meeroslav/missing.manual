@@ -2,9 +2,10 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 import ExternalLink from '../external-link/ExternalLink';
+import style from './talk.module.scss';
 
 const Talk = props => {
-  const { title, date, event, slides, video, link, image } = props;
+  const { title, date, event, slides, video, link, image, type } = props;
   const data = useStaticQuery(graphql`
       query {
         images: allFile {
@@ -13,8 +14,8 @@ const Talk = props => {
               relativePath
               name
               childImageSharp {
-                fixed(height: 260, width: 320) {
-                  ...GatsbyImageSharpFixed
+                sizes(maxWidth: 320) {
+                  ...GatsbyImageSharpSizes
                 }
               }
             }
@@ -22,29 +23,33 @@ const Talk = props => {
         }
       }
     `);
-  const fixedImage = data.images.edges.find(({ node }) =>
+  const imageSizes = data.images.edges.find(({ node }) =>
     node.relativePath.match('talks') && node.relativePath.includes(image));
 
   return (
-    <div>
-      <h3>{title}</h3>
-      <div>Date: {date}</div>
-      <div>Event: <ExternalLink to={link}>{event}</ExternalLink></div>
-      {slides && <div><ExternalLink to={slides}>Slides</ExternalLink></div>}
+    <div className={style.talk}>
       {video ?
-        <div>
-          <iframe width="320" height="260"
+        <div className={`${style.talkImage} iframeContainer`}>
+          <iframe
                   src={video}
                   title="video"
                   frameBorder="0"
                   allow="encrypted-media"
                   allowFullScreen/>
         </div> :
-        fixedImage && <Image
-          fixed={fixedImage.node.childImageSharp.fixed}
+        imageSizes && <Image
+          className={style.talkImage}
+          sizes={imageSizes.node.childImageSharp.sizes}
           alt={title}
         />
       }
+      <div className={style.talkText}>
+        <h3><ExternalLink to={link}>{title}</ExternalLink></h3>
+        <small>{date}</small>
+        <div>{event}</div>
+        {slides && <div><ExternalLink to={slides}>Slides</ExternalLink></div>}
+        {type === 'MC' && <div>MC/Stage Moderator</div>}
+      </div>
     </div>
   );
 };

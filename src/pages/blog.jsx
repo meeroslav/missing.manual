@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
-import Image from 'gatsby-image';
+
+import MiniPost from '../components/mini-post/MiniPost';
 
 export default class BlogPage extends Component {
   render() {
@@ -15,30 +16,7 @@ export default class BlogPage extends Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Blog"/>
         <h1>Blog</h1>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          const excerpt = node.frontmatter.description || node.excerpt;
-          return (
-            <div key={node.fields.slug}>
-              <Image fixed={node.frontmatter.cover.childImageSharp.fixed}/>
-              <h3
-                style={{
-                  marginBottom: '20px',
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: excerpt,
-                }}
-              />
-            </div>
-          );
-        })}
+        {posts.map(({ node }) => <MiniPost {...node} />)}
       </Layout>
     );
   }
@@ -65,8 +43,8 @@ export const pageQuery = graphql`
             cover {
               publicURL
               childImageSharp {
-                fixed(height: 100) {
-                  ...GatsbyImageSharpFixed
+                sizes(maxWidth: 320) {
+                  ...GatsbyImageSharpSizes
                 }
               }
             }

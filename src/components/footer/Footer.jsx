@@ -37,33 +37,52 @@ const Footer = () => {
     <footer className={`${style.footer}`}>
       <nav>
         { menuItems.map(({ node }, i) => {
-          return <Link to={node.link} key={i}>{node.label}</Link>;
+          return <Link
+            to={node.link}
+            className={style.link}
+            key={i}>{node.label}</Link>;
         })}
       </nav>
       <nav>
-        <ExternalLink to={`https://twitter.com/${social.twitter}`}>
+        <ExternalLink
+          className={style.socialLink}
+          to={`https://twitter.com/${social.twitter}`}>
           <FaTwitter/>
         </ExternalLink>
-        <ExternalLink to={`https://github.com/${social.github}`}>
+        <ExternalLink
+          className={style.socialLink}
+          to={`https://github.com/${social.github}`}>
           <FaGithub/>
         </ExternalLink>
-        <ExternalLink to={`https://www.linkedin.com/in/${social.linkedIn}`}>
+        <ExternalLink
+          className={style.socialLink}
+          to={`https://www.linkedin.com/in/${social.linkedIn}`}>
           <FaLinkedin />
         </ExternalLink>
-        <ExternalLink to={`https://www.instagram.com/${social.instagram}`}>
+        <ExternalLink
+          className={style.socialLink}
+          to={`https://www.instagram.com/${social.instagram}`}>
           <FaInstagram/>
         </ExternalLink>
-        <ExternalLink to={`https://www.behance.net/${social.behance}`}>
+        <ExternalLink
+          className={style.socialLink}
+          to={`https://www.behance.net/${social.behance}`}>
           <FaBehance/>
         </ExternalLink>
-        <ExternalLink to={`https://medium.com/@${social.medium}`}>
+        <ExternalLink
+          className={style.socialLink}
+          to={`https://medium.com/@${social.medium}`}>
           <FaMediumM/>
         </ExternalLink>
-        <ExternalLink to={`https://angular-austria.at`}>
+        <ExternalLink
+          className={style.socialLink}
+          to={`https://angular-austria.at`}>
           <FaAngular/>
         </ExternalLink>
       </nav>
-      © {new Date().getFullYear()}, Built with <ExternalLink to={"https://www.gatsbyjs.org"}>Gatsby</ExternalLink>
+      <div className={style.footnote}>
+        © {new Date().getFullYear()}, Built with <ExternalLink to={"https://www.gatsbyjs.org"}>Gatsby</ExternalLink>
+      </div>
     </footer>
   );
 };

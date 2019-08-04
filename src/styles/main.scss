@@ -15,14 +15,28 @@ html {
   box-sizing: inherit;
 }
 
+a, a:active, a:focus, a:visited {
+  color: $cl-focus;
+  text-decoration: none;
+  font-weight: $font-weight-bold;
+}
+
 h1 {
   font-family: $headline-font-family;
   font-weight: $headline-font-weight;
   font-size: $headline-font-size;
+  text-transform: uppercase;
+  margin-top: 0;
 }
 
 h2, h3, h4 {
   font-weight: $font-weight-bold;
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+  text-align: justify;
 }
 
 *:active {
@@ -34,4 +48,30 @@ body {
   color: $cl-foreground;
   margin: 0;
   padding: 0;
+}
+
+
+// SOME OVERRIDES TO DEFINE LATER
+.gatsby-highlight {
+  border-radius: 10px;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  padding: 10px;
+}
+
+// SOME HACKS
+.iframeContainer {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+
+  iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }

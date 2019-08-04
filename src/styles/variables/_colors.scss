@@ -1,2 +1,9 @@
-$cl-background: #efefef;
-$cl-foreground: #262626;
+$cl-turquoise: #01a2a6;
+$cl-white: #efefef;
+$cl-gray: #383838;
+$cl-black: #262626;
+
+$cl-background: $cl-white;
+$cl-foreground: $cl-black;
+$cl-focus: $cl-turquoise;
+$cl-secondary: $cl-gray;
