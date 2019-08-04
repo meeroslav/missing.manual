@@ -5,6 +5,7 @@ import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
 import Talk from '../components/talk/Talk.jsx';
 import MiniPost from '../components/mini-post/MiniPost';
+import IndexHero from '../components/index-hero/IndexHero';
 
 export default class Home extends Component {
   render() {
@@ -16,8 +17,9 @@ export default class Home extends Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home" />
+        <IndexHero text={'Missing manual'}/>
         <h2>Latest posts</h2>
-        {posts.map(({ node }) => <MiniPost {...node} />)}
+        {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
         <h2>Upcoming talks</h2>
         { upcomingTalks.map(({ node }, i) => <Talk {...node} key={i}/>) }
       </Layout>
