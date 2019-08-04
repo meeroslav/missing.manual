@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
 import Talk from '../components/talk/Talk.jsx';
+import Image from 'gatsby-image';
 
 export default class Home extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class Home extends Component {
           const title = node.frontmatter.title || node.fields.slug;
           return (
             <div key={node.fields.slug}>
+              <Image fixed={node.frontmatter.cover.childImageSharp.fixed}/>
               <h3
                 style={{
                   marginBottom: '14px',
@@ -62,6 +64,14 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            cover {
+              publicURL
+              childImageSharp {
+                fixed(height: 100) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }

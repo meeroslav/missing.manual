@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
+import Image from 'gatsby-image';
 
 export default class BlogPage extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class BlogPage extends Component {
           const excerpt = node.frontmatter.description || node.excerpt;
           return (
             <div key={node.fields.slug}>
+              <Image fixed={node.frontmatter.cover.childImageSharp.fixed}/>
               <h3
                 style={{
                   marginBottom: '20px',
@@ -60,6 +62,14 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            cover {
+              publicURL
+              childImageSharp {
+                fixed(height: 100) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }
