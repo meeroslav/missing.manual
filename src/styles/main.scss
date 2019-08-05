@@ -63,22 +63,6 @@ main {
   margin-top: $header-feed;
 }
 
-
-// SOME OVERRIDES TO DEFINE LATER
-.gatsby-highlight {
-  border-radius: $block-radius;
-  margin-bottom: $spacing;
-}
-
-.gatsby-highlight pre[class*="language-"] {
-  padding: $spacing;
-}
-
-:not(pre) code.language-text {
-  color: inherit;
-  background: $cl-light-gray;
-}
-
 // SOME HACKS
 .iframeContainer {
   overflow: hidden;

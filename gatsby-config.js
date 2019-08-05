@@ -61,26 +61,32 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-prismjs`,
-            classPrefix: 'language-',
-            inlineCodeMarker: '>',
-            showLineNumbers: false,
-            noInlineHighlight: true,
-            languageExtensions: [
-              {
-                language: "superscript",
-                extend: "javascript",
-                definition: {
-                  superscript_types: /(SuperType)/,
-                },
-                insertBefore: {
-                  function: {
-                    superscript_keywords: /(superif|superelse)/,
-                  },
-                },
-              },
-            ],
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              colorTheme: 'Dark+ (default dark)'
+            }
           },
+          // {
+          //   resolve: `gatsby-remark-prismjs`,
+          //   classPrefix: 'language-',
+          //   inlineCodeMarker: '>',
+          //   showLineNumbers: false,
+          //   noInlineHighlight: true,
+          //   languageExtensions: [
+          //     {
+          //       language: "superscript",
+          //       extend: "javascript",
+          //       definition: {
+          //         superscript_types: /(SuperType)/,
+          //       },
+          //       insertBefore: {
+          //         function: {
+          //           superscript_keywords: /(superif|superelse)/,
+          //         },
+          //       },
+          //     },
+          //   ],
+          // },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
