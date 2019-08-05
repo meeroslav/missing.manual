@@ -37,9 +37,16 @@ h2, h3, h4 {
   margin-top: 0;
 }
 
-p {
+p, blockquote {
   margin-top: 0;
   text-align: justify;
+}
+
+blockquote {
+  border-left: 4px solid $cl-focus;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: $gutter;
 }
 
 *:active {
