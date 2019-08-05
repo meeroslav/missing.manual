@@ -2,20 +2,30 @@
 @import '../styles/variables/layout';
 @import '../styles/variables/typography';
 
+.blogPostFullWidth {
+  grid-column: 2/14;
+}
+
 .blogPostHeading {
   color: $cl-background;
   margin-top: -$headline-font-size;
   position: absolute;
   z-index: $zHeading;
+  grid-column: 2/14;
 }
 
-.blogPostDate {
-  max-width: $maxWidth;
-  margin-left: auto;
-  margin-right: auto;
+.blogPostNavigation {
+  grid-column: 2/14;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.blogPostBody {
-  max-width: $maxWidth;
-  margin: 0 auto;
+.blogPostNavigationPrev {
+  grid-column: 1;
+  text-align: left;
+}
+.blogPostNavigationNext {
+  grid-column: 2;
+  text-align: right;
 }

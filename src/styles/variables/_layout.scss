@@ -6,9 +6,11 @@ $header-feed: 42px;
 // grid
 $grid-padding: $gutter;
 $grid-columns: 12;
+$grid-body: repeat($grid-columns, 1fr);
 
 // radius
 $block-radius: 3px;
+$full-round-radius: 100%;
 
 // levels
 $zHeader: 100;
@@ -17,3 +19,4 @@ $zHeading: 10;
 
 // blog post
 $maxWidth: 590px;
+$bioImageWidth: 50px;

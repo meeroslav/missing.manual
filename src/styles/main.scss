@@ -18,6 +18,10 @@ html {
   box-sizing: inherit;
 }
 
+ul, li {
+  padding: 0;
+}
+
 a, a:active, a:focus, a:visited {
   color: $cl-focus;
   text-decoration: none;
@@ -44,7 +48,7 @@ p, blockquote {
 
 blockquote {
   border-left: 4px solid $cl-focus;
-  margin-left: -$gutter;
+  margin-left: 0;
   margin-right: 0;
   padding-left: $gutter;
 }
@@ -58,9 +62,6 @@ body {
   color: $cl-foreground;
   margin: 0;
   padding: 0;
-}
-main {
-  margin-top: $header-feed;
 }
 
 // SOME HACKS

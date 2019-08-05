@@ -4,4 +4,11 @@
   margin: auto;
   max-width: 1920px;
   min-height: 100vh;
+  padding-top: $header-feed;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: $gutter $grid-body $gutter;
+  grid-template-rows: 1fr;
 }

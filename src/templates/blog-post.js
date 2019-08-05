@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
+import Bio from '../components/bio/Bio.jsx';
 import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
 import style from './blog-post.module.scss';
@@ -22,36 +22,28 @@ export default class BlogPostTemplate extends Component {
         <h1 className={style.blogPostHeading}>
           {post.frontmatter.title}
         </h1>
-        <p className={style.blogPostDate}>
+        <p className={style.blogPostFullWidth}>
           <small>{post.frontmatter.date}</small>
         </p>
-        <div className={style.blogPostBody} dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr />
-        <Bio />
+        <div className={style.blogPostFullWidth} dangerouslySetInnerHTML={{ __html: post.html }} />
+        <hr className={style.blogPostFullWidth}/>
+        <Bio className={style.blogPostFullWidth}/>
 
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
+        <ul className={style.blogPostNavigation}>
+          {previous && (
+            <li className={style.blogPostNavigationPrev}>
               <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+              ← {previous.frontmatter.title}
               </Link>
-            )}
-          </li>
-          <li>
-            {next && (
+            </li>
+          )}
+          {next && (
+            <li className={style.blogPostNavigationNext}>
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
-            )}
-          </li>
+            </li>
+          )}
         </ul>
       </Layout>
     )

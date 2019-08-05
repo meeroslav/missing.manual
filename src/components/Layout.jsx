@@ -10,10 +10,10 @@ export default class Layout extends Component {
     const { title, children, cover } = this.props;
 
     return (
-      <div className={`${style.layout}`}>
+      <div className={style.layout}>
         <Header title={title}/>
-        { cover && <Image sizes={cover.childImageSharp.sizes}/> }
-        <main>{children}</main>
+        { cover && <Image className={style.coverImage} sizes={cover.childImageSharp.sizes}/> }
+        <main className={style.main}>{children}</main>
         <Footer/>
       </div>
     )

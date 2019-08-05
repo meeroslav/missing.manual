@@ -1,8 +1,9 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
+import style from './bio.module.scss';
 
-const Bio = () => {
+const Bio = props => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
@@ -25,28 +26,18 @@ const Bio = () => {
 
   const { author } = data.site.siteMetadata;
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: '25px',
-      }}
-    >
+    <div className={`${props.className} ${style.bio}`}>
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
-        style={{
-          marginRight: '20px',
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
+        className={style.bioImage}
         imgStyle={{
           borderRadius: `50%`,
         }}
       />
-      <p>
-        Written by <strong>{author}</strong> who lives and works on front-end of things in Vienna, Austria.
-      </p>
+      <div className={style.bioText}>
+        Written by <strong>{author}</strong>, a software developer focusing on the front-end of things. He lives and works in Vienna, Austria.
+      </div>
     </div>
   )
 };

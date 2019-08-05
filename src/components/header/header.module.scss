@@ -10,9 +10,13 @@
   width: 100%;
   z-index: $zHeader;
   box-shadow: $box-shadow;
+  display: grid;
+  grid-template-columns: $gutter repeat(12, 1fr) $gutter;
+  grid-template-rows: 1fr;
 
   nav {
     text-align: center;
+    grid-column: 2/14;
   }
 
   .link {
