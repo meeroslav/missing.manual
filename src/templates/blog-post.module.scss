@@ -2,8 +2,20 @@
 @import '../styles/variables/layout';
 @import '../styles/variables/typography';
 
-.blogPostFullWidth {
+.blogPost {
   grid-column: 2/14;
+
+  hr {
+    width: $hrWidth;
+    margin: $gutter auto;
+    color: $cl-secondary;
+  }
+
+  figcaption {
+    font-size: $footnote-font-size;
+    color: $cl-secondary;
+    text-align: center;
+  }
 }
 
 .blogPostHeading {

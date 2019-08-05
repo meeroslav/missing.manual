@@ -9,7 +9,7 @@ Almost every company working with the web today is looking for full stack develo
 > Hiring a developer is like scouting a new band member. You are looking for someone with a specific skill, who will match your spirit, doesn’t have a band already or is willing to change a band for the perks you are offering.
 If your band is famous, musicians will be queuing to join you. If you’re a small local band, your choices are unfortunately limited. So you better be sure you know who you’re looking for and whether you can afford them.
 
-![Photo by Daniel Wirtz on [Unsplash](https://unsplash.com/@danielwirtz)](./daniel-wirtz-jmmTlAPtNw8-unsplash.jpg)
+---
 
 Every musician starts as a “full stack”. That’s the only way you can practice and learn. You find one instrument you want to play, and since you don’t have a band, you have to sing, play or hum the melody and give yourself a rhythm. You have to be a one-man band. It’s not that seldom that musician changes an instrument he/she started with originally at a later point because of the demand or simply because they realized it suits them better.
 

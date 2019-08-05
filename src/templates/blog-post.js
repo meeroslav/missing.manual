@@ -22,12 +22,14 @@ export default class BlogPostTemplate extends Component {
         <h1 className={style.blogPostHeading}>
           {post.frontmatter.title}
         </h1>
-        <p className={style.blogPostFullWidth}>
+        <p className={style.blogPost}>
           <small>{post.frontmatter.date}</small>
         </p>
-        <div className={style.blogPostFullWidth} dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr className={style.blogPostFullWidth}/>
-        <Bio className={style.blogPostFullWidth}/>
+        <div className={style.blogPost} dangerouslySetInnerHTML={{ __html: post.html }} />
+        <p className={style.blogPost}>
+          <hr/>
+        </p>
+        <Bio className={style.blogPost}/>
 
         <ul className={style.blogPostNavigation}>
           {previous && (
