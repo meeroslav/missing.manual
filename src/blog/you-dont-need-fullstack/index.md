@@ -9,11 +9,11 @@ Almost every company working with the web today is looking for full stack develo
 > Hiring a developer is like scouting a new band member. You are looking for someone with a specific skill, who will match your spirit, doesn’t have a band already or is willing to change a band for the perks you are offering.
 If your band is famous, musicians will be queuing to join you. If you’re a small local band, your choices are unfortunately limited. So you better be sure you know who you’re looking for and whether you can afford them.
 
-![A guy with the guitar](./daniel-wirtz-jmmTlAPtNw8-unsplash.jpg)*Photo by Daniel Wirtz on [Unsplash](https://unsplash.com/@danielwirtz)*
+![Photo by Daniel Wirtz on [Unsplash](https://unsplash.com/@danielwirtz)](./daniel-wirtz-jmmTlAPtNw8-unsplash.jpg)
 
 Every musician starts as a “full stack”. That’s the only way you can practice and learn. You find one instrument you want to play, and since you don’t have a band, you have to sing, play or hum the melody and give yourself a rhythm. You have to be a one-man band. It’s not that seldom that musician changes an instrument he/she started with originally at a later point because of the demand or simply because they realized it suits them better.
 
-![The prince](./Prince_at_Coachella.jpg)*Photo by Scott Penner from [flickr](https://www.flickr.com/photos/penner/2450784866)*
+![Photo by Scott Penner from [flickr](https://www.flickr.com/photos/penner/2450784866)](./Prince_at_Coachella.jpg)
 
 Some musicians remain “full stack” throughout their career. If they become composers, they play multiple different instruments while composing a new piece. A band needs at least one. Some musicians are simply **musical geniuses** and play with the same degree of virtuosity on multiple instruments.
 
@@ -31,7 +31,7 @@ Most of the developers are like me. They can work on every part of the applicati
 
 While most of the companies looking for a full stack developer hope to hire the next **Prince** or **Phil Collins**, most of them cannot afford or simply do not have a band that is exciting enough for such artists. Instead, they end up with someone like this guy:
 
-![One man band](./one-man-band.jpeg)*Photo by William W. Ward from [flickr](https://www.flickr.com/photos/wwward0/12182919023/)*
+![Photo by William W. Ward from [flickr](https://www.flickr.com/photos/wwward0/12182919023/)](./one-man-band.jpeg)
 
 Don’t get me wrong, I’m sure this guy is super talented. 
 But ask yourself this — if you were a **band manager**, would you bring a couple of those guys to play in your band, or would you rather find the best singer, best guitar player, best drummer, best (chose your instrument) that you can afford? Because that best guitar player can for sure sing or play drums on a decent level if needed. After all, no one wants a musician who doesn’t care for the rest of the composition.
