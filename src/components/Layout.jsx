@@ -13,7 +13,11 @@ export default class Layout extends Component {
       <div className={style.layout}>
         <Header title={title}/>
         { cover && <Image sizes={cover.childImageSharp.sizes}/> }
-        <main className={style.main}>{children}</main>
+        <main className={style.main}>
+          <section className={style.mainSection}>
+            {children}
+          </section>
+        </main>
         <Footer/>
       </div>
     )
