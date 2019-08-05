@@ -1,7 +1,7 @@
 ---
 title: Immutable arrays and objects
 date: "2019-07-19T09:00:00.121Z"
-cover: "./patrick-carr-pAoo1Rs1Yy8-unsplash.jpg"
+cover: "./IMG_5074.jpg"
 description: Recently there has been an explosion of popularity of libraries like Redux and NGRX. One common requirement they have is an immutable state. Switching to immutable state helps us to more easily reason about our state of the application and to easily track changes. It also helps us to avoid unplanned side effect.
 ---
 

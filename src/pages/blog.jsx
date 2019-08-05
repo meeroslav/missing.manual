@@ -13,7 +13,7 @@ export default class BlogPage extends Component {
     const posts = data.allMarkdownRemark.edges;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} cover={data.cover}>
         <SEO title="Blog"/>
         <h1>Blog</h1>
         {posts.map(({ node }) => <MiniPost {...node} />)}
@@ -27,6 +27,13 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    cover: file(absolutePath: { regex: "/pages\/blog.jpg/" }) {
+      childImageSharp {
+        sizes(maxWidth: 2000, maxHeight: 600) {
+          ...GatsbyImageSharpSizes
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

@@ -36,7 +36,8 @@ const Bio = props => {
         }}
       />
       <div className={style.bioText}>
-        Written by <strong>{author}</strong>, a software developer focusing on the front-end of things. He lives and works in Vienna, Austria.
+        Written by <strong>{author}</strong>, a software developer focusing on the front-end of things.<br/>
+        He lives and works in Vienna, Austria.
       </div>
     </div>
   )

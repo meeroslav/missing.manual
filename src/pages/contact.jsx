@@ -11,7 +11,7 @@ export default class ContactPage extends Component {
     const siteTitle = data.site.siteMetadata.title;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} cover={data.cover}>
         <SEO title="Contact" />
         <h1>Contact</h1>
         <h4>
@@ -36,6 +36,13 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       }      
+    }
+    cover: file(absolutePath: { regex: "/pages\/message-box.jpg/" }) {
+      childImageSharp {
+        sizes(maxWidth: 2000, maxHeight: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
     }
   }
 `;

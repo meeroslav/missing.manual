@@ -8,7 +8,6 @@
   hr {
     width: $hrWidth;
     margin: $gutter auto;
-    color: $cl-secondary;
   }
 
   figcaption {
@@ -19,9 +18,8 @@
 }
 
 .blogPostHeading {
-  color: $cl-background;
-  margin-top: -$headline-font-size;
-  position: absolute;
+  margin-top: $headlineTopMargin;
+  margin-bottom: 0;
   z-index: $zHeading;
   grid-column: 2/14;
 }

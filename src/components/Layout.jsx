@@ -12,7 +12,7 @@ export default class Layout extends Component {
     return (
       <div className={style.layout}>
         <Header title={title}/>
-        { cover && <Image className={style.coverImage} sizes={cover.childImageSharp.sizes}/> }
+        { cover && <Image sizes={cover.childImageSharp.sizes}/> }
         <main className={style.main}>{children}</main>
         <Footer/>
       </div>

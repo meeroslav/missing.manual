@@ -11,7 +11,7 @@ export default class AboutPage extends Component {
       const siteTitle = data.site.siteMetadata.title;
 
       return (
-        <Layout location={this.props.location} title={siteTitle}>
+        <Layout location={data.location} title={siteTitle} cover={data.cover}>
           <SEO title="About" />
           <h1>About</h1>
           <p>
@@ -44,6 +44,13 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    cover: file(absolutePath: { regex: "/pages\/m.jpg/" }) {
+      childImageSharp {
+        sizes(maxWidth: 2000, maxHeight: 600) {
+          ...GatsbyImageSharpSizes
+        }
       }
     }
   }

@@ -11,4 +11,8 @@
   display: grid;
   grid-template-columns: $gutter $grid-body $gutter;
   grid-template-rows: 1fr;
+
+  * {
+    grid-column: 2/14;
+  }
 }

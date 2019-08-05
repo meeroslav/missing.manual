@@ -13,7 +13,7 @@ export default class TalksPage extends Component {
     const past = data.past.edges;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} cover={data.cover}>
         <SEO title="Talks"/>
         <h1>Talks</h1>
         <h2>Upcoming talks</h2>
@@ -30,6 +30,13 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    cover: file(absolutePath: { regex: "/pages\/talk.jpeg/" }) {
+      childImageSharp {
+        sizes(maxWidth: 2000, maxHeight: 600) {
+          ...GatsbyImageSharpSizes
+        }
       }
     }
     upcoming: allTalksJson(
