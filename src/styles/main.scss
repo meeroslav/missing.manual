@@ -44,7 +44,7 @@ p, blockquote {
 
 blockquote {
   border-left: 4px solid $cl-focus;
-  margin-left: 0;
+  margin-left: -$gutter;
   margin-right: 0;
   padding-left: $gutter;
 }

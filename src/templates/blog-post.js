@@ -26,10 +26,10 @@ export default class BlogPostTemplate extends Component {
         <h1 className={style.blogPostHeading}>
           {post.frontmatter.title}
         </h1>
-        <p>
+        <p className={style.blogPostDate}>
           <small>{post.frontmatter.date}</small>
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className={style.blogPostBody} dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
         <Bio />
 
