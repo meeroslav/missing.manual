@@ -13,7 +13,7 @@ If your band is famous, musicians will be queuing to join you. If you’re a sma
 
 Every musician starts as a “full stack”. That’s the only way you can practice and learn. You find one instrument you want to play, and since you don’t have a band, you have to sing, play or hum the melody and give yourself a rhythm. You have to be a one-man band. It’s not that seldom that musician changes an instrument he/she started with originally at a later point because of the demand or simply because they realized it suits them better.
 
-![The prince](./prince.jpeg)*Photo by jimieye from [flickr](https://www.flickr.com/photos/jimieye/)*
+![The prince](./Prince_at_Coachella.jpg)*Photo by Scott Penner from [flickr](https://www.flickr.com/photos/penner/2450784866)*
 
 Some musicians remain “full stack” throughout their career. If they become composers, they play multiple different instruments while composing a new piece. A band needs at least one. Some musicians are simply **musical geniuses** and play with the same degree of virtuosity on multiple instruments.
 
