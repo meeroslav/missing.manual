@@ -5,10 +5,11 @@
 .header {
   padding: $spacing 0;
   position: fixed;
-  background: $cl-background;
+  background: mixTransparent($cl-background);
   top: 0;
   width: 100%;
   z-index: $zHeader;
+  box-shadow: $box-shadow;
 
   nav {
     text-align: center;

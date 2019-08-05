@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby';
 import Bio from '../components/bio';
 import Layout from '../components/Layout.jsx';
 import SEO from '../components/seo';
-import Image from 'gatsby-image';
 import style from './blog-post.module.scss';
 
 export default class BlogPostTemplate extends Component {
@@ -14,15 +13,12 @@ export default class BlogPostTemplate extends Component {
     const { previous, next } = this.props.pageContext;
     const cover = post.frontmatter.cover;
 
-    console.log(post);
-
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} cover={cover}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        {cover && <Image sizes={cover.childImageSharp.sizes}/> }
         <h1 className={style.blogPostHeading}>
           {post.frontmatter.title}
         </h1>

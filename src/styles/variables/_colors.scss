@@ -1,10 +1,20 @@
+// base colors
 $cl-turquoise: #01a2a6;
 $cl-white: #efefef;
 $cl-light-gray: #e0e0e0;
 $cl-gray: #383838;
 $cl-black: #262626;
 
+// target colors
 $cl-background: $cl-white;
 $cl-foreground: $cl-black;
 $cl-focus: $cl-turquoise;
 $cl-secondary: $cl-gray;
+
+// combos
+$box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+
+// functions
+@function mixTransparent($color) {
+  @return mix($color, transparent, 90%);
+}
