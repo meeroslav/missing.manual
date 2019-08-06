@@ -219,7 +219,7 @@ newState = {
 */
 ```
 
-This technique is called [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) as we are unpacking the original state object. We assign quantity key-value pair to constant `quantity` and assign rest of the object to `newState`.
+This technique is called [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignmentFunctions/rest_parameters) as we are unpacking the original state object. We assign quantity key-value pair to constant `quantity` and assign rest of the object to `newState`.
 
 ## Complex structures
 
@@ -331,3 +331,12 @@ In most cases, of course, spread on the first level is enough. But we need to be
 We learned how we can replace mutable operations with their immutable counterparts. Switching to immutable state helps us to more easily reason about our state of the application and to easily track changes. It also helps us to avoid unplanned side effect.
 
 Please have in mind that immutable operations are recreating the array or object every time. If you are dealing with large objects or collections, this might not be the ideal way to handle your data. There are some libraries that are specialized in fast immutable operations (e.g. [Immutable JS](https://github.com/immutable-js/immutable-js) or [Immer](https://github.com/immerjs/immer)), so if you hit the performance roadblock with immutable operations, be sure to check them out.
+
+---
+
+Used materials:
+
+* [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+* [Rest parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+* [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)

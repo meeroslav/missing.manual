@@ -147,7 +147,7 @@ Now once you’ve mastered the basics of ReactiveX, select your favorite operato
 
 Used materials:
 
-[http://reactivex.io/](http://reactivex.io/)
-[https://www.learnrxjs.io/](https://www.learnrxjs.io/)
-[https://en.wikipedia.org/wiki/Reactive_programming](https://en.wikipedia.org/wiki/Reactive_programming)
-[https://frontendmasters.com/courses/asynchronous-javascript/](https://frontendmasters.com/courses/asynchronous-javascript/)
+* [http://reactivex.io/](http://reactivex.io/)
+* [https://www.learnrxjs.io/](https://www.learnrxjs.io/)
+* [https://en.wikipedia.org/wiki/Reactive_programming](https://en.wikipedia.org/wiki/Reactive_programming)
+* [https://frontendmasters.com/courses/asynchronous-javascript/](https://frontendmasters.com/courses/asynchronous-javascript/)
