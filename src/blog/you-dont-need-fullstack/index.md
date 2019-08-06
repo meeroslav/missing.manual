@@ -14,7 +14,7 @@ If your band is famous, musicians will be queuing to join you. If you’re a sma
 
 Every musician starts as a “full stack”. That’s the only way you can practice and learn. You find one instrument you want to play, and since you don’t have a band, you have to sing, play or hum the melody and give yourself a rhythm. You have to be a one-man band. It’s not that seldom that musician changes an instrument he/she started with originally at a later point because of the demand or simply because they realized it suits them better.
 
-![Photo by Scott Penner from [flickr](https://www.flickr.com/photos/penner/2450784866)](./Prince_at_Coachella.jpg)
+![Photo by Scott Penner on flickr](./Prince_at_Coachella.jpg)
 
 Some musicians remain “full stack” throughout their career. If they become composers, they play multiple different instruments while composing a new piece. A band needs at least one. Some musicians are simply **musical geniuses** and play with the same degree of virtuosity on multiple instruments.
 
@@ -38,7 +38,7 @@ Most of the developers are like me. They can work on every part of the applicati
 
 While most of the companies looking for a full stack developer hope to hire the next **Prince** or **Phil Collins**, most of them cannot afford or simply do not have a band that is exciting enough for such artists. Instead, they end up with someone like this guy:
 
-![Photo by William W. Ward from [flickr](https://www.flickr.com/photos/wwward0/12182919023/)](./one-man-band.jpeg)
+![Photo by William W. Ward on flickr](./one-man-band.jpeg)
 
 Don’t get me wrong, I’m sure this guy is super talented. 
 But ask yourself this — if you were a **band manager**, would you bring a couple of those guys to play in your band, or would you rather find the best singer, best guitar player, best drummer, best (chose your instrument) that you can afford? Because that best guitar player can for sure sing or play drums on a decent level if needed. After all, no one wants a musician who doesn’t care for the rest of the composition.
