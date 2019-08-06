@@ -23,7 +23,7 @@ export default class BlogPostTemplate extends Component {
           {post.frontmatter.title}
         </h1>
         <p className={style.blogPost}>
-          <small>{post.frontmatter.date}</small>
+          <small>{post.frontmatter.date}  {post.fields.readingTime.text}</small>
         </p>
         <div className={style.blogPost} dangerouslySetInnerHTML={{ __html: post.html }} />
         <p className={style.blogPost}>
@@ -61,7 +61,6 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
       excerpt(pruneLength: 160)
       html
       frontmatter {
@@ -77,6 +76,12 @@ export const pageQuery = graphql`
           }
         }
       }
+      fields {
+        slug
+        readingTime {
+          text
+        }
+      }      
     }
   }
 `;

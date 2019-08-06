@@ -66,6 +66,7 @@ module.exports = {
               colorTheme: 'Dark+ (default dark)'
             }
           },
+          `gatsby-remark-reading-time`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
