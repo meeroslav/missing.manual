@@ -4,10 +4,9 @@
   display: grid;
   grid-template-columns: $bioImageWidth $spacing $grid-body;
 }
-
 .bioImage {
   min-width: $bioImageWidth;
-  borderRadius: $full-round-radius;
+  border-radius: $full-round-radius;
   grid-column: 1/2
 }
 .bioText {

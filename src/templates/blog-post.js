@@ -13,6 +13,8 @@ export default class BlogPostTemplate extends Component {
     const { previous, next } = this.props.pageContext;
     const cover = post.frontmatter.cover;
 
+    console.log(post);
+
     return (
       <Layout location={this.props.location} title={siteTitle} cover={cover}>
         <SEO
@@ -23,12 +25,12 @@ export default class BlogPostTemplate extends Component {
           {post.frontmatter.title}
         </h1>
         <p className={style.blogPost}>
-          <small>{post.frontmatter.date}  {post.fields.readingTime.text}</small>
+          <small>{post.frontmatter.date} ・ {post.fields.readingTime.text}</small>
         </p>
         <div className={style.blogPost} dangerouslySetInnerHTML={{ __html: post.html }} />
-        <p className={style.blogPost}>
+        <div className={style.blogPost}>
           <hr/>
-        </p>
+        </div>
         <Bio className={style.blogPost}/>
 
         <ul className={style.blogPostNavigation}>

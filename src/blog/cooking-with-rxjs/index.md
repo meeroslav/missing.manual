@@ -1,5 +1,5 @@
 ---
-title: A different approach to Rx&#58; Cooking with RxJS
+title: A different approach to RxJS - Cooking with RxJS
 date: "2018-10-02T09:00:00.121Z"
 cover: "./brooke-lark-4J059aGa5s4-unsplash.jpg"
 description: The simplest things are often the hardest to learn. Our experience dealing with complicated topics hinders us from switching our brain to comprehend simple things.
