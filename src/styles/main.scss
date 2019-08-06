@@ -50,8 +50,15 @@ blockquote {
   border-left: 4px solid $cl-focus;
   margin-left: 0;
   margin-right: 0;
-  padding-left: $gutter;
+  padding: $spacing 0 $spacing $gutter;
   font-style: italic;
+
+  p {
+    margin-bottom: 0;
+  }
+  p + p {
+    margin-top: 1em;
+  }
 }
 
 *:active {
