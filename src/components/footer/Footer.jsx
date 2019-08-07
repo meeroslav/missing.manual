@@ -81,7 +81,11 @@ const Footer = () => {
         </ExternalLink>
       </nav>
       <div className={style.footnote}>
-        © {new Date().getFullYear()}, Built with <ExternalLink to={"https://www.gatsbyjs.org"}>Gatsby</ExternalLink>
+        © {new Date().getFullYear()}
+        ・
+        Built with <ExternalLink to={"https://www.gatsbyjs.org"}>Gatsby</ExternalLink>
+        ・
+        Deployed with with <ExternalLink to={"https://www.netlify.com/"}>Netlify</ExternalLink>
       </div>
     </footer>
   );

@@ -5,6 +5,8 @@
 .footer {
   padding: $spacing 0;
   text-align: center;
+  background: $cl-footer-back;
+  color: $cl-footer-front;
 
   nav {
     text-align: center;

@@ -3,6 +3,10 @@ $spacing: 10px;
 $gutter: 20px;
 $header-feed: 42px;
 
+// widths
+$maxWidth: 1200px;
+$hrWidth: 50px;
+
 // grid
 $grid-padding: $gutter;
 $grid-columns: 12;
@@ -19,7 +23,5 @@ $zHeading: 10;
 $zMainContent: 2;
 
 // blog post
-$maxWidth: 590px;
 $bioImageWidth: 50px;
-$hrWidth: 50px;
 $headlineTopMargin: -.2rem;
