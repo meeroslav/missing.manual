@@ -22,8 +22,11 @@
     color: inherit;
     font-weight: $font-weight-light;
 
-    & + .footerLink {
-      border-left: 1px solid $cl-footer-front;
+    &:before {
+      content: '';
+      border-left: 1px solid $cl-footer-border;
+      margin-right: $spacing;
+      margin-left: -$spacing;
     }
   }
 

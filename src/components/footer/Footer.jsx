@@ -82,12 +82,6 @@ const Footer = () => {
       </nav>
       <div className={style.footnote}>
         Miroslav Jonas © {new Date().getFullYear()}
-        ・
-        Built with <ExternalLink to={"https://www.gatsbyjs.org"}>Gatsby</ExternalLink>
-        ・
-        <ExternalLink to={"https://www.netlify.com/"}>
-          <img alt={"Deploys by Netlify badge"} src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg"/>
-        </ExternalLink>
       </div>
     </footer>
   );

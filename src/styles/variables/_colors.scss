@@ -1,7 +1,7 @@
 // base colors
 $cl-turquoise: #01a2a6;
 $cl-white: #efefef;
-$cl-light-gray: #e0e0e0;
+$cl-light-gray: #c0c0c0;
 $cl-gray: #383838;
 $cl-black: #262626;
 
@@ -14,6 +14,7 @@ $cl-secondary: $cl-gray;
 // footer
 $cl-footer-back: $cl-gray;
 $cl-footer-front: $cl-white;
+$cl-footer-border: $cl-light-gray;
 
 // combos
 $box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
