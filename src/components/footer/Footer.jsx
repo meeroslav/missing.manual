@@ -35,15 +35,7 @@ const Footer = () => {
 
   return (
     <footer className={`${style.footer}`}>
-      <nav>
-        { menuItems.map(({ node }, i) => {
-          return <Link
-            to={node.link}
-            className={style.link}
-            key={i}>{node.label}</Link>;
-        })}
-      </nav>
-      <nav>
+      <nav className={style.socialNav}>
         <ExternalLink
           className={style.socialLink}
           to={`https://twitter.com/${social.twitter}`}>
@@ -80,12 +72,22 @@ const Footer = () => {
           <FaAngular/>
         </ExternalLink>
       </nav>
+      <nav className={style.menuNav}>
+        { menuItems.map(({ node }, i) => {
+          return <Link
+            to={node.link}
+            className={style.footerLink}
+            key={i}>{node.label}</Link>;
+        })}
+      </nav>
       <div className={style.footnote}>
-        © {new Date().getFullYear()}
+        Miroslav Jonas © {new Date().getFullYear()}
         ・
         Built with <ExternalLink to={"https://www.gatsbyjs.org"}>Gatsby</ExternalLink>
         ・
-        Deployed with with <ExternalLink to={"https://www.netlify.com/"}>Netlify</ExternalLink>
+        <ExternalLink to={"https://www.netlify.com/"}>
+          <img alt={"Deploys by Netlify badge"} src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg"/>
+        </ExternalLink>
       </div>
     </footer>
   );

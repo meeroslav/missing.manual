@@ -8,16 +8,23 @@
   background: $cl-footer-back;
   color: $cl-footer-front;
 
-  nav {
+  .socialNav {
     text-align: center;
+    padding: $gutter;
+  }
+  .menuNav {
+    padding: $spacing;
   }
 
-  .link {
-    text-transform: uppercase;
+  .footerLink {
     text-decoration: none;
     padding: $spacing;
-    color: $cl-foreground;
+    color: inherit;
     font-weight: $font-weight-light;
+
+    & + .footerLink {
+      border-left: 1px solid $cl-footer-front;
+    }
   }
 
   .socialLink {
