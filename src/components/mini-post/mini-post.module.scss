@@ -22,3 +22,19 @@
   font-size: $footnote-font-size;
   color: $cl-secondary;
 }
+
+@media (max-width: $mobile-view-limit) {
+  .miniPost {
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .miniPostImage {
+    grid-column: 1/13;
+    grid-row: 1;
+  }
+
+  .miniPostText {
+    grid-column: 1/13;
+    grid-row: 2
+  }
+}

@@ -17,3 +17,20 @@
   grid-column: 5/13;
   grid-row: 1;
 }
+
+
+@media (max-width: $mobile-view-limit) {
+  .talk {
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .talkImage {
+    grid-column: 1/13;
+    grid-row: 1;
+  }
+
+  .talkText {
+    grid-column: 1/13;
+    grid-row: 2
+  }
+}
