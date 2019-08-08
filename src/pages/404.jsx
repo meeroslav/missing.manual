@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout.jsx';
-import SEO from '../components/seo';
+import Layout from '../components/layout/Layout.jsx';
+import SEO from '../components/seo/Seo.jsx';
 
 export default class NotFoundPage extends Component {
   render() {

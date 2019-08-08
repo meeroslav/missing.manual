@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Bio from '../components/bio/Bio.jsx';
-import Layout from '../components/Layout.jsx';
-import SEO from '../components/seo';
+import Layout from '../components/layout/Layout.jsx';
+import SEO from '../components/seo/Seo.jsx';
 import style from './blog-post.module.scss';
 
 export default class BlogPostTemplate extends Component {

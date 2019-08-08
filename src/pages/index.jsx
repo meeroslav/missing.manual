@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout.jsx';
-import SEO from '../components/seo';
+import Layout from '../components/layout/Layout.jsx';
+import SEO from '../components/seo/Seo.jsx';
 import Talk from '../components/talk/Talk.jsx';
 import MiniPost from '../components/mini-post/MiniPost';
 import IndexHero from '../components/index-hero/IndexHero';
