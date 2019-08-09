@@ -2,6 +2,10 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import style from './header.module.scss';
 
+const touchDevice = typeof window !== 'undefined' ?
+  window.matchMedia('(any-pointer: coarse)').matches :
+  false;
+
 const Header = props => {
   const data = useStaticQuery(graphql`
     query {
@@ -17,6 +21,19 @@ const Header = props => {
   `);
   const menuItems = data.allMenuJson.edges;
 
+  const Burger = () => (
+    <div // eslint-disable-line jsx-a11y/no-noninteractive-element-interactions
+      className={style.burger}
+      role="navigation"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 9">
+        <path className={style.bar1} fill="currentColor" d="M0,0H11V1.44H0Z" />
+        <path className={style.bar2} fill="currentColor" d="M0,3.78H11V5.22H0Z" />
+        <path className={style.bar3} fill="currentColor" d="M0,7.56H11V9H0Z" />
+      </svg>
+    </div>
+  );
+
   return (
     <header className={style.header}>
       <nav>
@@ -26,7 +43,7 @@ const Header = props => {
           .map(({ node }, i) => {
           return <Link
             to={node.link}
-            className={style.link}
+            className={`${style.link} ${style.horizontalLink}`}
             key={i}>{ node.label }</Link>
         }) }
         <Link
@@ -41,10 +58,11 @@ const Header = props => {
           .map(({ node }, i) => {
           return <Link
             to={node.link}
-            className={style.link}
+            className={`${style.link} ${style.horizontalLink}`}
             key={i}>{ node.label }</Link>
         }) }
       </nav>
+      <Burger/>
     </header>
   );
 };
