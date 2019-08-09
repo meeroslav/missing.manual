@@ -21,9 +21,16 @@ const Header = props => {
   `);
   const menuItems = data.allMenuJson.edges;
 
+  const handleBurger = (ev) => {
+    ev.currentTarget.parentElement.classList.toggle(style.expanded);
+    document.body.classList.toggle('navExpanded');
+  };
+
   const Burger = () => (
     <div // eslint-disable-line jsx-a11y/no-noninteractive-element-interactions
       className={style.burger}
+      onTouchStart={ev => touchDevice && handleBurger(ev)}
+      onMouseDown={ev => !touchDevice && handleBurger(ev)}
       role="navigation"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 9">
