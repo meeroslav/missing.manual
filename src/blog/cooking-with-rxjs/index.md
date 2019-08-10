@@ -50,7 +50,7 @@ Let’s try to decompose this definition. Instead of marbles, let’s try using 
 
 ### Functional programming
 
-Maybe the best way to explain what functional programming is is by explaining what functional programming isn’t. Let’s analyze a basic **scrambled eggs **recipe in an iterative way:
+Maybe the best way to explain what functional programming is is by explaining what functional programming isn’t. Let’s analyze a basic **scrambled eggs** recipe in an iterative way:
 
 ```
 1. Assemble: 
