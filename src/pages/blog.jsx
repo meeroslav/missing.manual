@@ -16,7 +16,7 @@ export default class BlogPage extends Component {
       <Layout location={this.props.location} title={siteTitle} cover={data.cover}>
         <SEO title="Blog"/>
         <h1>Blog</h1>
-        {posts.map(({ node }) => <MiniPost {...node} />)}
+        {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
       </Layout>
     );
   }
