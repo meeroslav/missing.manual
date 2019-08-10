@@ -12,11 +12,23 @@
   box-shadow: $box-shadow;
   display: grid;
   grid-template-columns: $gutter repeat(12, 1fr) $gutter;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1.5rem;
 
-  nav {
+  .horizontalNav {
+    grid-row: 1;
     text-align: center;
     grid-column: 2/14;
+  }
+
+  .verticalNav {
+    grid-row: 2;
+    text-align: center;
+    grid-column: 2/14;
+    display: none;
+
+    .link {
+      display: block;
+    }
   }
 
   .link {
@@ -32,11 +44,12 @@
 
   .burger {
     display: none;
-    height: 1rem;
+    height: 1.2rem;
     user-select: none;
     grid-column: 13;
     text-align: right;
     cursor: pointer;
+    grid-row: 1;
 
     .bar1, .bar3 {
       will-change: transform;
@@ -59,12 +72,14 @@
 
 @media (max-width: $mobile-view-limit) {
   .header {
-    nav {
+    grid-template-rows: 1.5rem 1fr;
+
+    .horizontalNav {
       text-align: left;
       grid-column: 2/12;
     }
 
-    .horizontalLink {
+    .horizontalNav .link:not(.mainLink) {
       display: none;
     }
 
@@ -85,6 +100,10 @@
         .bar3 {
           transform: translate(-.18rem, -.18rem) rotate(-45deg);
         }
+      }
+
+      .verticalNav {
+        display: block;
       }
     }
   }

@@ -43,14 +43,14 @@ const Header = props => {
 
   return (
     <header className={style.header}>
-      <nav>
+      <nav className={style.horizontalNav}>
         { menuItems
           .filter((item, i) => i < menuItems.length / 2)
           .filter(({ node }) => node.link !== '/')
           .map(({ node }, i) => {
           return <Link
             to={node.link}
-            className={`${style.link} ${style.horizontalLink}`}
+            className={`${style.link}`}
             key={i}>{ node.label }</Link>
         }) }
         <Link
@@ -65,11 +65,21 @@ const Header = props => {
           .map(({ node }, i) => {
           return <Link
             to={node.link}
-            className={`${style.link} ${style.horizontalLink}`}
+            className={`${style.link}`}
             key={i}>{ node.label }</Link>
         }) }
       </nav>
       <Burger/>
+      <nav className={style.verticalNav}>
+        { menuItems
+          .map(({ node }, i) => {
+            return <Link
+              to={node.link}
+              className={`${style.link}`}
+              key={i}>{ node.label }</Link>
+          })
+        }
+      </nav>
     </header>
   );
 };
