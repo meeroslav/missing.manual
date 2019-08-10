@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import style from './footer.module.scss';
 import ExternalLink from '../external-link/ExternalLink';
-import { FaMediumM, FaGithub, FaLinkedin, FaTwitter, FaBehance, FaAngular, FaInstagram } from 'react-icons/fa';
+import { FaMediumM, FaGithub, FaLinkedin, FaTwitter, FaBehance, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -65,11 +65,6 @@ const Footer = () => {
           className={style.socialLink}
           to={`https://medium.com/@${social.medium}`}>
           <FaMediumM/>
-        </ExternalLink>
-        <ExternalLink
-          className={style.socialLink}
-          to={`https://angular-austria.at`}>
-          <FaAngular/>
         </ExternalLink>
       </nav>
       <nav className={style.menuNav}>
