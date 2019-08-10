@@ -32,5 +32,6 @@
 @media (max-width: $mobile-view-limit) {
   .mainSection {
     grid-column: 1/15;
+    margin-top: 0;
   }
 }
