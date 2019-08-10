@@ -1,8 +1,18 @@
+@import '../../styles/variables/layout';
+
 .indexHero {
   h1 {
     margin-top: 2rem;
     font-size: 5rem;
     text-align: center;
     margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: $mobile-view-limit) {
+  .indexHero {
+    h1 {
+      font-size: 3rem;
+    }
   }
 }
