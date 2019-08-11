@@ -56,3 +56,12 @@
   grid-column: 2;
   text-align: right;
 }
+
+@media (max-width: $mobile-view-limit) {
+  .blogPostNavigation {
+    grid-template-columns: 1fr;
+  }
+  .blogPostNavigationNext {
+    grid-column: 1;
+  }
+}
