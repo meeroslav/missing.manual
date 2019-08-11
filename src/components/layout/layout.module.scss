@@ -24,7 +24,7 @@
   background: $cl-background;
   z-index: $zMainContent;
 
-  * {
+  & > * {
     grid-column: 2/14;
   }
 }
