@@ -100,7 +100,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `The missing manual`,
-        short_name: `missingmanual`,
+        short_name: `mssng:mnl`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#01a2a6`,
