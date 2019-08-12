@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout/Layout.jsx';
 import SEO from '../components/seo/Seo.jsx';
 import Talk from '../components/talk/Talk.jsx';
+import Image from 'gatsby-image';
 
 export default class TalksPage extends Component {
   render() {
@@ -13,7 +14,9 @@ export default class TalksPage extends Component {
     const past = data.past.edges;
 
     return (
-      <Layout location={this.props.location} title={siteTitle} cover={data.cover}>
+      <Layout location={data.location}
+              title={siteTitle}
+              hero={<Image sizes={data.cover.childImageSharp.sizes}/>}>
         <SEO title="Talks"/>
         <h1>Talks</h1>
         <h2>Upcoming talks</h2>

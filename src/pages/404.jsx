@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout/Layout.jsx';
 import SEO from '../components/seo/Seo.jsx';
+import Image from 'gatsby-image';
 
 export default class NotFoundPage extends Component {
   render() {
@@ -10,7 +11,8 @@ export default class NotFoundPage extends Component {
     const siteTitle = data.site.siteMetadata.title;
 
     return (
-      <Layout location={this.props.location} title={siteTitle} cover={data.cover}>
+      <Layout location={this.props.location} title={siteTitle}
+              hero={<Image sizes={data.cover.childImageSharp.sizes}/>}>
         <SEO title="404: Not Found" />
         <h1>These are not the droids you are looking for</h1>
         <p>You just hit a route that doesn't exist... the sadness.</p>

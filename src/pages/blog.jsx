@@ -5,6 +5,7 @@ import Layout from '../components/layout/Layout.jsx';
 import SEO from '../components/seo/Seo.jsx';
 
 import MiniPost from '../components/mini-post/MiniPost';
+import Image from 'gatsby-image';
 
 export default class BlogPage extends Component {
   render() {
@@ -13,7 +14,9 @@ export default class BlogPage extends Component {
     const posts = data.allMarkdownRemark.edges;
 
     return (
-      <Layout location={this.props.location} title={siteTitle} cover={data.cover}>
+      <Layout location={data.location}
+              title={siteTitle}
+              hero={<Image sizes={data.cover.childImageSharp.sizes}/>}>
         <SEO title="Blog"/>
         <h1>Blog</h1>
         {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}

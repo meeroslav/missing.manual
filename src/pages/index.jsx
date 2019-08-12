@@ -15,7 +15,8 @@ export default class Home extends Component {
     const upcomingTalks = data.upcomingTalks.edges;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location}
+              title={siteTitle}>
         <SEO title="Home" />
         <IndexHero text={'Missing manual'}/>
         <h2>Latest posts</h2>

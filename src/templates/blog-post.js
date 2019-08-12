@@ -5,6 +5,7 @@ import Bio from '../components/bio/Bio.jsx';
 import Layout from '../components/layout/Layout.jsx';
 import SEO from '../components/seo/Seo.jsx';
 import style from './blog-post.module.scss';
+import Image from 'gatsby-image';
 
 export default class BlogPostTemplate extends Component {
   render() {
@@ -13,10 +14,10 @@ export default class BlogPostTemplate extends Component {
     const { previous, next } = this.props.pageContext;
     const cover = post.frontmatter.cover;
 
-    console.log(post);
-
     return (
-      <Layout location={this.props.location} title={siteTitle} cover={cover}>
+      <Layout location={this.props.location}
+              title={siteTitle}
+              hero={<Image sizes={cover.childImageSharp.sizes}/>}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}

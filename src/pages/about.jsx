@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout/Layout.jsx';
 import SEO from '../components/seo/Seo.jsx';
 import ExternalLink from '../components/external-link/ExternalLink';
+import Image from 'gatsby-image';
 
 export default class AboutPage extends Component {
     render() {
@@ -11,7 +12,9 @@ export default class AboutPage extends Component {
       const siteTitle = data.site.siteMetadata.title;
 
       return (
-        <Layout location={data.location} title={siteTitle} cover={data.cover}>
+        <Layout location={data.location}
+                title={siteTitle}
+                hero={<Image sizes={data.cover.childImageSharp.sizes}/>}>
           <SEO title="About" />
           <h1>About</h1>
           <p>
