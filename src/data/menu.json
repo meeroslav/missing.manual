@@ -17,6 +17,11 @@
     "link": "/talks"
   },
   {
+    "label": "Imprint",
+    "link": "/imprint",
+    "footerOnly": true
+  },
+  {
     "label": "Contact",
     "link": "/contact"
   }
