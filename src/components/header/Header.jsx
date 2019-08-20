@@ -14,6 +14,7 @@ const Header = props => {
           node {
             label
             link
+            home
           }
         }
       }
@@ -46,7 +47,7 @@ const Header = props => {
       <nav className={style.horizontalNav}>
         { menuItems
           .filter((item, i) => i < menuItems.length / 2)
-          .filter(({ node }) => node.link !== '/')
+          .filter(({ node }) => !node.home)
           .map(({ node }, i) => {
           return <Link
             to={node.link}

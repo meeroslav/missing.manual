@@ -1,7 +1,8 @@
 [
   {
     "label": "Home",
-    "link": "/"
+    "link": "/",
+    "home": true
   },
   {
     "label": "About",
