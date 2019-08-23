@@ -21,9 +21,7 @@ export default class ContactPage extends Component {
           Miroslav Jonas
         </h4>
         <div>
-          E-mail: <ExternalLink to={`mailto:missing.manual@gmail.com`}>
-          missing.manual@gmail.com
-          </ExternalLink>
+          E-mail: <ExternalLink to={`mailto:missing.manual@gmail.com`}>missing.manual@gmail.com</ExternalLink>
         </div>
         <div>
           Vienna, Austria
