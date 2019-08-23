@@ -93,7 +93,7 @@ text set in the data-text attribute. */
 		@include glitchCopy;
 		left: -2px;
 		text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
-		animation: glitch-anim2 1s infinite steps(1) alternate-reverse;
+		animation: glitch-anim2 2s infinite steps(1) alternate-reverse;
 	}
 }
 
