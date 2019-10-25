@@ -44,7 +44,7 @@ export const pageQuery = graphql`
     }
     upcoming: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { gt: "2019-01-01" }}
+      filter: { date: { gt: "2019-11-01" }}
     ) {
       edges {
         node {
@@ -61,7 +61,7 @@ export const pageQuery = graphql`
     }
     past: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { lt: "2019-01-01" }}
+      filter: { date: { lt: "2019-11-01" }}
     ) {
       edges {
         node {
