@@ -2,6 +2,14 @@
   {
     "title": "How to cook with RxJS",
     "type": "Talk",
+    "date": "2019-11-16T19:15:00.000Z",
+    "event": "GDG DevFest Vienna",
+    "image": "devfest-vienna.png",
+    "link": "https://devfest.at/speakers/"
+  },
+  {
+    "title": "How to cook with RxJS",
+    "type": "Talk",
     "date": "2019-09-19T09:15:00.000Z",
     "event": "ArmadaJS",
     "image": "Armada-JS.png",
