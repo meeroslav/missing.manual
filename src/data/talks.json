@@ -1,5 +1,13 @@
 [
   {
+    "title": "Hello generics, goodbye boilerplate",
+    "type": "Talk",
+    "date": "2019-12-11T21:00:00.000Z",
+    "event": "Angular Vienna Christmas Edition",
+    "video": "https://www.youtube.com/embed/LesJdh4uRmk",
+    "link": "https://www.meetup.com/Angular-Vienna/events/266777701/"
+  },
+  {
     "title": "How to cook with RxJS",
     "type": "Talk",
     "date": "2019-11-16T19:15:00.000Z",
