@@ -2,6 +2,14 @@
   {
     "title": "Hello generics, goodbye boilerplate",
     "type": "Talk",
+    "date": "2020-01-24T16:45:00.000Z",
+    "event": "Agent Conf",
+    "image": "agent-conf.jpg",
+    "link": "https://agent.sh/index#schedule"
+  },
+  {
+    "title": "Hello generics, goodbye boilerplate",
+    "type": "Talk",
     "date": "2019-12-11T21:00:00.000Z",
     "event": "Angular Vienna Christmas Edition",
     "video": "https://www.youtube.com/embed/LesJdh4uRmk",
