@@ -5,15 +5,17 @@
     "date": "2019-11-16T19:15:00.000Z",
     "event": "GDG DevFest Vienna",
     "image": "devfest-vienna.png",
-    "link": "https://devfest.at/speakers/"
+    "link": "https://devfest.at/speakers/",
+    "slides": "https://speakerdeck.com/meeroslav/gdg-devfest-how-to-cook-with-rxjs"
   },
   {
     "title": "How to cook with RxJS",
     "type": "Talk",
     "date": "2019-09-19T09:15:00.000Z",
     "event": "ArmadaJS",
-    "image": "Armada-JS.png",
-    "link": "https://www.armada-js.com/speakers/miroslav-jonas/"
+    "video": "https://www.youtube.com/embed/jYuSwn5voNM",
+    "link": "https://www.armada-js.com/speakers/miroslav-jonas/",
+    "slides": "https://speakerdeck.com/meeroslav/how-to-cook-with-rxjs-armada-js"
   },
   {
     "title": "Reactive Vue",
