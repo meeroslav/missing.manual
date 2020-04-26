@@ -31,7 +31,7 @@ or
 
 At some point, developers realized it was too complicated to use words so they decided to use marbles as a metaphor instead. While marbles were clear enough for simple operations, they soon hit the same limits. It’s like trying to use an abacus to explain how integrals work. Just look at the *scan* operator below.
 
-![Scan operator](./scan.png)
+![Scan operator](scan.jpg)
 
 Even if you know how *scan* works, this diagram might not be clear. If you don’t know, on the other hand, there’s zero chance that you’ll understand what’s going on here.
 
@@ -65,7 +65,7 @@ Maybe the best way to explain what functional programming is is by explaining wh
 6. Serve your meal.
 ```
 
-![Photo by Igor Miske on Unsplash](./omelet.jpeg)
+![Photo by Igor Miske on Unsplash](omelet.jpeg)
 
 This recipe was designed for one person and is considered a sealed process. It does not explain the dependencies between steps. For instance, if we need to make two or more portions, which steps could be done in parallel? Do we need two pans and two stoves? What if we forgot the pepper? Can we add it later? All those situations happen quite regularly in the kitchen, but also happen to correspond to the things we do in programming — parallelizing processes, reusing resources, shuffling the order of computation, dealing with failures…
 
@@ -103,7 +103,7 @@ While not always applicable in the kitchen, in functional programming functions 
 
 The iterator pattern is one of the original [**Gang of Four** design patterns](https://en.wikipedia.org/wiki/Design_Patterns) along with the observer pattern. In order to understand how iterator works, we can imagine a pizza.
 
-![Photo by Fancycrave on Unsplash](./pizza.jpeg)
+![Photo by Fancycrave on Unsplash](pizza.jpeg)
 
 Your pizza works according to the iterator pattern. You take one slice, then take another one, and another one… until there are no more slices left. At any time you can ask (or rather look at) pizza to find out are there more slices available. Iterator helps you to iterate over a collection of items — in this case, a collection of pizza slices. It could be an “endless” collection — like pouring a glass of tap water.
 
@@ -111,7 +111,7 @@ Your pizza works according to the iterator pattern. You take one slice, then tak
 
 While pizza required you to do some manual labor — taking the slices, observer requires you to just “subscribe” to pizza and the slices will come to you. But, maybe pizza is not the best metaphor here.
 
-![Photo by Yakynina Anastasia on Unsplash](./pancake.jpeg)
+![Photo by Yakynina Anastasia on Unsplash](pancake.jpeg)
 
 Imagine coming to your grandmother and saying: “Hey, grandma, I am hungry”. And suddenly, faster than the rocket, your grandma starts making pancakes. You can sit tight until the first pancake arrives. And soon after the next one will come. If your grandma is like mine, eventually you’ll have to say: “I’m full”, otherwise the pancakes will be coming endlessly.
 
@@ -133,7 +133,7 @@ You might notice two sub-classes here — some observables are a one-time thing,
 
 Some observables, however, produce items regardless of whether you asked for them or not.
 
-![Photo by Florian Metzner on Unsplash](./sushi.jpeg)
+![Photo by Florian Metzner on Unsplash](sushi.jpeg)
 
 Imagine going to a Japanese restaurant and ordering sushi. Your sushi does not exist up front. It is being made for you once you order it (subscribe to it). You have a window of opportunity, where you might cancel the order if you change your mind. This type of observable is called **cold **observable. The most common example is fetching data from the server.
 

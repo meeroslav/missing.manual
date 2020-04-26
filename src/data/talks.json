@@ -1,5 +1,19 @@
 [
   {
+    "title": "TBA",
+    "type": "Talk",
+    "date": "2020-10-01T09:00:00.000Z",
+    "event": "ArmadaJS",
+    "image": "Armada-JS.png"
+  },
+  {
+    "title": "TBA",
+    "type": "Talk",
+    "date": "2020-05-29T09:00:00.000Z",
+    "event": "Future.Works Lisbon",
+    "image": "future-works.jpeg"
+  },
+  {
     "title": "Hello generics, goodbye boilerplate",
     "type": "Talk",
     "date": "2020-01-24T16:45:00.000Z",
