@@ -12,6 +12,8 @@
   display: grid;
   grid-template-columns: $gutter $grid-body $gutter;
   grid-template-rows: 1fr;
+  max-width: $maxWidth;
+  margin: 0 auto;
 }
 
 .mainSection {
