@@ -60,7 +60,7 @@ export const pageQuery = graphql`
     }
     upcomingTalks: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { gt: "2020-01-01" }}
+      filter: { date: { gt: "2020-05-01" }}
     ) {
       edges {
         node {
