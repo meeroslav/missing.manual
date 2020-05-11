@@ -30,6 +30,18 @@
   & > * {
     grid-column: 2/14;
   }
+
+  ul {
+    margin-top: 0;
+    list-style: none;
+
+    li:before {
+      content: '・'
+    }
+  }
+  p + ul {
+    margin-top: -1em;
+  }
 }
 
 @media (max-width: $mobile-view-limit) {

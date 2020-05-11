@@ -10,18 +10,6 @@
     margin: $gutter auto;
   }
 
-  ul {
-    margin-top: 0;
-    list-style: none;
-
-    li:before {
-      content: '・'
-    }
-  }
-  p + ul {
-    margin-top: -1em;
-  }
-
   figcaption {
     font-size: $footnote-font-size;
     color: $cl-secondary;
