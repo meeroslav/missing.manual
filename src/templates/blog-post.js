@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Bio from '../components/bio/Bio.jsx';
 import Layout from '../components/layout/Layout.jsx';
-import SEO from '../components/seo/Seo.jsx';
 import style from './blog-post.module.scss';
-import Image from 'gatsby-image';
 
 export default class BlogPostTemplate extends Component {
   render() {
     const post = this.props.data.mdx;
-    const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
-    const cover = post.frontmatter.cover;
+    const location = this.props.location;
 
     return (
-      <Layout location={this.props.location}
-              title={siteTitle}
-              hero={<Image sizes={cover.childImageSharp.sizes}/>}>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
+      <Layout location={location}
+              hero={post.frontmatter.cover.childImageSharp.sizes}
+              title={post.frontmatter.title}
+              description={post.frontmatter.description || post.excerpt}>
         <h1 className={style.blogPostHeading}>
           {post.frontmatter.title}
         </h1>

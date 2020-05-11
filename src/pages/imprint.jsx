@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import Layout from '../components/layout/Layout';
-import SEO from '../components/seo/Seo';
-import { graphql } from 'gatsby';
 import ExternalLink from '../components/external-link/ExternalLink';
 
 export default class ImprintPage extends Component {
   render() {
-    const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title;
-
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="Imprint"/>
+      <Layout location={this.props.location} title="Imprint">
         <h1>Privacy Policy</h1>
         <p>The protection of your personal data is very important to me. Therefore I process your data exclusively on
           the basis of the legal regulations (DSGVO, TKG 2003). In this privacy policy I inform you about the most
@@ -62,13 +56,3 @@ export default class ImprintPage extends Component {
     );
   }
 }
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;

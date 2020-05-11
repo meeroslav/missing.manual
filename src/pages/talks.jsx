@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout/Layout.jsx';
-import SEO from '../components/seo/Seo.jsx';
 import Talk from '../components/talk/Talk.jsx';
-import Image from 'gatsby-image';
 
 export default class TalksPage extends Component {
   render() {
     const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title;
     const upcoming = data.upcoming.edges;
     const past = data.past.edges;
 
     return (
       <Layout location={data.location}
-              title={siteTitle}
-              hero={<Image sizes={data.cover.childImageSharp.sizes}/>}>
-        <SEO title="Talks"/>
+              hero={data.cover.childImageSharp.sizes}
+              title="Talks">
         <h1>Talks</h1>
         <h2>Upcoming talks</h2>
         {upcoming.map(({ node }, i) => <Talk {...node} key={i}/>)}
