@@ -1,6 +1,7 @@
 ---
 title: You don’t need a full stack developer
 date: "2018-11-27T09:00:00.121Z"
+published: true
 cover: "./daniel-wirtz-jmmTlAPtNw8-unsplash.jpg"
 description: Hiring a developer is like scouting a new band member. You are looking for someone with a specific skill, who will match your spirit, doesn’t have a band already or is willing to change a band for the perks you are offering.
 ---

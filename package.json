@@ -4,38 +4,13 @@
   "description": "The missing manual",
   "version": "0.2.0",
   "author": "Miroslav Jonas <missing.manual@gmail.com>",
-  "dependencies": {
-    "gatsby": "^2.20.36",
-    "gatsby-image": "^2.3.5",
-    "gatsby-plugin-feed": "^2.4.4",
-    "gatsby-plugin-google-analytics": "^2.2.5",
-    "gatsby-plugin-manifest": "^2.3.7",
-    "gatsby-plugin-netlify-cache": "^1.2.0",
-    "gatsby-plugin-offline": "^2.2.10",
-    "gatsby-plugin-react-helmet": "^3.2.5",
-    "gatsby-plugin-react-svg": "^2.1.2",
-    "gatsby-plugin-sass": "^2.2.4",
-    "gatsby-plugin-sharp": "^2.5.7",
-    "gatsby-remark-copy-linked-files": "^2.2.4",
-    "gatsby-remark-images": "^3.2.6",
-    "gatsby-remark-reading-time": "^1.1.0",
-    "gatsby-remark-responsive-iframe": "^2.3.4",
-    "gatsby-remark-smartypants": "^2.2.4",
-    "gatsby-remark-vscode": "^1.4.0",
-    "gatsby-source-filesystem": "^2.2.5",
-    "gatsby-transformer-json": "^2.3.4",
-    "gatsby-transformer-remark": "^2.7.5",
-    "gatsby-transformer-sharp": "^2.4.7",
-    "node-sass": "^4.14.0",
-    "prismjs": "^1.20.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^5.2.1",
-    "react-icons": "^3.10.0",
-    "react-spring": "^8.0.27"
-  },
-  "devDependencies": {
-    "prettier": "^1.19.1"
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "homepage": "https://github.com/meeroslav/missing.manual#readme",
   "keywords": [
@@ -47,12 +22,40 @@
     "type": "git",
     "url": "git+https://github.com/meeroslav/missing.manual.git"
   },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  "dependencies": {
+    "@mdx-js/mdx": "^1.4.0",
+    "@mdx-js/react": "^1.4.0",
+    "@mdx-js/tag": "^0.20.3",
+    "gatsby": "^2.20.36",
+    "gatsby-image": "^2.3.5",
+    "gatsby-plugin-feed": "^2.4.4",
+    "gatsby-plugin-google-analytics": "^2.2.5",
+    "gatsby-plugin-manifest": "^2.3.7",
+    "gatsby-plugin-mdx": "^1.0.33",
+    "gatsby-plugin-netlify-cache": "^1.2.0",
+    "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-react-helmet": "^3.2.5",
+    "gatsby-plugin-sass": "^2.2.4",
+    "gatsby-plugin-sharp": "^2.5.7",
+    "gatsby-plugin-sitemap": "^2.2.19",
+    "gatsby-remark-copy-linked-files": "^2.2.4",
+    "gatsby-remark-images": "^3.2.6",
+    "gatsby-remark-reading-time": "^1.1.0",
+    "gatsby-remark-responsive-iframe": "^2.3.4",
+    "gatsby-remark-smartypants": "^2.2.4",
+    "gatsby-remark-vscode": "^1.4.0",
+    "gatsby-source-filesystem": "^2.2.5",
+    "gatsby-transformer-json": "^2.3.4",
+    "gatsby-transformer-remark": "^2.7.5",
+    "gatsby-transformer-sharp": "^2.4.7",
+    "mdx-utils": "^0.2.0",
+    "node-sass": "^4.14.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^5.2.1",
+    "react-icons": "^3.10.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
   }
 }

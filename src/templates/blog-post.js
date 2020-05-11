@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Bio from '../components/bio/Bio.jsx';
 import Layout from '../components/layout/Layout.jsx';
@@ -9,7 +10,7 @@ import Image from 'gatsby-image';
 
 export default class BlogPostTemplate extends Component {
   render() {
-    const post = this.props.data.markdownRemark;
+    const post = this.props.data.mdx;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
     const cover = post.frontmatter.cover;
@@ -28,7 +29,9 @@ export default class BlogPostTemplate extends Component {
         <p className={style.blogPost}>
           <small>{post.frontmatter.date} ・ {post.fields.readingTime.text}</small>
         </p>
-        <div className={style.blogPost} dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className={style.blogPost}>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </div>
         <div className={style.blogPost}>
           <hr/>
         </div>
@@ -56,16 +59,17 @@ export default class BlogPostTemplate extends Component {
 }
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query($slug: String!) {
     site {
       siteMetadata {
         title
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -84,7 +88,7 @@ export const pageQuery = graphql`
         readingTime {
           text
         }
-      }      
+      }
     }
   }
 `;

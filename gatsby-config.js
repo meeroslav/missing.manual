@@ -3,7 +3,7 @@ module.exports = {
     title: `missing:manual`,
     author: `Miroslav Jonas`,
     description: `A personal website of one Miroslav Jonas`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://missing-manual.com/`,
     social: {
       twitter: `meeroslav`,
       linkedIn: `miroslavjonas`,
@@ -32,7 +32,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assets/images`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -43,14 +43,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: ['.mdx', '.md'],
+        defaultLayouts: require.resolve('./src/components/layout/Layout.jsx'),
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
-              showCaptions: true,
+              maxWidth: 1280,
               withWebp: true,
             },
           },
@@ -66,29 +67,23 @@ module.exports = {
               colorTheme: 'Dark+ (default dark)'
             }
           },
-          `gatsby-remark-reading-time`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
+        plugins: [ `gatsby-remark-images`]
       },
     },
+    `gatsby-remark-reading-time`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
         includePaths: [`${__dirname}/src`],
       },
     },
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: `${__dirname}/src/assets`,
-        },
-      },
-    },
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -96,7 +91,66 @@ module.exports = {
         anonymize: true
       },
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  data: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.body }],
+                })
+              })
+            },
+
+            /* if you want to filter for only published posts, you can do
+             * something like this:
+             * filter: { frontmatter: { published: { ne: false } } }
+             * just make sure to add a published frontmatter field to all posts,
+             * otherwise gatsby will complain
+             **/
+            query: `
+            {
+              allMdx(
+                limit: 1000,
+                sort: { order: DESC, fields: [frontmatter___date] },
+                filter: { frontmatter: { published: { ne: false } } }
+              ) {
+                edges {
+                  node {
+                    fields { slug }
+                    frontmatter {
+                      title
+                      date
+                    }
+                    body
+                  }
+                }
+              }
+            }
+            `,
+            output: '/rss.xml',
+            title: 'Missing manual RSS feed',
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -106,7 +160,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#01a2a6`,
         display: `standalone`,
-        icon: `src/assets/images/icon.png`,
+        icon: `src/images/icon.png`,
       },
     },
     `gatsby-plugin-offline`,

@@ -35,7 +35,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    blogPosts: allMarkdownRemark(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
+    blogPosts: allMdx(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt
