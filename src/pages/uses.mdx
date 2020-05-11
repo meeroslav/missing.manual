@@ -2,6 +2,9 @@
 title: Uses
 description: My work and hobby equipment.
 ---
+import ExternalLink from '../components/external-link/ExternalLink';
+import { Link } from 'gatsby';
+const title = 'abd';
 
 # Uses
 
@@ -83,3 +86,15 @@ A great little MIDI keyboard that goes perfectly along with notebooks.
 This hand drill is my main tool for all the house works along with [IKEA Fixa tools](https://www.ikea.com/at/de/p/fixa-werkzeugsatz-17-tlg-00169254/).
 
 > This page was inspired by [Wes's uses page](https://wesbos.com/uses).
+
+export const pageQuery = graphql`
+  query {
+    cover: file(absolutePath: { regex: "/pages\/gear.jpeg/" }) {
+      childImageSharp {
+        sizes(maxWidth: 2000, maxHeight: 800) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+  }
+`;

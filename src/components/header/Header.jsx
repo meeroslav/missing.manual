@@ -15,7 +15,7 @@ const Header = props => {
             label
             link
             home
-            footerOnly              
+            footerOnly
           }
         }
       }
@@ -59,7 +59,7 @@ const Header = props => {
           className={`${style.link} ${style.mainLink}`}
           to={`/`}
         >
-          {props.title}
+          Missing.manual
         </Link>
         { menuItems
           .filter((item, i) => i >= menuItems.length / 2)
