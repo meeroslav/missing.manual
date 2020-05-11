@@ -138,7 +138,7 @@ Some observables, however, produce items regardless of whether you asked for the
 
 Imagine going to a Japanese restaurant and ordering sushi. Your sushi does not exist up front. It is being made for you once you order it (subscribe to it). You have a window of opportunity, where you might cancel the order if you change your mind. This type of observable is called **cold **observable. The most common example is fetching data from the server.
 
-Now imagine a [**conveyor belt sushi](https://en.wikipedia.org/wiki/Conveyor_belt_sushi) **(also known as the running sushi, or sushi train) restaurant. Cooks prepare sushi the whole day, and ready-made sushi rotates on a track for customers to pick. The sushi was there before you arrived and will be coming out of the kitchen even after you leave. It does not wait for your “subscription”. You can unsubscribe (stop eating) but that won’t stop the production. This is called **hot **observable. The most common example is listening to mouse events.
+Now imagine a [conveyor belt sushi](https://en.wikipedia.org/wiki/Conveyor_belt_sushi) (also known as the running sushi, or sushi train) restaurant. Cooks prepare sushi the whole day, and ready-made sushi rotates on a track for customers to pick. The sushi was there before you arrived and will be coming out of the kitchen even after you leave. It does not wait for your “subscription”. You can unsubscribe (stop eating) but that won’t stop the production. This is called **hot **observable. The most common example is listening to mouse events.
 
 ### Food for thought
 
