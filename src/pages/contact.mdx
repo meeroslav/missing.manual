@@ -1,0 +1,24 @@
+---
+title: Contact
+description: Contact information
+---
+import ExternalLink from '../components/external-link/ExternalLink';
+
+# Contact
+
+#### Miroslav Jonas
+
+E-mail: <ExternalLink to={`mailto:missing.manual@gmail.com`}>missing.manual@gmail.com</ExternalLink><br/>
+Vienna, Austria
+
+export const pageQuery = graphql`
+  query {
+    cover: file(absolutePath: { regex: "/pages\/message-box.jpg/" }) {
+      childImageSharp {
+        sizes(maxWidth: 2000, maxHeight: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+  }
+`;
