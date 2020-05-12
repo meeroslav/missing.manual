@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import style from './bio.module.scss';
 
-const Bio = props => {
+const Bio = ({ className }) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
@@ -26,7 +26,7 @@ const Bio = props => {
 
   const { author } = data.site.siteMetadata;
   return (
-    <div className={`${props.className} ${style.bio}`}>
+    <div className={`${className} ${style.bio}`}>
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}

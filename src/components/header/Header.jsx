@@ -6,7 +6,7 @@ const touchDevice = typeof window !== 'undefined' ?
   window.matchMedia('(any-pointer: coarse)').matches :
   false;
 
-const Header = props => {
+const Header = () => {
   const data = useStaticQuery(graphql`
     query {
       allMenuJson {

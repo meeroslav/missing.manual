@@ -4,8 +4,7 @@ import Image from 'gatsby-image';
 import ExternalLink from '../external-link/ExternalLink';
 import style from './talk.module.scss';
 
-const Talk = props => {
-  const { title, date, event, slides, video, link, image, type } = props;
+const Talk = ({ title, date, event, slides, video, link, image, type }) => {
   const data = useStaticQuery(graphql`
       query {
         images: allFile {

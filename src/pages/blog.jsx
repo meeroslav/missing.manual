@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout/Layout.jsx';
 import MiniPost from '../components/mini-post/MiniPost';
 
-export default class BlogPage extends Component {
-  render() {
-    const { data } = this.props;
-    const posts = data.allMdx.edges;
+const BlogPage = ({ data }) => {
+  const posts = data.allMdx.edges;
 
-    return (
-      <Layout location={data.location}
-              hero={data.cover.childImageSharp.sizes}
-              title="Blog">
-        <h1>Blog</h1>
-        {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout location={data.location}
+            hero={data.cover.childImageSharp.sizes}
+            title="Blog">
+      <h1>Blog</h1>
+      { posts.map(({ node }, i) => <MiniPost {...node} key={i}/>) }
+    </Layout>
+  );
+};
+export default BlogPage;
 
 export const pageQuery = graphql`
   query {

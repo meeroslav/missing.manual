@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout/Layout.jsx';
 import Talk from '../components/talk/Talk.jsx';
 
-export default class TalksPage extends Component {
-  render() {
-    const { data } = this.props;
-    const upcoming = data.upcoming.edges;
-    const past = data.past.edges;
+const TalksPage = ({ data }) => {
+  const upcoming = data.upcoming.edges;
+  const past = data.past.edges;
 
-    return (
-      <Layout location={data.location}
-              hero={data.cover.childImageSharp.sizes}
-              title="Talks">
-        <h1>Talks</h1>
-        <h2>Upcoming talks</h2>
-        {upcoming.map(({ node }, i) => <Talk {...node} key={i}/>)}
-        <h2>Previous talks</h2>
-        {past.map(({ node }, i) => <Talk {...node} key={i}/>)}
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout location={data.location}
+            hero={data.cover.childImageSharp.sizes}
+            title="Talks">
+      <h1>Talks</h1>
+      { upcoming.length && <h2>Upcoming talks</h2> }
+      { upcoming.map(({ node }, i) => <Talk {...node} key={i}/>) }
+      <h2>Previous talks</h2>
+      { past.map(({ node }, i) => <Talk {...node} key={i}/>) }
+    </Layout>
+  );
+};
+export default TalksPage;
 
 export const pageQuery = graphql`
   query {
@@ -40,7 +38,7 @@ export const pageQuery = graphql`
     }
     upcoming: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { gt: "2020-05-01" }}
+      filter: { date: { gt: "2020-05-28" }}
     ) {
       edges {
         node {
@@ -57,7 +55,7 @@ export const pageQuery = graphql`
     }
     past: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { lt: "2020-05-01" }}
+      filter: { date: { lt: "2020-05-28" }}
     ) {
       edges {
         node {
