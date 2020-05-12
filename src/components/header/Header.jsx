@@ -46,15 +46,6 @@ const Header = () => {
   return (
     <header className={style.header}>
       <nav className={style.horizontalNav}>
-        { menuItems
-          .filter((item, i) => i < menuItems.length / 2)
-          .filter(({ node }) => !node.home && !node.footerOnly)
-          .map(({ node }, i) => {
-          return <Link
-            to={node.link}
-            className={`${style.link}`}
-            key={i}>{ node.label }</Link>
-        }) }
         <Link
           className={`${style.link} ${style.mainLink}`}
           to={`/`}
@@ -62,7 +53,6 @@ const Header = () => {
           Missing.manual
         </Link>
         { menuItems
-          .filter((item, i) => i >= menuItems.length / 2)
           .filter(({ node }) => !node.home && !node.footerOnly)
           .map(({ node }, i) => {
           return <Link
