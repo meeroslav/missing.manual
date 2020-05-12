@@ -22,5 +22,5 @@ $box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
 
 // functions
 @function mixTransparent($color) {
-  @return mix($color, transparent, 90%);
+  @return mix($color, transparent, 95%);
 }

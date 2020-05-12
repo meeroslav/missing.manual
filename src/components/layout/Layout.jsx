@@ -11,17 +11,19 @@ const Layout = ({ children, ...props }) => {
   const description = props.description;
   const hero = props.hero || (props.data && props.data.cover.childImageSharp.sizes);
   return (
-    <div className={style.layout}>
-      <SEO title={title} description={description} />
-      <Header/>
-      { hero && <Image sizes={hero}/> }
-      <main className={style.main}>
-        <section className={style.mainSection}>
-          {children}
-        </section>
-      </main>
-      <Footer/>
-    </div>
+    <>
+      <SEO title={title} description={description}/>
+      <div className={style.layout}>
+        <Header/>
+        {hero && <Image sizes={hero}/>}
+        <main className={hero ? style.main : `${style.main} ${style.herolessMain}`}>
+          <section className={style.mainSection}>
+            {children}
+          </section>
+        </main>
+        <Footer/>
+      </div>
+    </>
   );
 };
 
