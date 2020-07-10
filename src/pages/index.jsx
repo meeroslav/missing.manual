@@ -30,7 +30,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    blogPosts: allMdx(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
+    blogPosts: allMdx(
+        filter: { frontmatter: { published: { eq: true } }},
+        limit: 3,
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
       edges {
         node {
           excerpt
@@ -40,6 +44,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            published
             description
             cover {
               publicURL

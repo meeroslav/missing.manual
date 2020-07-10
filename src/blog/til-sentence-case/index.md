@@ -1,7 +1,7 @@
 ---
 title: Today I learned - Sentence case in CSS
 date: "2020-06-26T09:00:00.121Z"
-published: false
+published: true
 cover: "./patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg"
 description: CSS provides an amazing toolset for style manipulation, but when it comes to text manipulation you often need to resort to JavaScript for additional help. However, CSS has many tricks up his sleeve you might not be aware of.
 ---
