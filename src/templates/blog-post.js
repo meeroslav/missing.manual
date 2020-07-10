@@ -25,9 +25,7 @@ export default function BlogPostTemplate(props) {
       <div className={style.blogPost}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </div>
-      <div className={style.blogPost}>
-        <hr/>
-      </div>
+      <hr className={style.bioDivider}/>
       <Bio className={style.blogPost}/>
 
       <ul className={style.blogPostNavigation}>

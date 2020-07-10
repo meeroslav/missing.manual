@@ -22,6 +22,11 @@
   }
 }
 
+.bioDivider {
+  margin: $gutter auto;
+  width: 100%;
+}
+
 .blogPostHeading {
   margin-top: $headlineTopMargin;
   margin-bottom: 0;
@@ -44,8 +49,18 @@
   grid-column: 2;
   text-align: right;
 }
-ul.blogPostNavigation li::before {
-  content: none;
+ul.blogPostNavigation li {
+  margin-top: $gutter;
+
+  a {
+    background: $cl-focus;
+    color: $cl-white;
+    padding: $spacing;
+  }
+
+  &::before {
+    content: none;
+  }
 }
 
 @media (max-width: $mobile-view-limit) {
