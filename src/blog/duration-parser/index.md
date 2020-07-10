@@ -5,22 +5,22 @@ published: false
 cover: "nick-hillier-yD5rv8_WzxA-unsplash.jpg"
 description: In progress...
 ---
-ISO 8601 is the international standard document covering date and time related data. It's commonly used 
+ISO 8601 is the international standard document covering date and time-related data. It's commonly used 
 in code to represent dates and times 
 (e.g. [Date.toIsoString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)).   
 There is one less known specification in this standard related to duration.
 
 ### What is duration standard?
 
-Duration defines the interval in time and is represented by following format:
+Duration defines the interval in time and is represented by the following format:
 
 ```
 P{n}Y{n}M{n}W{n}DT{n}H{n}M{n}S
 ```
 
 The capitals letters Y, M, W, D, H, M, S represent the following in order: 
-years, months, weeks, days, hours, minutes and seconds. The `{n}` represents a number. Each of the duration's
-segments is optional. Letter T is used to separate date part of the interval from the time part.
+years, months, weeks, days, hours, minutes, and seconds. The `{n}` represents a number. Each of the duration
+segment is optional. Letter T is used to separate the date part of the interval from the time part.
 
 The following are all valid durations:
 
@@ -31,9 +31,9 @@ P5MT7M - 5 months, 7 minutes
 PT3H5S - 3 hours, 5 seconds
 ```
 
-### Human readable duration
+### Human-readable duration
 
-Using the specification it's easy to implement parser that would parse ISO standard into human readable form.
+Using the specification it's easy to implement a parser that would parse ISO standard into human-readable form.
 First, we need the regex that would extract the necessary segments:
 
 ```jsregexp
@@ -52,8 +52,8 @@ Let's dissect this regex to understand what it does:
     * The group is optional (due to `?` at the end)
     * Group consist on sub-groups `(?:(\d+)H)?`, `(?:(\d+)M)?` and `(?:(\d+)S)?` to which the above mentioned logic applies
     
-If we run this regex on arbitrary string it will try to match `P` at the beginning and then extract numbers for
-years, months, weeks, days, hours, minutes and seconds. For those that are not available, it will return undefined.
+If we run this regex on an arbitrary string it will try to match `P` at the beginning and then extract numbers for
+years, months, weeks, days, hours, minutes, and seconds. For those that are not available, it will return undefined.
 We can use array destructuring in ES6 to extract those values:
 
 ```typescript
@@ -102,7 +102,7 @@ parseDuration('PT12H34M'); // -> 12:34:00
 parseDuration('P4WT5M'); // -> 4 weeks 00:05:00
 ```
 
-Using the above logic it's easy to construct your own parser that would map duration into 
+Using the above logic it's easy to construct your parser that would map duration into 
 different output string or add localization and internationalization.
 
 ### Extra: Angular Pipe
