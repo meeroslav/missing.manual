@@ -10,7 +10,7 @@ in code to represent dates and times
 (e.g. [Date.toIsoString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)).   
 There is one less known specification in this standard related to duration.
 
-### What is duration standard
+### What is duration standard?
 
 Duration defines the interval in time and is represented by following format:
 
@@ -31,7 +31,7 @@ P5MT7M - 5 months, 7 minutes
 PT3H5S - 3 hours, 5 seconds
 ```
 
-### Human readable form
+### Human readable duration
 
 Using the specification it's easy to implement parser that would parse ISO standard into human readable form.
 First, we need the regex that would extract the necessary segments:
@@ -82,7 +82,7 @@ Here is the full parser function:
 ```typescript
 const REGEX = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/;
 
-function parseDuration(input: string) {
+export function parseDuration(input: string) {
     const [, years, months, weeks, days, hours, mins, secs ] = input.match(REGEX) || [];
 
     return [
@@ -95,7 +95,36 @@ function parseDuration(input: string) {
         : []
     ].join(' ');
 }
+
+// usage
+parseDuration('P2Y'); // -> 2 years
+parseDuration('PT12H34M'); // -> 12:34:00
+parseDuration('P4WT5M'); // -> 4 weeks 00:05:00
 ```
 
 Using the above logic it's easy to construct your own parser that would map duration into 
 different output string or add localization and internationalization.
+
+### Extra: Angular Pipe
+
+Wrapping the above function into an angular pipe is rather trivial:
+
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+import { parseDuration } from './parse-duration'; // our parser function
+
+@Pipe({
+  name: 'duration',
+  pure: true
+})
+export class DurationPipe implements PipeTransform {
+  transform(value: string): string {
+    return parseDuration(value);
+  }
+}
+```
+
+We can now use our pipe in the template:
+```html
+{{ input | duration }}
+```
