@@ -44,6 +44,9 @@
   grid-column: 2;
   text-align: right;
 }
+ul.blogPostNavigation li::before {
+  content: none;
+}
 
 @media (max-width: $mobile-view-limit) {
   .blogPostNavigation {
