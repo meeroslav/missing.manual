@@ -7,8 +7,7 @@ description: In progress...
 ---
 ISO 8601 is the international standard document covering date and time-related data. It is commonly used 
 to represent dates and times in code 
-(e.g. [Date.toISOString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)).   
-There is one less known specification in this standard related to duration.
+(e.g. [Date.toISOString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)). There is one less known specification in this standard related to duration.
 
 ### What is duration standard?
 
