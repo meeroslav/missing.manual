@@ -1,7 +1,7 @@
 ---
 title: Parsing ISO 8601 duration 
 date: "2020-07-10T09:00:00.121Z"
-published: false
+published: true
 cover: "nick-hillier-yD5rv8_WzxA-unsplash.jpg"
 description: In progress...
 ---
