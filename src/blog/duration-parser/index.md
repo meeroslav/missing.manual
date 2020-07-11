@@ -5,9 +5,9 @@ published: false
 cover: "nick-hillier-yD5rv8_WzxA-unsplash.jpg"
 description: In progress...
 ---
-ISO 8601 is the international standard document covering date and time-related data. It's commonly used 
-in code to represent dates and times 
-(e.g. [Date.toIsoString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)).   
+ISO 8601 is the international standard document covering date and time-related data. It is commonly used 
+to represent dates and times in code 
+(e.g. [Date.toISOString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)).   
 There is one less known specification in this standard related to duration.
 
 ### What is duration standard?
@@ -18,9 +18,9 @@ Duration defines the interval in time and is represented by the following format
 P{n}Y{n}M{n}W{n}DT{n}H{n}M{n}S
 ```
 
-The capitals letters Y, M, W, D, H, M, S represent the following in order: 
+Letters P and T represent, respectively, makers for period and time blocks. The capitals letters Y, M, W, D, H, M, S represent the segments in order: 
 years, months, weeks, days, hours, minutes, and seconds. The `{n}` represents a number. Each of the duration
-segment is optional. Letter T is used to separate the date part of the interval from the time part.
+segments are optional.
 
 The following are all valid durations:
 
@@ -31,7 +31,7 @@ P5MT7M - 5 months, 7 minutes
 PT3H5S - 3 hours, 5 seconds
 ```
 
-### Human-readable duration
+### Human-readable format
 
 Using the specification it's easy to implement a parser that would parse ISO standard into human-readable form.
 First, we need the regex that would extract the necessary segments:
@@ -70,12 +70,12 @@ We can use those values to export something like `3 years 5 days 23:11:05`. We w
 create an array of parsed segments:
 
 ```
-  [3, undefined, 12, undefined, 5, 13, undefined] -> ['3 years', '12 weeks', '05:13:00']
+  [3, undefined, undefined, 5, 23, 11, 5] -> ['3 years', '5 days', '23:11:05']
 ```
 
-And then simply flatten the array with whitespace. Parsing time has an additional logic:
-* we return time segment only if at least one of hours, minutes or seconds is specified
-* we map every time part into two digits signature
+And then simply flatten/join the array using whitespace. Parsing time has an additional logic:
+* we return time segment only if at least one of hours, minutes or seconds is specified (and different than 0)
+* we map every time subsection into two digits signature
 
 Here is the full parser function:
 
@@ -102,12 +102,9 @@ parseDuration('PT12H34M'); // -> 12:34:00
 parseDuration('P4WT5M'); // -> 4 weeks 00:05:00
 ```
 
-Using the above logic it's easy to construct your parser that would map duration into 
-different output string or add localization and internationalization.
-
 ### Extra: Angular Pipe
 
-Wrapping the above function into an angular pipe is rather trivial:
+Wrapping the above function into an angular pipe is straight forward:
 
 ```typescript
 import { Pipe, PipeTransform } from '@angular/core';
@@ -128,3 +125,9 @@ We can now use our pipe in the template:
 ```html
 {{ input | duration }}
 ```
+
+---
+
+Understanding the structure of ISO 8601 standard allowed us to easily parse the segments and then construct the
+mapper that would map the segments into desired format. With minimal changes, t's easy to construct 
+parser that would map duration into different output string or add localization and internationalization.
