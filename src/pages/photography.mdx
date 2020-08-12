@@ -2,6 +2,7 @@
 title: Photography
 describe: Some of my photo takes from Instagram
 ---
+
 import Gallery from '../components/gallery/Gallery.jsx';
 import { graphql } from 'gatsby';
 
@@ -9,13 +10,13 @@ import { graphql } from 'gatsby';
 
 I occasionally like to take photos with my phone or camera.
 You can check some of my last published photos from Instagram.
-You can check all my gear [here](./uses).
+You can check all my gear [here](../uses).
 
 <Gallery />
 
 export const pageQuery = graphql`
   query {
-    cover: file(absolutePath: { regex: "/pages\/photography.jpeg/" }) {
+    cover: file(absolutePath: { regex: "/pages/photography.jpeg/" }) {
       childImageSharp {
         sizes(maxWidth: 2000, maxHeight: 400) {
           ...GatsbyImageSharpSizes
