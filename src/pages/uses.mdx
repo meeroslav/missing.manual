@@ -1,7 +1,8 @@
 ---
 title: Uses
-description: My work and hobby equipment.
+description: List of my work and hobby equipment.
 ---
+
 import ExternalLink from '../components/external-link/ExternalLink';
 import { Link, graphql } from 'gatsby';
 
@@ -16,9 +17,9 @@ Although I try to keep my setup as minimal as possible, I often end getting stuf
 It's an old machine now, but still does the job. The only time I feel the limitations is when I work with photo editing.
 I've used iMac before with more SSD and RAM, but portability of MacBook was a deciding factor which one gets sold first. Inside the box:
 
-  - Samsung Evo 970 500GB SSD
-  - 8GB RAM
-  - Running OSX Catalina
+- Samsung Evo 970 500GB SSD
+- 8GB RAM
+- Running OSX Catalina
 
 Originally it had 128GB drive. Once it became primary machine, SSD had to be replaced by bigger [Evo 970 500GB](https://www.samsung.com/us/computing/memory-storage/solid-state-drives/ssd-970-evo-nvme-m2-500gb-mz-v7e500bw/)
 
@@ -45,13 +46,27 @@ I do own a pair of old Sennheisers, worn out, leftover from my DJ-ing days.
 
 ## Software
 
-#### [JetBrains Webstorm](https://www.jetbrains.com/webstorm/)
+### Coding
+
+#### [Webstorm](https://www.jetbrains.com/webstorm/)
+
+I use Webstorm for my Angular projects and when I need more intelisense. Intelisense and refactoring possibilities are unparalleled.
+
+#### [VS Code](https://code.visualstudio.com/)
+
+I'm trying to switch to Code these days. There are still parts from Webstorm I'm missing on daily basis
+but I'm slowly getting there.
+
+#### [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+
+Simply the best Java editor out there. I've used also [Rider](https://www.jetbrains.com/rider/) and [Resharper](https://www.jetbrains.com/resharper/) for .Net projects, [Ruby Mine](https://www.jetbrains.com/ruby/) and [PhpStorm](https://www.jetbrains.com/phpstorm/).
+JetBrains tools increase the productivity noticeably.
 
 ## Office
 
 #### [Vitra MedaPal chair](https://www.design-bestseller.de/vitra-medapal-ohne-verstellbare-lumbalstuetze.html?sku=808080&cpkey=qgfi_Yb23Jr11znM77K45OkBV2rcSCUx-bnyK3SHKtTznATVMqHUeBWXz8h8SByQ&gclid=Cj0KCQjw7qn1BRDqARIsAKMbHDaHeSBkXYWACjTNGbUSc6guypmmkXbr-JsmIHokJXNAgV9L5sdrLJIaAsRfEALw_wcB)
 
-I had this chair at my first company and now at 5G Systems, and loved it. Some guy was selling it
+I had this chair at my first company and now at 5G Systems, and loved it. Some guy was selling used pair for peanuts so I bought both, and some weeks later sold second one for 10x more.
 
 #### [IKEA Linmon Tabletop](https://www.ikea.com/at/de/p/linnmon-tischplatte-weiss-eicheneff-wlas-20353741/) with two [IKEA Alex drawers](https://www.ikea.com/at/de/p/alex-schubladenelement-schwarzbraun-40342285/) as a stand
 
@@ -80,15 +95,11 @@ A great little MIDI keyboard that goes perfectly along with notebooks.
 
 #### [Logitech R400 Presentation Remote](https://www.logitech.com/en-sg/product/wireless-presenter-r400)
 
-#### [Metabo BS 18 Li](https://www.metabo.com/at/de/maschinen/akku-geraete/akkuschrauber-akku-bohrschrauber/bs-18-602207500-akku-bohrschrauber.html)
-
-This hand drill is my main tool for all the house works along with [IKEA Fixa tools](https://www.ikea.com/at/de/p/fixa-werkzeugsatz-17-tlg-00169254/).
-
 > This page was inspired by [Wes's uses page](https://wesbos.com/uses).
 
 export const pageQuery = graphql`
   query {
-    cover: file(absolutePath: { regex: "/pages\/gear.jpeg/" }) {
+    cover: file(absolutePath: { regex: "/pages/gear.jpeg/" }) {
       childImageSharp {
         sizes(maxWidth: 2000, maxHeight: 800) {
           ...GatsbyImageSharpSizes
