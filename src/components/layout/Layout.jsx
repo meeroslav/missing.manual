@@ -12,16 +12,16 @@ const Layout = ({ children, ...props }) => {
   const hero = props.hero || (props.data && props.data.cover.childImageSharp.sizes);
   return (
     <>
-      <SEO title={title} description={description}/>
+      <SEO title={title} description={description} image={hero} />
       <div className={style.layout}>
-        <Header/>
-        {hero && <Image sizes={hero}/>}
+        <Header />
+        {hero && <Image sizes={hero} />}
         <main className={hero ? style.main : `${style.main} ${style.herolessMain}`}>
           <section className={style.mainSection}>
             {children}
           </section>
         </main>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );
