@@ -63,7 +63,11 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: '@meeroslav',
+        },
+        {
+          name: `twitter:site`,
+          content: '@meeroslav',
         },
         {
           name: `twitter:title`,
