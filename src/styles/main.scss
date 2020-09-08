@@ -80,6 +80,9 @@ body {
   font-family: 'Missing Code', monospace;
   font-size: 0.9em;
 }
+.vscode-highlight.dark-default-dark {
+  background: $cl-black;
+}
 
 // SOME HACKS
 .iframeContainer {
