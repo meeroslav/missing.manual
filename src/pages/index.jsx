@@ -12,12 +12,12 @@ const Home = ({ data }) => {
 
   return (
     <Layout location={data.location}
-            title="Home">
-      <IndexHero text={'Missing manual'}/>
+      title="Home">
+      <IndexHero text={'Missing manual'} />
       <h2>Latest posts</h2>
-      { posts.map(({ node }, i) => <MiniPost {...node} key={i}/>) }
+      {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
       <h2>Upcoming talks</h2>
-      { upcomingTalks.map(({ node }, i) => <Talk {...node} key={i}/>) }
+      {upcomingTalks.map(({ node }, i) => <Talk {...node} key={i} />)}
     </Layout>
   );
 };
@@ -49,8 +49,8 @@ export const pageQuery = graphql`
             cover {
               publicURL
               childImageSharp {
-                sizes(maxWidth: 320) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 320) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

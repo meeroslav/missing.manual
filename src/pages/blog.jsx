@@ -9,10 +9,10 @@ const BlogPage = ({ data }) => {
 
   return (
     <Layout location={data.location}
-            hero={data.cover.childImageSharp.sizes}
-            title="Blog">
+      hero={data.cover.childImageSharp.fluid}
+      title="Blog">
       <h1>Blog</h1>
-      { posts.map(({ node }, i) => <MiniPost {...node} key={i}/>) }
+      {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
     </Layout>
   );
 };
@@ -27,8 +27,8 @@ export const pageQuery = graphql`
     }
     cover: file(absolutePath: { regex: "/pages\/blog.jpg/" }) {
       childImageSharp {
-        sizes(maxWidth: 2000, maxHeight: 600) {
-          ...GatsbyImageSharpSizes
+        fluid(maxWidth: 2000, maxHeight: 600) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -50,8 +50,8 @@ export const pageQuery = graphql`
             cover {
               publicURL
               childImageSharp {
-                sizes(maxWidth: 320) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 320) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

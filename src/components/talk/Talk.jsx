@@ -13,8 +13,8 @@ const Talk = ({ title, date, event, slides, video, link, image, type }) => {
               relativePath
               name
               childImageSharp {
-                sizes(maxWidth: 320) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 320) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -22,7 +22,7 @@ const Talk = ({ title, date, event, slides, video, link, image, type }) => {
         }
       }
     `);
-  const imageSizes = data.images.edges.find(({ node }) =>
+  const imageFluid = data.images.edges.find(({ node }) =>
     node.relativePath.match('talks') && node.relativePath.includes(image));
 
   return (
@@ -30,15 +30,15 @@ const Talk = ({ title, date, event, slides, video, link, image, type }) => {
       {video ?
         <div className={`${style.talkImage} iframeContainer`}>
           <iframe
-                  src={video}
-                  title="video"
-                  frameBorder="0"
-                  allow="encrypted-media"
-                  allowFullScreen/>
+            src={video}
+            title="video"
+            frameBorder="0"
+            allow="encrypted-media"
+            allowFullScreen />
         </div> :
-        imageSizes && <Image
+        imageFluid && <Image
           className={style.talkImage}
-          sizes={imageSizes.node.childImageSharp.sizes}
+          fluid={imageFluid.node.childImageSharp.fluid}
           alt={title}
         />
       }

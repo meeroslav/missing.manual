@@ -8,7 +8,7 @@ const MiniPost = props => {
   const excerpt = props.frontmatter.description || props.excerpt;
   return (
     <div key={props.fields.slug} className={style.miniPost}>
-      <Image className={style.miniPostImage} sizes={props.frontmatter.cover.childImageSharp.sizes}/>
+      <Image className={style.miniPostImage} fluid={props.frontmatter.cover.childImageSharp.fluid} />
       <section className={style.miniPostText}>
         <h3>
           <Link to={props.fields.slug}>

@@ -10,13 +10,13 @@ const TalksPage = ({ data }) => {
 
   return (
     <Layout location={data.location}
-            hero={data.cover.childImageSharp.sizes}
-            title="Talks">
+      hero={data.cover.childImageSharp.fluid}
+      title="Talks">
       <h1>Talks</h1>
-      { upcoming.length && <h2>Upcoming talks</h2> }
-      { upcoming.map(({ node }, i) => <Talk {...node} key={i}/>) }
+      {upcoming.length && <h2>Upcoming talks</h2>}
+      {upcoming.map(({ node }, i) => <Talk {...node} key={i} />)}
       <h2>Previous talks</h2>
-      { past.map(({ node }, i) => <Talk {...node} key={i}/>) }
+      {past.map(({ node }, i) => <Talk {...node} key={i} />)}
     </Layout>
   );
 };
@@ -31,8 +31,8 @@ export const pageQuery = graphql`
     }
     cover: file(absolutePath: { regex: "/pages\/talk.jpeg/" }) {
       childImageSharp {
-        sizes(maxWidth: 2000, maxHeight: 600) {
-          ...GatsbyImageSharpSizes
+        fluid(maxWidth: 2000, maxHeight: 600) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

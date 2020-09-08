@@ -13,7 +13,7 @@ export default function BlogPostTemplate(props) {
 
   return (
     <Layout location={location}
-      hero={post.frontmatter.cover.childImageSharp.sizes}
+      hero={post.frontmatter.cover.childImageSharp.fluid}
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}>
       {post.frontmatter.coverInfo && (<p className={style.blogPost}>
@@ -71,8 +71,8 @@ export const pageQuery = graphql`
         cover {
           publicURL
           childImageSharp {
-            sizes(maxWidth: 2000, maxHeight: 600) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 2000, maxHeight: 600) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
