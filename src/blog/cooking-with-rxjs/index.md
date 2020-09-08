@@ -22,7 +22,7 @@ The truth is, reactive programming and ReactiveX are simple.
 
 The problem is the lack of proper understanding and the learning material. Most of the documentation, although well improved over time, is still hard to understand by a complete beginner in the reactive world. The majority of people learned Rx the hard way — by trying out different things and figuring out how it manifests in the results. The hardest part, however, is switching to a **reactive state of mind**. Sadly, some never reach this state. Remember the people from the beginning that could not explain reactiveness because it was ***too complicated***?
 
-### What is ReactiveX?
+## What is ReactiveX?
 
 If you look at some of the documentation at official and not so official websites for Rx you will probably have a big question mark hanging above your head. The language used is often too technical and uses technical terminology to explain that very same terminology.
 > ReactiveX is an API for asynchronous programming
@@ -50,7 +50,7 @@ Let’s try to decompose this definition. Instead of marbles, let’s try using 
 
 ---
 
-### Functional programming
+## Functional programming
 
 Maybe the best way to explain what functional programming is is by explaining what functional programming isn’t. Let’s analyze a basic **scrambled eggs** recipe in an iterative way:
 
@@ -101,7 +101,7 @@ While not always applicable in the kitchen, in functional programming functions 
 
 * input parameters are not mutated, functions return new objects (this would require eggs to remain intact after stirring)
 
-### Iterator pattern
+## Iterator pattern
 
 The iterator pattern is one of the original [**Gang of Four** design patterns](https://en.wikipedia.org/wiki/Design_Patterns) along with the observer pattern. In order to understand how iterator works, we can imagine a pizza.
 
@@ -109,7 +109,7 @@ The iterator pattern is one of the original [**Gang of Four** design patterns](h
 
 Your pizza works according to the iterator pattern. You take one slice, then take another one, and another one… until there are no more slices left. At any time you can ask (or rather look at) pizza to find out are there more slices available. Iterator helps you to iterate over a collection of items — in this case, a collection of pizza slices. It could be an “endless” collection — like pouring a glass of tap water.
 
-### Observer pattern
+## Observer pattern
 
 While pizza required you to do some manual labor — taking the slices, observer requires you to just “subscribe” to pizza and the slices will come to you. But, maybe pizza is not the best metaphor here.
 
@@ -127,7 +127,7 @@ The process of making pancakes can actually explain a lot of RX operators:
 
 ---
 
-### Hot and cold observables
+## Hot and cold observables
 
 Everything can be an Observable. Observable is an object to which an observer can subscribe. An item, next to you, is an Observable . In our example, pancake-making-grandma is an Observable. Just like pizza, it exposes a collection of items. We can apply multiple functions (called operators) upon observable responses to further enhance or shape the output we need.
 
@@ -141,7 +141,7 @@ Imagine going to a Japanese restaurant and ordering sushi. Your sushi does not e
 
 Now imagine a [conveyor belt sushi](https://en.wikipedia.org/wiki/Conveyor_belt_sushi) (also known as the running sushi, or sushi train) restaurant. Cooks prepare sushi the whole day, and ready-made sushi rotates on a track for customers to pick. The sushi was there before you arrived and will be coming out of the kitchen even after you leave. It does not wait for your “subscription”. You can unsubscribe (stop eating) but that won’t stop the production. This is called **hot **observable. The most common example is listening to mouse events.
 
-### Food for thought
+## Food for thought
 
 Now once you’ve mastered the basics of ReactiveX, select your favorite operator or observable and try to find an analogy in your surrounding.
 

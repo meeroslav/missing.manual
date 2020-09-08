@@ -11,6 +11,7 @@
 .talkImage {
   grid-column: 1/4;
   grid-row: 1;
+  background: $cl-light-gray;
 }
 
 .talkText {
@@ -21,7 +22,7 @@
 
 @media (max-width: $mobile-view-limit) {
   .talk {
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(1, auto 1fr $spacing);
   }
 
   .talkImage {
@@ -31,6 +32,6 @@
 
   .talkText {
     grid-column: 1/13;
-    grid-row: 2
+    grid-row: 2;
   }
 }

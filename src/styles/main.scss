@@ -35,8 +35,12 @@ h1 {
   text-transform: uppercase;
   margin-top: 0;
 }
+h2 {
+  font-family: $headline-font-family;
+  font-weight: $headline-font-weight;
+}
 
-h2, h3, h4 {
+h3, h4 {
   font-weight: $font-weight-bold;
   margin-top: 0;
 }

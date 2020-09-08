@@ -11,7 +11,7 @@ ISO 8601 is the international standard document covering date and time-related d
 to represent dates and times in code
 (e.g. [Date.toISOString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)). There is one less known specification in this standard related to duration.
 
-### What is duration standard?
+## What is duration standard?
 
 Duration defines the interval in time and is represented by the following format:
 
@@ -32,7 +32,7 @@ P5MT7M - 5 months, 7 minutes
 PT3H5S - 3 hours, 5 seconds
 ```
 
-### Human-readable format
+## Human-readable format
 
 Using the specification it's easy to implement a parser that would parse ISO standard into human-readable form.
 First, we need the regex that would extract the necessary segments:
@@ -112,7 +112,7 @@ parseDuration('PT12H34M'); // -> 12:34:00
 parseDuration('P4WT5M'); // -> 4 weeks 00:05:00
 ```
 
-### Extra: Angular Pipe
+## Extra: Angular Pipe
 
 Wrapping the above function into an angular pipe is straight forward:
 
