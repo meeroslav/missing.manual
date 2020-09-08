@@ -3,7 +3,8 @@ title: Parsing ISO 8601 duration
 date: '2020-07-10T09:00:00.121Z'
 published: true
 cover: 'nick-hillier-yD5rv8_WzxA-unsplash.jpg'
-description: One of the lesser known parts of ISO 8601 standard is the duration specification. In this post we will learn how to parse it and construct a simple Angular pipe for template automation.
+coverInfo: "Cover photo by <a href='https://unsplash.com/@nhillier' target='_blank'>Nick Hillier</a> on Unsplash"
+description: One of the lesser-known parts of the ISO 8601 standard is the duration specification. In this post we will learn how to parse it and construct a simple Angular pipe for template automation.
 ---
 
 ISO 8601 is the international standard document covering date and time-related data. It is commonly used

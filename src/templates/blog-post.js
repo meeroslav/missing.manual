@@ -13,9 +13,13 @@ export default function BlogPostTemplate(props) {
 
   return (
     <Layout location={location}
-            hero={post.frontmatter.cover.childImageSharp.sizes}
-            title={post.frontmatter.title}
-            description={post.frontmatter.description || post.excerpt}>
+      hero={post.frontmatter.cover.childImageSharp.sizes}
+      title={post.frontmatter.title}
+      description={post.frontmatter.description || post.excerpt}>
+      {post.frontmatter.coverInfo && (<p className={style.blogPost}>
+        <small dangerouslySetInnerHTML={{ __html: post.frontmatter.coverInfo }} />
+      </p>)
+      }
       <h1 className={style.blogPostHeading}>
         {post.frontmatter.title}
       </h1>
@@ -25,8 +29,8 @@ export default function BlogPostTemplate(props) {
       <div className={style.blogPost}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </div>
-      <hr className={style.bioDivider}/>
-      <Bio className={style.blogPost}/>
+      <hr className={style.bioDivider} />
+      <Bio className={style.blogPost} />
 
       <ul className={style.blogPostNavigation}>
         {previous && (
@@ -44,7 +48,7 @@ export default function BlogPostTemplate(props) {
           </li>
         )}
       </ul>
-    </Layout>
+    </Layout >
   );
 }
 
@@ -72,6 +76,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        coverInfo
       }
       fields {
         slug

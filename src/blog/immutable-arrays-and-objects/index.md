@@ -3,6 +3,7 @@ title: Immutable arrays and objects
 date: "2019-07-19T09:00:00.121Z"
 published: true
 cover: "./dusan-smetana-mX2mdxhc0UM-unsplash.jpg"
+coverInfo: "Cover photo by <a href='https://unsplash.com/@veverkolog' target='_blank'>Dušan Smetana</a> on Unsplash"
 description: Recently there has been an explosion of popularity of libraries like Redux and NGRX. One common requirement they have is an immutable state. Switching to immutable state helps us to more easily reason about our state of the application and to easily track changes. It also helps us to avoid unplanned side effect.
 ---
 
@@ -18,7 +19,7 @@ const state = {
 };
 ```
 
-Even simple state changes, normally done with two-way binding (e.g. `v-model` in Vue or `ngModel` in Angular), could benefit from the immutable approach. We do this by making a copy of the component's input, mutating the copy and output the mutated copy to the caller. This largely reduces the potential for side effects. 
+Even simple state changes, normally done with two-way binding (e.g. `v-model` in Vue or `ngModel` in Angular), could benefit from the immutable approach. We do this by making a copy of the component's input, mutating the copy and output the mutated copy to the caller. This largely reduces the potential for side effects.
 
 Common state action is to add or remove items from an array or to add or remove fields from an object. However, the standard operations are mutating the original object. Let's see how we can apply them in an immutable way. Our goal is to create a new object, rather than changing the existing. For simplicity, we will be using [rest and spread operators](https://javascript.info/rest-parameters-spread-operator) introduced in ES6, but all this is possible (albeit less elegantly) with ES5 functions as well.
 
@@ -149,7 +150,7 @@ const state = {
 state.selected = 'orange';
 state.quantity = 5;
 state.origin = 'imported from Spain';
-/* 
+/*
 state = {
   selected: 'orange',
   quantity: 5,
@@ -173,7 +174,7 @@ const newState = {
   quantity: 5,
   origin: 'imported from Spain'
 };
-/* 
+/*
 newState = {
   fruits: ['orange', 'apple', 'lemon', 'banana'],
   selected: 'orange',
@@ -194,11 +195,11 @@ const state = {
   fruits: ['orange', 'apple', 'lemon', 'banana']
 };
 delete state.quantity;
-/* 
+/*
 state = {
   selected: 'apple',
   fruits: ['orange', 'apple', 'lemon', 'banana']
-} 
+}
 */
 ```
 
@@ -211,7 +212,7 @@ const state = {
   fruits: ['orange', 'apple', 'lemon', 'banana']
 };
 const { quantity, ...newState } = state;
-/* 
+/*
 quantity = 13
 newState = {
   selected: 'apple',
@@ -241,7 +242,7 @@ const newState = { ...state };
 newState.selected = 11;
 newState.gang.push('Max');
 newState.gang.push('Suzie');
-/* 
+/*
 state = {
   selected: 4,
   gang: [
@@ -273,9 +274,9 @@ state.gang === newState.gang
 Not what we expected, right? Performing `spread` operation on the complex structures makes just a shallow (first level) copy of the structure. Here it only copied the reference to the `gang` array, not the actual array. Adding new elements to the array influenced both `state` and `newState`. To solve this we need to spread the array separately.
 
 ```javascript
-const newState = { 
-  ...state, 
-  gang: [...state.gang] 
+const newState = {
+  ...state,
+  gang: [...state.gang]
 };
 ```
 
@@ -297,7 +298,7 @@ const newState = {
   gang: [...state.gang]
 }
 newState.gang[4].name = 'Eleven';
-/* 
+/*
 state = {
   selected: 4,
   gang: [

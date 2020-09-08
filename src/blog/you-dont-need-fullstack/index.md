@@ -3,6 +3,7 @@ title: You don’t need a full stack developer
 date: "2018-11-27T09:00:00.121Z"
 published: true
 cover: "./daniel-wirtz-jmmTlAPtNw8-unsplash.jpg"
+coverInfo: "Cover photo by <a href='https://unsplash.com/@danielwirtz' target='_blank'>Daniel Wirtz</a> on Unsplash"
 description: Hiring a developer is like scouting a new band member. You are looking for someone with a specific skill, who will match your spirit, doesn’t have a band already or is willing to change a band for the perks you are offering.
 ---
 
@@ -42,7 +43,7 @@ While most of the companies looking for a full stack developer hope to hire the 
 
 ![Photo by William W. Ward on flickr](./one-man-band.jpeg)
 
-Don’t get me wrong, I’m sure this guy is super talented. 
+Don’t get me wrong, I’m sure this guy is super talented.
 But ask yourself this — if you were a **band manager**, would you bring a couple of those guys to play in your band, or would you rather find the best singer, best guitar player, best drummer, best (chose your instrument) that you can afford? Because that best guitar player can for sure sing or play drums on a decent level if needed. After all, no one wants a musician who doesn’t care for the rest of the composition.
 
 ---

@@ -3,6 +3,7 @@ title: A different approach to RxJS - Cooking with RxJS
 date: "2018-10-02T09:00:00.121Z"
 published: true
 cover: "./brooke-lark-jUPOXXRNdcA-unsplash.jpg"
+coverInfo: "Cover photo by <a href='https://unsplash.com/@brookelark' target='_blank'>Brooke Lark</a> on Unsplash"
 description: The simplest things are often the hardest to learn. Our experience dealing with complicated topics hinders us from switching our brain to comprehend simple things.
 ---
 *The simplest things are often the hardest to learn. Our experience dealing with complicated topics hinders us from switching our brain to comprehend simple things.*
@@ -54,8 +55,8 @@ Let’s try to decompose this definition. Instead of marbles, let’s try using 
 Maybe the best way to explain what functional programming is is by explaining what functional programming isn’t. Let’s analyze a basic **scrambled eggs** recipe in an iterative way:
 
 ```
-1. Assemble: 
-    2 eggs; 
+1. Assemble:
+    2 eggs;
     1 teaspoon of butter or oil;
     dash of pepper;
     1/8 teaspoon of salt;

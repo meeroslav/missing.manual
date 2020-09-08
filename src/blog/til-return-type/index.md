@@ -3,6 +3,7 @@ title: Today I learned - ReturnType<T>
 date: "2020-09-04T17:00:00.121Z"
 published: true
 cover: "./jehyun-sung-6U5AEmQIajg-unsplash.jpg"
+coverInfo: "Cover photo by <a href='https://unsplash.com/@jaysung' target='_blank'>Jehyun Sung</a> on Unsplash"
 description: In TypeScript we often need to deal with third-party and/or native functions and based on the implementation their return types might differ. Luckily, TypeScript has a trick up the sleeve how to resolve them.
 ---
 
