@@ -76,6 +76,11 @@ body {
   padding: 0;
 }
 
+.vscode-highlight-code, code {
+  font-family: 'Missing Code', monospace;
+  font-size: 0.9em;
+}
+
 // SOME HACKS
 .iframeContainer {
   overflow: hidden;
