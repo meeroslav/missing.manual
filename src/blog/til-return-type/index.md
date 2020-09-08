@@ -7,7 +7,7 @@ coverInfo: "Cover photo by <a href='https://unsplash.com/@jaysung' target='_blan
 description: In TypeScript we often need to deal with third-party and/or native functions and based on the implementation their return types might differ. Luckily, TypeScript has a trick up the sleeve how to resolve them.
 ---
 
-In TypeScript we often deal with functions coming from the untyped third-party libraries or native functions. The details of their implementation might not be clear to us, or their types might differ depending on the environment. So how do we correctly type them in our code? Do we use `any` to make TypeScript compiler happy?
+In TypeScript we often deal with functions coming from the untyped third-party libraries or native functions. The details of their implementation might not be clear to us, or their types might differ depending on the environment. So how do we correctly type them in our code? Do we use `any` to make the TypeScript compiler happy?
 
 ## What type is `timeout`?
 

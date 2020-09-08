@@ -4,7 +4,7 @@ date: "2018-10-02T09:00:00.121Z"
 published: true
 cover: "./brooke-lark-jUPOXXRNdcA-unsplash.jpg"
 coverInfo: "Cover photo by <a href='https://unsplash.com/@brookelark' target='_blank'>Brooke Lark</a> on Unsplash"
-description: The simplest things are often the hardest to learn. Our experience dealing with complicated topics hinders us from switching our brain to comprehend simple things.
+description: The simplest things are often the hardest to learn. Our experience dealing with complicated topics hinders us from switching our brains to comprehend simple things.
 ---
 *The simplest things are often the hardest to learn. Our experience dealing with complicated topics hinders us from switching our brain to comprehend simple things.*
 
@@ -20,7 +20,7 @@ The truth is, reactive programming and ReactiveX are simple.
 
 ---
 
-The problem is the lack of proper understanding and the learning material. Most of the documentation, although well improved over time, is still hard to understand by a complete beginner in the reactive world. Majority of people learned Rx the hard way — by trying out different things and figuring out how it manifests in the results. The hardest part, however, is switching to a **reactive state of mind**. Sadly, some never reach this state. Remember the people from the beginning that could not explain reactiveness because it was ***too complicated***?
+The problem is the lack of proper understanding and the learning material. Most of the documentation, although well improved over time, is still hard to understand by a complete beginner in the reactive world. The majority of people learned Rx the hard way — by trying out different things and figuring out how it manifests in the results. The hardest part, however, is switching to a **reactive state of mind**. Sadly, some never reach this state. Remember the people from the beginning that could not explain reactiveness because it was ***too complicated***?
 
 ### What is ReactiveX?
 
@@ -81,7 +81,7 @@ Let’s see now how we would do this functionally.
       )
     )
 
-It’s now bit clear that heating the butter in the pan and beating the eggs can be parallelized. We also see that we should only serve once** **the mixture had thickened. Also, we must stir the mixture in the medium heated pan until thickened.
+It’s now a bit clear that heating the butter in the pan and beating the eggs can be parallelized. We also see that we should only serve once** **the mixture had thickened. Also, we must stir the mixture in the medium heated pan until thickened.
 
 If we consider that stirring the mixture does the same thing as beating (mixing) them we could even do this:
 
@@ -93,7 +93,7 @@ If we consider that stirring the mixture does the same thing as beating (mixing)
       )
     )
 
-We mark the second param, the ingredients, with a dollar sign to note that it’s a stream of items. It also tells us that as long as the mixture hasn’t thickened we can still add spices or more eggs to ingredients stream. We can see the dependencies, hierarchy and a clear flow — something enters the function, something (else) exits the function.
+We mark the second param, the ingredients, with a dollar sign to note that it’s a stream of items. It also tells us that as long as the mixture hasn’t thickened we can still add spices or more eggs to the ingredients stream. We can see the dependencies, hierarchy and a clear flow — something enters the function, something (else) exits the function.
 
 While not always applicable in the kitchen, in functional programming functions should be always pure:
 
@@ -129,7 +129,7 @@ The process of making pancakes can actually explain a lot of RX operators:
 
 ### Hot and cold observables
 
-Everything can be an observable. Observable is an object to which an observer can subscribe. An item, next to you, is an Observable . In our example, pancake-making-grandma is an observable. Just like pizza, it exposes a collection of items. We can apply multiple functions (called operators) upon observable response to further enhance or shape the output we need.
+Everything can be an Observable. Observable is an object to which an observer can subscribe. An item, next to you, is an Observable . In our example, pancake-making-grandma is an Observable. Just like pizza, it exposes a collection of items. We can apply multiple functions (called operators) upon observable responses to further enhance or shape the output we need.
 
 You might notice two sub-classes here — some observables are a one-time thing, while others come in a stream, but they generally work the same way — you request something (or some things) and you receive it once it’s ready. You can also unsubscribe before the next item arrives.
 

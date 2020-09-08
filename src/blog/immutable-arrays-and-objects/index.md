@@ -4,7 +4,7 @@ date: "2019-07-19T09:00:00.121Z"
 published: true
 cover: "./dusan-smetana-mX2mdxhc0UM-unsplash.jpg"
 coverInfo: "Cover photo by <a href='https://unsplash.com/@veverkolog' target='_blank'>Dušan Smetana</a> on Unsplash"
-description: Recently there has been an explosion of popularity of libraries like Redux and NGRX. One common requirement they have is an immutable state. Switching to immutable state helps us to more easily reason about our state of the application and to easily track changes. It also helps us to avoid unplanned side effect.
+description: Recently there has been an explosion of popularity of libraries like Redux and NGRX. One common requirement they have is an immutable state. Switching to the immutable state helps us to more easily reason about our state of the application and to easily track changes. It also helps us to avoid an unplanned side effect.
 ---
 
 Recently there has been an explosion of popularity of libraries like **Redux** and **NGRX**. One common requirement they have is an **immutable state**. The state of the application is a result of a list of actions sequentially applied to the initial state. Each state of the application is unchangeable. A new action uses the existing state to calculate a new one. This helps us to avoid accidental state changes via mutable operations. It also allows us to investigate which actions led to our current state.
@@ -80,7 +80,7 @@ const newFruits = fruits.slice(0, fruits.length - 1); // = ['orange', 'apple', '
 
 ### Shift
 
-Shift is an operation similar to [pop](#pop), but instead of removing the item from the end we remove the item from the beginning of the array.
+The shift is an operation similar to [pop](#pop), but instead of removing the item from the end we remove the item from the beginning of the array.
 
 ```javascript
 const fruits = ['orange', 'apple', 'lemon', 'banana'];
@@ -203,7 +203,7 @@ state = {
 */
 ```
 
-Removing a property in an immutable way requires a little trick provided by spread's counterpart `rest`. Rest operator is written in the same way as `spread` - with `...`. However, the meaning, in this case, is not to spread all the fields, but rather remaining ones.
+Removing a property in an immutable way requires a little trick provided by the spread's counterpart `rest`. The rest operator is written in the same way as `spread` - with `...`. However, the meaning, in this case, is not to spread all the fields, but rather the remaining ones.
 
 ```javascript
 const state = {
@@ -221,7 +221,7 @@ newState = {
 */
 ```
 
-This technique is called [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignmentFunctions/rest_parameters) as we are unpacking the original state object. We assign quantity key-value pair to constant `quantity` and assign rest of the object to `newState`.
+This technique is called [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignmentFunctions/rest_parameters) as we are unpacking the original state object. We assign the quantity key-value pair to constant `quantity` and assign the rest of the object to `newState`.
 
 ## Complex structures
 
@@ -330,7 +330,7 @@ In most cases, of course, spread on the first level is enough. But we need to be
 
 ## Conclusion
 
-We learned how we can replace mutable operations with their immutable counterparts. Switching to immutable state helps us to more easily reason about our state of the application and to easily track changes. It also helps us to avoid unplanned side effect.
+We learned how we can replace mutable operations with their immutable counterparts. Switching to the immutable state helps us to more easily reason about our state of the application and to easily track changes. It also helps us to avoid an unplanned side effect.
 
 Please have in mind that immutable operations are recreating the array or object every time. If you are dealing with large objects or collections, this might not be the ideal way to handle your data. There are some libraries that are specialized in fast immutable operations (e.g. [Immutable JS](https://github.com/immutable-js/immutable-js) or [Immer](https://github.com/immerjs/immer)), so if you hit the performance roadblock with immutable operations, be sure to check them out.
 

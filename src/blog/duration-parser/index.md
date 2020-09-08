@@ -79,7 +79,7 @@ create an array of parsed segments:
 
 And then simply flatten/join the array using whitespace. Parsing time has an additional logic:
 
-- we return time segment only if at least one of hours, minutes or seconds is specified (and different than 0)
+- we return the time segment only if at least one of hours, minutes or seconds is specified (and different than 0)
 - we map every time subsection into two digits signature
 
 Here is the full parser function:
@@ -139,6 +139,6 @@ We can now use our pipe in the template:
 
 ---
 
-Understanding the structure of ISO 8601 standard allowed us to easily parse the segments and then construct the
-mapper that would map the segments into desired format. With minimal changes, t's easy to construct
-parser that would map duration into different output string or add localization and internationalization.
+Understanding the structure of the ISO 8601 standard allowed us to easily parse the segments and then construct the
+mapper that would map the segments into a desired format. With minimal changes, it's easy to construct
+a parser that would map duration into different output string or add localization and internationalization.
