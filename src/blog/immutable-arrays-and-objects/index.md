@@ -7,6 +7,8 @@ coverInfo: "Cover photo by <a href='https://unsplash.com/@veverkolog' target='_b
 description: Recently there has been an explosion of popularity of libraries like Redux and NGRX. One common requirement they have is an immutable state. Switching to the immutable state helps us to more easily reason about our state of the application and to easily track changes. It also helps us to avoid an unplanned side effect.
 ---
 
+*This post was originally created for [Ultimate Courses](https://ultimatecourses.com/blog/all-about-immutable-arrays-and-objects-in-javascript)*
+
 Recently there has been an explosion of popularity of libraries like **Redux** and **NGRX**. One common requirement they have is an **immutable state**. The state of the application is a result of a list of actions sequentially applied to the initial state. Each state of the application is unchangeable. A new action uses the existing state to calculate a new one. This helps us to avoid accidental state changes via mutable operations. It also allows us to investigate which actions led to our current state.
 
 Normally, we describe states through objects and arrays:
