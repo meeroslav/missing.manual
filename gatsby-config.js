@@ -73,10 +73,11 @@ module.exports = {
               colorTheme: 'Dark+ (default dark)'
             }
           },
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
-        plugins: [ `gatsby-remark-images`]
+        plugins: [`gatsby-remark-images`]
       },
     },
     `gatsby-remark-reading-time`,
