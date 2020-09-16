@@ -10,10 +10,13 @@
 
   .socialNav {
     text-align: center;
-    padding: $gutter;
+    margin: $spacing;
   }
   .menuNav {
-    padding: $spacing;
+    margin: $spacing;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .footerLink {
@@ -28,6 +31,13 @@
       margin-right: $spacing;
       margin-left: -$spacing;
     }
+  }
+
+  .footerLink:last-child:after {
+    content: '';
+    border-right: 1px solid $cl-footer-border;
+    margin-right: -$spacing;
+    margin-left: $spacing;
   }
 
   .socialLink {
