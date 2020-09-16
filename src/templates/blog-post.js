@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { Disqus, CommentCount } from 'gatsby-plugin-disqus';
 
 import Bio from '../components/bio/Bio.jsx';
 import Layout from '../components/layout/Layout.jsx';
@@ -10,11 +11,17 @@ import ExternalLink from '../components/external-link/ExternalLink.jsx';
 
 export default function BlogPostTemplate(props) {
   const post = props.data.mdx;
+  const siteUrl = props.data.site.siteMetadata.siteUrl;
   const { previous, next } = props.pageContext;
   const location = props.location;
   const tags = post.frontmatter.tags
     ? post.frontmatter.tags.split(',').map(tag => tag.trim())
     : null;
+  const disqusConfig = {
+    url: `${siteUrl + location.pathname}`,
+    identifier: post.id,
+    title: post.frontmatter.title,
+  }
 
   const tweetLink = `https://twitter.com/intent/tweet?text=Check out this post by @meeroslav 👇%0ahttps://missing-manual.com${post.fields.slug}`;
   const fbLink = `https://www.facebook.com/sharer/sharer.php?u=https://missing-manual.com${post.fields.slug}`;
@@ -32,13 +39,14 @@ export default function BlogPostTemplate(props) {
       <h1 className={style.blogPostHeading}>
         {post.frontmatter.title}
       </h1>
+      <CommentCount config={disqusConfig} placeholder={'...'} />
       <p className={style.blogPost}>
         <small>
           {post.frontmatter.date} ・ {post.fields.readingTime.text}
           {tags && (` ・ `)}
           {tags && (<span className="tags">
             { tags.map(t => (
-              <span className="tag">{t}</span>
+              <span className="tag" key={t}>{t}</span>
             ))}
           </span>)}
         </small>
@@ -48,8 +56,11 @@ export default function BlogPostTemplate(props) {
       </div>
       <p>
         <br />
-        Did you like the post? Share it on <ExternalLink to={tweetLink}>Twitter <FaTwitter /></ExternalLink>, <ExternalLink to={linkedInLink}>LinkedIn <FaLinkedin /></ExternalLink> or <ExternalLink to={fbLink}>Facebook <FaFacebook /></ExternalLink>
+        Did you like the post? Share it on <ExternalLink to={tweetLink}>Twitter <FaTwitter /></ExternalLink>, <ExternalLink to={linkedInLink}>LinkedIn <FaLinkedin /></ExternalLink> or <ExternalLink to={fbLink}>Facebook <FaFacebook /></ExternalLink>.
+        <br />
+        Did you find it helpful? Leaving <ExternalLink to="https://www.paypal.com/paypalme/meeroslav">a small tip <span role="img" aria-label="coffee">☕</span></ExternalLink> helps.
       </p>
+      <Disqus config={disqusConfig} />
       <hr className={style.bioDivider} />
       <Bio className={style.blogPost} />
 
@@ -79,6 +90,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     mdx(fields: { slug: { eq: $slug } }) {

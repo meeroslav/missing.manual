@@ -104,6 +104,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `meeroslav`
+      }
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
