@@ -2,6 +2,7 @@
 title: A different approach to RxJS - Cooking with RxJS
 date: "2018-10-02T09:00:00.121Z"
 published: true
+tags: RxJS, Observable, Design Patterns
 cover: "./brooke-lark-jUPOXXRNdcA-unsplash.jpg"
 coverInfo: "Cover photo by <a href='https://unsplash.com/@brookelark' target='_blank'>Brooke Lark</a> on Unsplash"
 description: The simplest things are often the hardest to learn. Our experience dealing with complicated topics hinders us from switching our brains to comprehend simple things.

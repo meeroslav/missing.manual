@@ -10,6 +10,9 @@ export default function BlogPostTemplate(props) {
   const post = props.data.mdx;
   const { previous, next } = props.pageContext;
   const location = props.location;
+  const tags = post.frontmatter.tags
+    ? post.frontmatter.tags.split(',').map(tag => tag.trim())
+    : null;
 
   return (
     <Layout location={location}
@@ -24,7 +27,15 @@ export default function BlogPostTemplate(props) {
         {post.frontmatter.title}
       </h1>
       <p className={style.blogPost}>
-        <small>{post.frontmatter.date} ・ {post.fields.readingTime.text}</small>
+        <small>
+          {post.frontmatter.date} ・ {post.fields.readingTime.text}
+          {tags && (` ・ `)}
+          {tags && (<span className="tags">
+            { tags.map(t => (
+              <span className="tag">{t}</span>
+            ))}
+          </span>)}
+        </small>
       </p>
       <div className={style.blogPost}>
         <MDXRenderer>{post.body}</MDXRenderer>
@@ -68,6 +79,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
         cover {
           publicURL
           childImageSharp {

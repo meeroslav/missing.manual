@@ -47,6 +47,7 @@ export const pageQuery = graphql`
             title
             published
             description
+            tags
             cover {
               publicURL
               childImageSharp {

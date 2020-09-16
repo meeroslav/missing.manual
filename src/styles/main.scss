@@ -99,3 +99,25 @@ body {
     width: 100%;
   }
 }
+
+.tags {
+  display: inline-flex;
+  margin: 0;
+
+  .tag:before {
+    content: none;
+  }
+}
+
+.tag {
+  list-style-type: none;
+  background: $cl-focus;
+  color: $cl-background;
+  border-radius: $block-radius;
+  padding: $spacing / 4;
+  line-height: 1;
+  font-weight: bold;
+}
+.tag + .tag {
+  margin-left: $spacing / 2;
+}
