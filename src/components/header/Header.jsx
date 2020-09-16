@@ -37,7 +37,8 @@ const Header = () => {
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 9">
         <path className={style.bar1} fill="currentColor" d="M0,0H11V1.44H0Z" />
-        <path className={style.bar2} fill="currentColor" d="M0,3.78H11V5.22H0Z" />
+        <path className={style.bar2} fill="currentColor" d="M0,3.78H5.5V5.22H0Z" />
+        <path className={style.bar2} fill="currentColor" d="M5.5,3.78H11V5.22H5.5Z" />
         <path className={style.bar3} fill="currentColor" d="M0,7.56H11V9H0Z" />
       </svg>
     </div>
@@ -52,23 +53,23 @@ const Header = () => {
         >
           Missing.manual
         </Link>
-        { menuItems
+        {menuItems
           .filter(({ node }) => !node.home && !node.footerOnly)
-          .map(({ node }, i) => {
-          return <Link
-            to={node.link}
-            className={`${style.link}`}
-            key={i}>{ node.label }</Link>
-        }) }
-      </nav>
-      <Burger/>
-      <nav className={style.verticalNav}>
-        { menuItems
           .map(({ node }, i) => {
             return <Link
               to={node.link}
               className={`${style.link}`}
-              key={i}>{ node.label }</Link>
+              key={i}>{node.label}</Link>
+          })}
+      </nav>
+      <Burger />
+      <nav className={style.verticalNav}>
+        {menuItems
+          .map(({ node }, i) => {
+            return <Link
+              to={node.link}
+              className={`${style.link}`}
+              key={i}>{node.label}</Link>
           })
         }
       </nav>

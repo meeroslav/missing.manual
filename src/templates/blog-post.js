@@ -32,10 +32,6 @@ export default function BlogPostTemplate(props) {
       hero={post.frontmatter.cover.childImageSharp.fluid}
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}>
-      {post.frontmatter.coverInfo && (<p className={style.blogPost}>
-        <small dangerouslySetInnerHTML={{ __html: post.frontmatter.coverInfo }} />
-      </p>)
-      }
       <h1 className={style.blogPostHeading}>
         {post.frontmatter.title}
       </h1>
@@ -49,6 +45,7 @@ export default function BlogPostTemplate(props) {
             ))}
           </span>)}
         </small>
+        {post.frontmatter.coverInfo && (<><br /><small dangerouslySetInnerHTML={{ __html: post.frontmatter.coverInfo }} /></>)}
       </p>
       <div className={style.blogPost}>
         <MDXRenderer>{post.body}</MDXRenderer>

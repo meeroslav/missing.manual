@@ -76,12 +76,19 @@ body {
   padding: 0;
 }
 
+.vscode-highlight {
+  --vscode-highlight-padding-top: 10px;
+  --vscode-highlight-padding-bottom: 10px;
+  --vscode-highlight-padding-left: 10px;
+  --vscode-highlight-padding-right: 10px;
+}
+
 .vscode-highlight-code, code {
   font-family: 'Missing Code', monospace;
-  font-size: 0.9em;
+  font-size: 0.85em;
 }
 .vscode-highlight.dark-default-dark {
-  background: $cl-black;
+  background: $cl-code-background;
 }
 
 // SOME HACKS
@@ -111,8 +118,8 @@ body {
 
 .tag {
   list-style-type: none;
-  background: $cl-mid-gray;
-  color: $cl-background;
+  background: $cl-secondary;
+  color: $cl-inverted-foreground;
   border-radius: $block-radius;
   padding: $spacing / 3;
   line-height: 1;
