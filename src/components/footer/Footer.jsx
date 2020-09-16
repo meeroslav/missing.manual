@@ -39,12 +39,12 @@ const Footer = () => {
         <ExternalLink
           className={style.socialLink}
           to={`https://twitter.com/${social.twitter}`}>
-          <FaTwitter/>
+          <FaTwitter />
         </ExternalLink>
         <ExternalLink
           className={style.socialLink}
           to={`https://github.com/${social.github}`}>
-          <FaGithub/>
+          <FaGithub />
         </ExternalLink>
         <ExternalLink
           className={style.socialLink}
@@ -54,21 +54,21 @@ const Footer = () => {
         <ExternalLink
           className={style.socialLink}
           to={`https://www.instagram.com/${social.instagram}`}>
-          <FaInstagram/>
+          <FaInstagram />
         </ExternalLink>
         <ExternalLink
           className={style.socialLink}
           to={`https://www.behance.net/${social.behance}`}>
-          <FaBehance/>
+          <FaBehance />
         </ExternalLink>
         <ExternalLink
           className={style.socialLink}
           to={`https://medium.com/@${social.medium}`}>
-          <FaMediumM/>
+          <FaMediumM />
         </ExternalLink>
       </nav>
       <nav className={style.menuNav}>
-        { menuItems.map(({ node }, i) => {
+        {menuItems.map(({ node }, i) => {
           return <Link
             to={node.link}
             className={style.footerLink}
@@ -76,6 +76,8 @@ const Footer = () => {
         })}
       </nav>
       <div className={style.footnote}>
+        Built using <ExternalLink to="https://www.gatsbyjs.com/">Gatsby</ExternalLink> ・ Source available on <ExternalLink to="https://github.com/meeroslav/missing.manual"><FaGithub /> GitHub</ExternalLink>
+        <br />
         Miroslav Jonas © {new Date().getFullYear()}
       </div>
     </footer>

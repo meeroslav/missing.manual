@@ -10,20 +10,25 @@
 
   .socialNav {
     text-align: center;
-    margin: $spacing;
+    margin: $spacing auto;
+    width: auto;
+    display: inline-block;
   }
+
   .menuNav {
     margin: $spacing;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-image: $gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .footerLink {
     text-decoration: none;
     padding: $spacing;
     color: inherit;
-    font-weight: $font-weight-light;
 
     &:before {
       content: '';

@@ -34,6 +34,18 @@ h1 {
   font-size: $headline-font-size;
   text-transform: uppercase;
   margin-top: 0;
+  line-height: .9em;
+  vertical-align: baseline;
+  background-image: $gradient;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 1em;
+  }
 }
 h2 {
   font-family: $headline-font-family;

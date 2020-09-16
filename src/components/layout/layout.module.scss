@@ -30,6 +30,24 @@
   padding-bottom: $gutter;
   background: $cl-background;
   z-index: $zMainContent;
+  // clip-path: polygon(
+  //   0 10px,
+  //   1% 8px,
+  //   2% 6px,
+  //   10% 6px,
+  //   11% 0,
+  //   25% 0,
+  //   30% 7px,
+  //   35% 9px,
+  //   35% 4px,
+  //   42% 0,
+  //   80% 0,
+  //   90% 8px,
+  //   98% 2px,
+  //   100% 6px,
+  //   100% 100%,
+  //   0 100%
+  //   );
 
   & > * {
     grid-column: 2/14;
@@ -51,6 +69,6 @@
 @media (max-width: $mobile-view-limit) {
   .mainSection {
     grid-column: 1/15;
-    margin-top: 0;
+    margin-top: -10px;
   }
 }

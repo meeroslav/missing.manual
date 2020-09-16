@@ -3,26 +3,30 @@ $cl-outer-space: #2C3531;
 $cl-turquoise: #3AAFA9;
 $cl-abbey: #474b4f;
 $cl-burnt-sienna: #E85A4F;
+$cl-electric-violet: #8338EC;
+$cl-daisy-bush: #52278d;
 $cl-alto: #DFDFDF;
-$cl-satin: #EAE7DC;
 $cl-twilight-blue: #FEFFFF;
 
 // target colors
 $cl-background: $cl-twilight-blue;
 $cl-foreground: $cl-outer-space;
-$cl-focus: $cl-turquoise;
+$cl-focus: $cl-daisy-bush;
 $cl-secondary: $cl-abbey;
-$cl-main-back: $cl-satin;
+$cl-main-back: $cl-alto;
 $cl-inverted-foreground: $cl-twilight-blue;
 $cl-code-background: $cl-outer-space;
 
 // footer
-$cl-footer-back: $cl-satin;
+$cl-footer-back: $cl-alto;
 $cl-footer-front: $cl-outer-space;
-$cl-footer-border: $cl-alto;
+$cl-footer-border: $cl-abbey;
 
 // combos
-$box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+$box-shadow: 0 6px 10px rgba(0, 0, 0, .25);
+
+// gradient
+$gradient: linear-gradient(90deg, $cl-electric-violet, $cl-turquoise);
 
 // functions
 @function mixTransparent($color) {
