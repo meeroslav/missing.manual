@@ -97,9 +97,7 @@ If we consider that stirring the mixture does the same thing as beating (mixing)
 We mark the second param, the ingredients, with a dollar sign to note that it’s a stream of items. It also tells us that as long as the mixture hasn’t thickened we can still add spices or more eggs to the ingredients stream. We can see the dependencies, hierarchy and a clear flow — something enters the function, something (else) exits the function.
 
 While not always applicable in the kitchen, in functional programming functions should be always pure:
-
 * have no side effects (e.g. heating the pan will not melt ice-cream in your freezer)
-
 * input parameters are not mutated, functions return new objects (this would require eggs to remain intact after stirring)
 
 ## Iterator pattern
@@ -121,9 +119,7 @@ Imagine coming to your grandmother and saying: “Hey, grandma, I am hungry”. 
 The process of making pancakes can actually explain a lot of RX operators:
 
 * **buffering** pancakes next to the stove and then bringing you a bunch
-
 * **mapping** pancake with jam
-
 * **filtering** out burned pancakes
 
 ---
