@@ -24,7 +24,7 @@ const MiniPost = props => {
           {tags && (` ・ `)}
           {tags && (<span className="tags">
             { tags.map(t => (
-              <span className="tag">{t}</span>
+              <span className="tag" key={t}>{t}</span>
             ))}
           </span>)}
         </small>
