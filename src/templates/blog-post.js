@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import { Disqus, CommentCount } from 'gatsby-plugin-disqus';
+import { Disqus } from 'gatsby-plugin-disqus';
 
 import Bio from '../components/bio/Bio.jsx';
 import Layout from '../components/layout/Layout.jsx';
@@ -39,7 +39,6 @@ export default function BlogPostTemplate(props) {
       <h1 className={style.blogPostHeading}>
         {post.frontmatter.title}
       </h1>
-      <CommentCount config={disqusConfig} placeholder={'...'} />
       <p className={style.blogPost}>
         <small>
           {post.frontmatter.date} ・ {post.fields.readingTime.text}
