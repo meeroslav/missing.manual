@@ -111,10 +111,10 @@ body {
 
 .tag {
   list-style-type: none;
-  background: $cl-focus;
+  background: $cl-mid-gray;
   color: $cl-background;
   border-radius: $block-radius;
-  padding: $spacing / 4;
+  padding: $spacing / 3;
   line-height: 1;
   font-weight: bold;
 }
