@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 import Bio from '../components/bio/Bio.jsx';
 import Layout from '../components/layout/Layout.jsx';
@@ -17,6 +17,8 @@ export default function BlogPostTemplate(props) {
     : null;
 
   const tweetLink = `https://twitter.com/intent/tweet?text=Check out this post by @meeroslav 👇%0ahttps://missing-manual.com${post.fields.slug}`;
+  const fbLink = `https://www.facebook.com/sharer/sharer.php?u=https://missing-manual.com${post.fields.slug}`;
+  const linkedInLink = `https://www.linkedin.com/sharing/share-offsite/?url=https://missing-manual.com${post.fields.slug}`
 
   return (
     <Layout location={location}
@@ -46,7 +48,7 @@ export default function BlogPostTemplate(props) {
       </div>
       <p>
         <br />
-        Did you like the post? Share it on <ExternalLink to={tweetLink}>Twitter <FaTwitter /></ExternalLink>
+        Did you like the post? Share it on <ExternalLink to={tweetLink}>Twitter <FaTwitter /></ExternalLink>, <ExternalLink to={linkedInLink}>LinkedIn <FaLinkedin /></ExternalLink> or <ExternalLink to={fbLink}>Facebook <FaFacebook /></ExternalLink>
       </p>
       <hr className={style.bioDivider} />
       <Bio className={style.blogPost} />
