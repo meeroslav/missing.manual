@@ -1,10 +1,12 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 import Bio from '../components/bio/Bio.jsx';
 import Layout from '../components/layout/Layout.jsx';
 import style from './blog-post.module.scss';
+import ExternalLink from '../components/external-link/ExternalLink.jsx';
 
 export default function BlogPostTemplate(props) {
   const post = props.data.mdx;
@@ -13,6 +15,8 @@ export default function BlogPostTemplate(props) {
   const tags = post.frontmatter.tags
     ? post.frontmatter.tags.split(',').map(tag => tag.trim())
     : null;
+
+  const tweetLink = `https://twitter.com/intent/tweet?text=Check out this post by @meeroslav 👇%0ahttps://missing-manual.com${post.fields.slug}`;
 
   return (
     <Layout location={location}
@@ -40,6 +44,10 @@ export default function BlogPostTemplate(props) {
       <div className={style.blogPost}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </div>
+      <p>
+        <br />
+        Did you like the post? Share it on <ExternalLink to={tweetLink}>Twitter <FaTwitter /></ExternalLink>
+      </p>
       <hr className={style.bioDivider} />
       <Bio className={style.blogPost} />
 
