@@ -18,7 +18,7 @@ export const pageQuery = graphql`
   query {
     cover: file(absolutePath: { regex: "/pages\/404.jpg/" }) {
       childImageSharp {
-        fluid(maxWidth: 2000, maxHeight: 600) {
+        fluid(maxWidth: 2000, maxHeight: 600, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid
         }
       }
