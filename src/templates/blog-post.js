@@ -101,7 +101,7 @@ export const pageQuery = graphql`
         cover {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 2000, maxHeight: 600) {
+            fluid(maxWidth: 2000, maxHeight: 600, cropFocus: CENTER) {
               ...GatsbyImageSharpFluid
             }
           }
