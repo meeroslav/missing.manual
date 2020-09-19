@@ -11,7 +11,11 @@
 .miniPostImage {
   grid-column: 1/4;
   grid-row: 1;
-  background: $cl-secondary;
+  background: $gradient;
+
+  img {
+    mix-blend-mode: luminosity;
+  }
 }
 
 .miniPostText {

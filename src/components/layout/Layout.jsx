@@ -15,7 +15,7 @@ const Layout = ({ children, ...props }) => {
       <SEO title={title} description={description} image={hero} />
       <div className={style.layout}>
         <Header />
-        {hero && <Image fluid={hero} />}
+        {hero && <Image fluid={hero} className={style.hero} />}
         <main className={hero ? style.main : `${style.main} ${style.herolessMain}`}>
           <section className={style.mainSection}>
             {children}

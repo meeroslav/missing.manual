@@ -16,6 +16,14 @@
   margin: 0 auto;
 }
 
+.hero {
+  background: $gradient;
+
+  img {
+    mix-blend-mode: luminosity;
+  }
+}
+
 .herolessMain .mainSection {
   margin-top: 2px;
 }
