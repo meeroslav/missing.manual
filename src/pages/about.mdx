@@ -3,10 +3,22 @@ title: About
 description: About me
 ---
 import ExternalLink from '../components/external-link/ExternalLink';
+import Image from 'gatsby-image';
 import H from '../components/heading/Heading';
 import { graphql } from 'gatsby';
 
 <H>About</H>
+
+<Image 
+  fixed={props.data.avatar.childImageSharp.fixed} 
+  alt={props.data.site.siteMetadata.author}
+  imgStyle={{
+    borderRadius: `50%`,
+    position: 'absolute',
+    top: 0,
+    left: 0
+  }}
+/>
 
 I'm Miroslav Jonas, a software developer based in Vienna, Austria. I was born and raised in Serbia
 where I lived in two beautiful towns - Kovačica and Novi Sad.
@@ -28,6 +40,11 @@ everyday life.
 
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        author
+      }
+    }
     cover: file(absolutePath: { regex: "/pages\/m.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 2000, maxHeight: 600, cropFocus: CENTER) {
@@ -35,5 +52,13 @@ export const pageQuery = graphql`
         }
       }
     }
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 200, height: 200) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }  
   }
+  
 `;

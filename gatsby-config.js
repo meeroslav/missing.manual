@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `missing:manual`,
+    title: `Miroslav Jonas`,
     author: `Miroslav Jonas`,
     description: `A personal website of one Miroslav Jonas`,
     siteUrl: `https://missing-manual.com/`,
     social: {
       twitter: `meeroslav`,
-      linkedIn: `miroslavjonas`,
+      linkedIn: `meeroslav`,
       github: `meeroslav`,
       behance: `meeroslav`,
       instagram: `missing.manual`,
