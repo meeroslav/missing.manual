@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/layout/Layout.jsx';
 import Talk from '../components/talk/Talk.jsx';
+import H from '../components/heading/Heading';
 
 const TalksPage = ({ data }) => {
   const upcoming = data.upcoming.edges;
@@ -12,7 +13,7 @@ const TalksPage = ({ data }) => {
     <Layout location={data.location}
       hero={data.cover.childImageSharp.fluid}
       title="Talks">
-      <h1>Talks</h1>
+      <H>Talks</H>
       {upcoming.length && <h2>Upcoming talks</h2>}
       {upcoming.map(({ node }, i) => <Talk {...node} key={i} />)}
       <h2>Previous talks</h2>

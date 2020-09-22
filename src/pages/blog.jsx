@@ -1,8 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout/Layout.jsx';
+import Layout from '../components/layout/Layout';
 import MiniPost from '../components/mini-post/MiniPost';
+import H from '../components/heading/Heading';
 
 const BlogPage = ({ data }) => {
   const posts = data.allMdx.edges;
@@ -11,7 +12,7 @@ const BlogPage = ({ data }) => {
     <Layout location={data.location}
       hero={data.cover.childImageSharp.fluid}
       title="Blog">
-      <h1>Blog</h1>
+      <H>Blog</H>
       {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
     </Layout>
   );

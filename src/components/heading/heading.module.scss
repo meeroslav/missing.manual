@@ -1,0 +1,22 @@
+@import "../../styles/variables/layout";
+@import "../../styles/variables/typography";
+@import "../../styles/variables/colors";
+
+.h {
+  font-family: $headline-font-family;
+  font-weight: $headline-font-weight;
+  font-size: $headline-font-size;
+  text-transform: uppercase;
+  margin-top: 0;
+  line-height: 1.2em;
+  vertical-align: baseline;
+  transform: rotate(-1deg);
+  transform-origin: left top;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.h_wrapper {
+  background-image: $gradient;
+  color: white;
+}
