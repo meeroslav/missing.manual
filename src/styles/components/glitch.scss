@@ -1,14 +1,19 @@
 @import '../variables/colors';
+@import '../variables/layout';
 
 .glitch {
   position: relative;
   --text-color: $cl-foreground;
   --glitch-left-color: #3AAFA9;
   --glitch-right-color: #8338EC;
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding-top: $gutter;
 }
 
 .glitch:before, .glitch:after {
   content: attr(data-text);
+  padding-top: $gutter;
   position: absolute;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -20,6 +25,12 @@
   color: var(--text-color);
   overflow: hidden;
   animation: noise 3s steps(1) infinite;
+}
+
+@media (max-width: $mobile-view-limit) {
+  .glitch:before, .glitch:after{
+    animation: none;
+  }
 }
 
 .glitch:before {
