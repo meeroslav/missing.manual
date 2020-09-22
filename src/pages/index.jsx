@@ -13,7 +13,7 @@ const Home = ({ data }) => {
   return (
     <Layout location={data.location}
       title="Home">
-      <IndexHero text={'Missing manual'} />
+      <IndexHero text={'Miroslav Jonaš'} />
       <h2>Latest posts</h2>
       {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
       <h2>Upcoming talks</h2>

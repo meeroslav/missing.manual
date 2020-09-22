@@ -6,7 +6,7 @@ import style from './bio.module.scss';
 const Bio = ({ className }) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
+      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
           fixed(width: 50, height: 50) {
             ...GatsbyImageSharpFixed
@@ -36,7 +36,7 @@ const Bio = ({ className }) => {
         }}
       />
       <div className={style.bioText}>
-        Written by <strong>{author}</strong>, a software developer focusing on the front-end of things.<br/>
+        Written by <strong>{author}</strong>, a software developer focusing on the front-end of things.<br />
         He lives and works in Vienna, Austria.
       </div>
     </div>

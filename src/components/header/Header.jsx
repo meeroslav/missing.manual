@@ -51,7 +51,7 @@ const Header = () => {
           className={`${style.link} ${style.mainLink}`}
           to={`/`}
         >
-          Missing.manual
+          Miroslav Jonaš
         </Link>
         {menuItems
           .filter(({ node }) => !node.home && !node.footerOnly)
