@@ -1,9 +1,10 @@
+@import '../variables/colors';
+
 .glitch {
   position: relative;
-  --bg-color: #fff;
-  --text-color: #000;
-  --glitch-left-color: #0ffbf9;
-  --glitch-right-color: #c36b93;
+  --text-color: $cl-foreground;
+  --glitch-left-color: #3AAFA9;
+  --glitch-right-color: #8338EC;
 }
 
 .glitch:before, .glitch:after {
@@ -17,7 +18,6 @@
   text-shadow: -2px -1px var(--glitch-left-color);
   top: 0;
   color: var(--text-color);
-  background: var(--bg-color);
   overflow: hidden;
   animation: noise 3s steps(1) infinite;
 }

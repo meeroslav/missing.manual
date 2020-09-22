@@ -13,6 +13,7 @@ const BlogPage = ({ data }) => {
       hero={data.cover.childImageSharp.fluid}
       title="Blog">
       <H>Blog</H>
+      <span /><span />
       {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
     </Layout>
   );

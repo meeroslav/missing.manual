@@ -14,7 +14,7 @@ const TalksPage = ({ data }) => {
       hero={data.cover.childImageSharp.fluid}
       title="Talks">
       <H>Talks</H>
-      {upcoming.length && <h2>Upcoming talks</h2>}
+      {upcoming.length && (<><h2>Upcoming talks</h2><span /></>)}
       {upcoming.map(({ node }, i) => <Talk {...node} key={i} />)}
       <h2>Previous talks</h2>
       {past.map(({ node }, i) => <Talk {...node} key={i} />)}

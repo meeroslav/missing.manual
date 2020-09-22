@@ -11,12 +11,15 @@ const Home = ({ data }) => {
   const upcomingTalks = data.upcomingTalks.edges;
 
   return (
-    <Layout location={data.location}
+    <Layout
+      location={data.location}
+      heroComponent={<IndexHero text={'Miroslav Jonaš'} />}
       title="Home">
-      <IndexHero text={'Miroslav Jonaš'} />
       <h2>Latest posts</h2>
+      <span /><span />
       {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
       <h2>Upcoming talks</h2>
+      <span /><span />
       {upcomingTalks.map(({ node }, i) => <Talk {...node} key={i} />)}
     </Layout>
   );

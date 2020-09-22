@@ -3,14 +3,14 @@
 @import '../../styles/variables/typography';
 
 .talk {
-  &:nth-child(3n+0) {
+  &:nth-child(3n+1) {
     grid-column: 2/6;
   }
-  &:nth-child(3n+1) {
+  &:nth-child(3n+2) {
     grid-column: 6/10;
   }
 
-  &:nth-child(3n+2) {
+  &:nth-child(3n) {
     grid-column: 10/14;
   }
   display: grid;
