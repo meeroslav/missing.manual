@@ -3,31 +3,53 @@
 @import '../../styles/variables/typography';
 
 .talk {
+  &:nth-child(3n+0) {
+    grid-column: 2/6;
+  }
+  &:nth-child(3n+1) {
+    grid-column: 6/10;
+  }
+
+  &:nth-child(3n+2) {
+    grid-column: 10/14;
+  }
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr $spacing;
+  grid-row-gap: $spacing;
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
 }
 
 .talkImage {
-  grid-column: 1/4;
+  grid-column: 1/12;
   grid-row: 1;
-  background: $cl-secondary;
+  background: $gradient;
+  width: 100%;
+  max-width: 320px;
 }
 
 .talkText {
-  grid-column: 5/13;
-  grid-row: 1;
+  grid-column: 1/12;
+  grid-row: 2;
+  width: 100%;
 }
 
 
 @media (max-width: $mobile-view-limit) {
-  .talk {
+  .talk:nth-child(3n),
+  .talk:nth-child(3n+1),
+  .talk:nth-child(3n+2) {
+    grid-column: 2/14;
     grid-template-rows: repeat(1, auto 1fr $spacing);
   }
 
   .talkImage {
     grid-column: 1/13;
     grid-row: 1;
+
+    & > div {
+      width: 320px !important;
+    }
   }
 
   .talkText {
