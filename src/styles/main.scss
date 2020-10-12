@@ -84,9 +84,15 @@ body {
   --vscode-highlight-padding-right: 10px;
 }
 
-.vscode-highlight-code, code {
+code {
   font-family: 'Missing Code', monospace;
   font-size: 0.85em;
+}
+code:not(.vscode-highlight-code) {
+  background: $cl-inline-code-background;
+  margin: -2px;
+  padding: 2px;
+  border-radius: $block-radius;
 }
 .vscode-highlight.dark-default-dark {
   background: $cl-code-background;
