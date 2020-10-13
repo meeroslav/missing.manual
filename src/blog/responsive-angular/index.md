@@ -160,9 +160,70 @@ Not only do we want to change the looks of the UI to make it more accessible on 
 
 To achieve this, we need to be able to detect devices and remove/add DOM elements depending on the device.
 
-## Meet `MediaQueryList` and `MediaQueryListener`
+## Meet `MediaQueryList` and `matchMedia`
+
+Media queries were not supported only in CSS but also in the JavaScript. Window object implements a function `matchMedia` that returns a response of type [MediaQueryList](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList). MediaQueryList extends `EventTarget`, meaning it can receive events and have listeners set up. It also adds two additional properties:
+
+```TypeScript
+interface MediaQueryList extends EventTarget {
+  matches: boolean; // => true if document matches the passed media query, false if not
+  media: string; // => the media query used for the matching
+}
+```
+
+A very simple example could look like this:
+```TypeScript
+const query = '(orientation: portrait)';
+const mediaQueryList = window.matchMedia(query);
+
+// check the match
+if (mediaQueryList.matches) {
+  /* we are in the portrait mode */
+} else {
+  /* viewport is in the landscape mode */
+}
+```
+
+The MediaQueryList becomes even more usable once we attach listeners to it. Let's take the previous example and enhace it a bit:
+```TypeScript
+const query = '(orientation: portrait)';
+const mediaQueryList = window.matchMedia(query);
+
+// define the callback function for our event listener
+function handleMedia(mql: MediaQueryList) {
+  if (mql.matches) {
+    /* we are in the portrait mode */
+  } else {
+    /* viewport is in the landscape mode */
+  }
+}
+
+// run check once
+handleMedia(mediaQueryList);
+
+// run check on every subsequent change
+mediaQueryList.addListener(handleMedia);
+```
+
+Attaching the listener will only trigger our callback upon change, so we have to run it synchronously the first time.
 
 ## Service driven approach
+
+Each event listener produces a stream of events. This allows us to wrap the information in an Observable using the service
+
+```TypeScript
+class MediaService {
+  private matches = new Subject<boolean>;
+  public match$ = matches.asObservable();
+
+  constructor(public readonly query: string) {
+    // we need to make sure we are in browser
+    if (window) {
+      const mediaQueryList = window.matchMedia(query);
+    }
+  }
+}
+```
 
 ## Component and directive
 
