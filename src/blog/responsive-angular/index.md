@@ -411,5 +411,3 @@ This post showed you why is responsive DOM important and how to achieve it in An
 If you want to see the full code with all checks in place or you would rather use a `npm` package instead of reimplementing it yourself, you can find a working solution in my [ng-helpers](https://www.npmjs.com/package/ng-helpers) library. 
 
 If you are using Angular's Material Design component library, they also implement [BreakpointObserver](https://material.angular.io/cdk/layout/overview) which does the similar thing as [MediaService](#media-service).
-
----

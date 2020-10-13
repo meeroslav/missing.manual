@@ -50,13 +50,14 @@ export default function BlogPostTemplate(props) {
       <div className={style.blogPost}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </div>
+      <hr />
       <p>
         <br />
         Did you like the post? Share it on <ExternalLink to={tweetLink}>Twitter <FaTwitter /></ExternalLink>, <ExternalLink to={linkedInLink}>LinkedIn <FaLinkedin /></ExternalLink> or <ExternalLink to={fbLink}>Facebook <FaFacebook /></ExternalLink>.
         <br />
-        Did you find it helpful? Leaving <ExternalLink to="https://www.paypal.com/paypalme/meeroslav">a small tip <span role="img" aria-label="coffee">☕</span></ExternalLink> helps.
+        Did you find it helpful? Leaving <ExternalLink to="https://www.paypal.com/paypalme/meeroslav">a small tip <span role="img" aria-label="coffee">☕</span> </ExternalLink> helps.
       </p>
-      <Disqus config={disqusConfig} />
+      {post.frontmatter.published && <Disqus config={disqusConfig} />}
       <hr className={style.bioDivider} />
       <Bio className={style.blogPost} />
 
@@ -97,6 +98,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        published
         tags
         cover {
           publicURL
