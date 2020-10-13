@@ -190,7 +190,7 @@ const query = '(orientation: portrait)';
 const mediaQueryList = window.matchMedia(query);
 
 // define the callback function for our event listener
-function handleMedia(mql: MediaQueryList) {
+function listener(mql: MediaQueryList) {
   if (mql.matches) {
     /* we are in the portrait mode */
   } else {
@@ -199,32 +199,217 @@ function handleMedia(mql: MediaQueryList) {
 }
 
 // run check once
-handleMedia(mediaQueryList);
+listener(mediaQueryList);
 
 // run check on every subsequent change
-mediaQueryList.addListener(handleMedia);
+mediaQueryList.addEventListener('change', listener);
 ```
 
 Attaching the listener will only trigger our callback upon change, so we have to run it synchronously the first time.
 
-## Service driven approach
+## Media Service
 
-Each event listener produces a stream of events. This allows us to wrap the information in an Observable using the service
+Each event listener produces a stream of events. This allows us to wrap the information in an Observable using the service.
+The consumer of the service can then subscribe to the stream of media changes and react upon them.
+
+The core of the service is `ReplaySubject` to which we will pass all the values from `matchMedia` function. The listener part if equivalent to the plain Vanilla TypeScript example above.
 
 ```TypeScript
 class MediaService {
-  private matches = new Subject<boolean>;
-  public match$ = matches.asObservable();
+  private matches = new ReplaySubject<boolean>(1);
+  public match$ = this.matches.asObservable();
 
   constructor(public readonly query: string) {
     // we need to make sure we are in browser
     if (window) {
-      const mediaQueryList = window.matchMedia(query);
+      const mediaQueryList = window.matchMedia(this.query);
+      // here we pass value to our ReplaySubject
+      const listener = event => this.matches.next(event.matches);
+      // run once and then add listener
+      listener(mediaQueryList);
+      mediaQueryList.addEventListener('change', listener);
     }
   }
 }
 ```
 
-## Component and directive
+We can now use this service in our components to control the visibility of parts of the template. Each time the media query match changes, our property `isDesktop` will be changed and influence the rendering of the template.
+```TypeScript
+@Component({
+  selector: 'foo-bar',
+  template: `
+    <div *ngIf='isDesktop; else isMobile'>I am visible only on desktop</div>
+    <ng-template #isMobile>
+      <div>I am visible only on mobile</div>
+    </ng-template>
+  `
+})
+class FooBarComponent implements OnInit {
+  isDesktop: boolean;
+  private mediaService = new MediaService('(min-width: 768px)');
 
-## Conclusion
+  ngOnInit() {
+    this.mediaService.match$.subscribe(value => this.isDesktop = value);
+  }
+}
+```
+
+There are many use cases for `MediaService`, such as fetching different resources from the backend, calculations based on the media or complex business logic. However, if we only care about manipulating template we are better off with a dedicated component or directive implementation.
+
+## Media component
+
+Instead of using service to subscribe to media changes we can listen to them directly in the component.
+
+```TypeScript
+@Component({
+  selector: 'use-media',
+  template: '<ng-content *ngIf="isMatch"></ng-content>'
+})
+class MediaComponent {
+  @Input() set query(value: string) {
+    // cleanup old listener
+    if (this.removeListener) {
+      this.removeListener();
+    }
+    this.setListener(value);
+  }
+  isMatch = false;
+  private removeListener: () => void;
+
+  private setListener(query: string) {
+    const mediaQueryList = window.matchMedia(query);
+    const listener = event => this.isMatch = event.matches;
+    // run once and then add listener
+    listener(mediaQueryList);
+    mediaQueryList.addEventListener('change', listener);
+    // add cleanup listener
+    this.removeListener = () => this.removeEventListener('change', listener);
+  }
+}
+```
+
+The first obvious difference between the component and service is the `removeListener`. While our service had the `query` set as read-only, the component can change the value of the query in runtime causing the creation of the new match media listener. We want to avoid having two or more listeners running in the race condition, so we are making sure all the previous listeners have been cleaned up.
+
+Our component would be used to control the template similarly like service was, but now all the magic happens in the template:
+
+```TypeScript
+@Component({
+  selector: 'foo-bar',
+  template: `
+    <use-media query="(min-width: 768px)">
+      I am visible only on desktop
+    </use-media>
+    <use-media query="(max-width: 767px)">
+      I am visible only on mobile
+    </use-media>
+  `
+})
+class FooBarComponent { }
+```
+
+Of course, for better readability and reusability we can extract two media queries `(min-width: 768px)` and `(max-width: 767px)` to constants and use them across our application. Although, this example exposes clear intent, we still have two extra `use-media` DOM elements, whose sole purpose is to control the visibility. Additionally, since we use content projection, the inner content will always be processed before `ngIf` takes over.
+
+```TypeScript
+@Component({ selector: 'child-component' })
+class ChildComponent implements OnInit {
+  @Input() value: string;
+
+  ngOnInit() {
+    console.log(`From child: ${value}`);
+  }
+}
+
+@Component({
+  selector: 'foo-bar',
+  template: `
+    <use-media query="(min-width: 768px)">
+      <child-component value="Desktop"></child-component>
+    </use-media>
+    <use-media query="(max-width: 767px)">
+      <child-component value="Mobile"></child-component>
+    </use-media>
+  `
+})
+class FooBarComponent implements OnInit { 
+  ngOnInit() {
+    console.log(`From FooBar`);
+  }
+}
+```
+
+Despite expectation and final visibility, in both mobile and desktop the console log would be the same:
+```
+From child: Desktop
+From child: Mobile
+From FooBar
+```
+
+## Media directive
+
+A structural directive built on top of the same logic solves both of those issues:
+- No extra DOM element required
+- The content is only rendered if the positive value is received
+
+```TypeScript
+@Directive({ selector: '[media]' })
+class MediaDirective {
+  @Input() set media(query: string) {
+    // cleanup old listener
+    if (this.removeListener) {
+      this.removeListener();
+    }
+    this.setListener(value);
+  }
+  private hasView = false;
+  private removeListener: () => void;
+
+  constructor(
+    private readonly viewContainer: ViewContainerRef,
+    private readonly template: TemplateRef<any>
+  ) { }
+
+  private setListener(query: string) {
+    const mediaQueryList = window.matchMedia(query);
+    const listener = event => {
+      // create view if true and not created already
+      if (event.matches && !this.hasView) {
+        this.hasView = true;
+        this.viewContainer.createEmbeddedView(this.template);   
+      }
+      // destroy view if false and created
+      if (!event.matches && this.hasView) {
+        this.hasView = false;
+        this.viewContainer.clear();
+      }
+    };
+    // run once and then add listener
+    listener(mediaQueryList);
+    mediaQueryList.addEventListener('change', listener);
+    // add cleanup listener
+    this.removeListener = () => this.removeEventListener('change', listener);
+  }
+}
+```
+
+The only major difference between the media directive and component is in the `listener` callback. While the component was setting public property `isMatch`, the directive is creating or clearing the view based on the value.
+
+```TypeScript
+@Component({
+  selector: 'foo-bar',
+  template: `
+    <div *media="'(min-width: 768px)'">I am visible only on desktop</div>
+    <div *media="'(max-width: 767px)'">I am visible only on mobile</div>  
+  `
+})
+class FooBarComponent { }
+```
+
+## Final words
+
+This post showed you why is responsive DOM important and how to achieve it in Angular using `matchMedia` and services, components and directives. To avoid being too cluttered, the examples are missing details on cleanup. Each time you create a listener in service, component and directive you need to make sure to also remove that listener once the instance has been destroyed (best done using `OnDestroy` lifecycle hook). Additionally, some browsers still support only old `MediaQueryList` methods so certain checks should be set in place.
+
+If you want to see the full code with all checks in place or you would rather use a `npm` package instead of reimplementing it yourself, you can find a working solution in my [ng-helpers](https://www.npmjs.com/package/ng-helpers) library. 
+
+If you are using Angular's Material Design component library, they also implement [BreakpointObserver](https://material.angular.io/cdk/layout/overview) which does the similar thing as [MediaService](#media-service).
+
+---
