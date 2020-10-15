@@ -4,7 +4,7 @@ date: "2019-07-19T09:00:00.121Z"
 published: true
 tags: JavaScript, Immutability, Array, Object
 cover: "./dusan-smetana-mX2mdxhc0UM-unsplash.jpg"
-coverInfo: "Cover photo by <a href='https://unsplash.com/@veverkolog' target='_blank'>Dušan Smetana</a> on Unsplash"
+coverInfo: "<a href='https://unsplash.com/@veverkolog' target='_blank'>Dušan Smetana</a>"
 description: Recently there has been an explosion of popularity of libraries like Redux and NGRX. One common requirement they have is an immutable state. Switching to the immutable state helps us to more easily reason about our state of the application and to easily track changes. It also helps us to avoid an unplanned side effect.
 ---
 

@@ -37,7 +37,7 @@ export default function BlogPostTemplate(props) {
         <small>
           {post.frontmatter.date} ・ {post.fields.readingTime.text}
         </small>
-        {post.frontmatter.coverInfo && (<><br /><small dangerouslySetInnerHTML={{ __html: post.frontmatter.coverInfo }} /></>)}
+        {post.frontmatter.coverInfo && (<> ・ <small>Cover by <span dangerouslySetInnerHTML={{ __html: post.frontmatter.coverInfo }} /></small></>)}
       </p>
       <H>
         {post.frontmatter.title}
@@ -52,7 +52,6 @@ export default function BlogPostTemplate(props) {
             </span>
           )}
         </small>
-        {post.frontmatter.coverInfo && (<><br /><small dangerouslySetInnerHTML={{ __html: post.frontmatter.coverInfo }} /></>)}
       </p>
       <div className={style.blogPost}>
         <MDXRenderer>{post.body}</MDXRenderer>
