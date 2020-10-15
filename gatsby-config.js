@@ -74,6 +74,9 @@ module.exports = {
             },
           },
           {
+            resolve: "gatsby-remark-external-links"
+          },
+          {
             resolve: `gatsby-remark-vscode`,
             options: {
               colorTheme: 'Dark+ (default dark)'
