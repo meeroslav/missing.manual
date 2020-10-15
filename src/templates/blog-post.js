@@ -32,18 +32,24 @@ export default function BlogPostTemplate(props) {
       hero={post.frontmatter.cover.childImageSharp.fluid}
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}>
+      <p className={style.blogPost}>
+        <small>
+          {post.frontmatter.date} ・ {post.fields.readingTime.text}
+        </small>
+        {post.frontmatter.coverInfo && (<><br /><small dangerouslySetInnerHTML={{ __html: post.frontmatter.coverInfo }} /></>)}
+      </p>
       <h1 className={style.blogPostHeading}>
         {post.frontmatter.title}
       </h1>
       <p className={style.blogPost}>
         <small>
-          {post.frontmatter.date} ・ {post.fields.readingTime.text}
-          {tags && (` ・ `)}
-          {tags && (<span className="tags">
-            { tags.map(t => (
-              <span className="tag" key={t}>{t}</span>
-            ))}
-          </span>)}
+          {tags && (
+            <span className="tags">
+              { tags.map(t => (
+                <span className="tag" key={t}>{t}</span>
+              ))}
+            </span>
+          )}
         </small>
         {post.frontmatter.coverInfo && (<><br /><small dangerouslySetInnerHTML={{ __html: post.frontmatter.coverInfo }} /></>)}
       </p>

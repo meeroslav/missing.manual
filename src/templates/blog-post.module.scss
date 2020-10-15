@@ -5,11 +5,6 @@
 .blogPost {
   grid-column: 2/14;
 
-  hr {
-    width: $hrWidth;
-    margin: $gutter auto;
-  }
-
   figcaption {
     font-size: $footnote-font-size;
     color: $cl-secondary;
@@ -20,6 +15,11 @@
     margin-inline-start: 0;
     margin-inline-end: 0;
   }
+}
+
+hr {
+  width: $hrWidth;
+  margin: $gutter auto;
 }
 
 .bioDivider {
