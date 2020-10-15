@@ -50,13 +50,15 @@ hr {
   grid-column: 2;
   text-align: right;
 }
+ul.blogPostNavigation {
+  margin-top: $spacing;
+}
 ul.blogPostNavigation li {
-  margin-top: $gutter;
-
   a {
     background: $gradient;
     color: $cl-inverted-foreground;
     padding: $spacing;
+    display: inline-block;
   }
 
   &::before {
@@ -67,6 +69,10 @@ ul.blogPostNavigation li {
 @media (max-width: $mobile-view-limit) {
   .blogPostNavigation {
     grid-template-columns: 1fr;
+  }
+  .blogPostNavigationPrev a,
+  .blogPostNavigationNext a {
+    display: block;
   }
   .blogPostNavigationNext {
     grid-column: 1;
