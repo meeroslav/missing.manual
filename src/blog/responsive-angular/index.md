@@ -10,35 +10,37 @@ Mobile phones used to be simple devices used for phone calls, short messages and
 
 ## Responsive web design
 
-The early websites were build with the computer screen in mind. The images were big, the buttons were small. It looked nice on a big screen and was easy to click on using a mouse. But it was horror on a small screen. As a solution to this the responsive web design was born. Using [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) in CSS developers could now define styles that would be applied for different devices:
+Early websites were built with the computer screen in mind. The images were big, the buttons were small. It looked nice on a big screen and was easy to click on using a mouse. But it was horror on a small screen. As a solution to this responsive web design was born. Using [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) in CSS developers could now define styles that would be applied for different devices:
 
 Take a look at the following CSS snippet:
 ```CSS
-.myStyle {
-  color: red;
+header nav {
+  display: block;
 }
 
 @media screen and (max-width: 768px) {
-  .myStyle {
-    color: blue;
+  header nav {
+    display: none;
   }
 }
 @media screen and (orientation: landscape) {
-  .myStyle {
-    color: green;
+  header nav {
+    position: fixed;
+    left: 0;
+    width: 20vw;
   }
 }
 ```
 
-A DOM element having `myStyle` class would have red text. Unless the screen was smaller than 769px (typical mobile resolution), in which case it would be blue. Unless, the screen is in landscape mode (width greater than height), in which case it would be green.
+Header navigation would be rendered in a block. Unless the screen was smaller than 769px (typical mobile resolution), in which case it would hidden. Unless, the screen is in landscape mode (width greater than height), in which case it would be fixed on the left and take 20% of the viewport's width.
 
-Media query gives us the possibility to target various parameters including width and height (both with min and max prefixes), orientation, type of presentation (screen, reader, print), available colors, aspect ratio, resolution, availability of JavaScript parser etc.
+Media queries give us the possibility to target various parameters including width and height (both with min and max prefixes), orientation, type of presentation (screen, reader, print), available colors, aspect ratio, resolution, availability of JavaScript parser etc.
 
 ## Mobile-first design
 
-As computers and browsers became more capable, so did static websites became replaced by full-blown web applications. Those applications reminded more to desktop applications than websites. Changing bits and pieces to accommodate mobile devices was not enough anymore. The applications had to be redesigned from a scratch for smaller screens. 
+As computers and browsers became more capable, static websites began to be replaced by full-blown web applications. Those applications had more in common with desktop applications than websites. Changing bits and pieces to accommodate mobile devices was not enough anymore. The applications had to be redesigned from a scratch for smaller screens. 
 
-That's how the `mobile-first approach` was born. In contrast to desktop-first, where web application simplified for the mobile view, we now had web applications that were developed with the mobile view in mind, and later enriched for the desktop view. This allowed developers to target special small screen limitations early on.
+That's how the `mobile-first approach` was born. In contrast to desktop-first, where the web application simplified for the mobile view, we now had web applications that were developed with the mobile view in mind, and later enriched for the desktop view. This allowed developers to target special small screen limitations early on.
 
 Due to different limitations of the screen estate and accessibility (minimal clickable area, higher contrast) it's not seldom that mobile view and desktop view look completely different.
 
@@ -162,7 +164,7 @@ To achieve this, we need to be able to detect devices and remove/add DOM element
 
 ## Meet `MediaQueryList` and `matchMedia`
 
-Media queries were not supported only in CSS but also in the JavaScript. Window object implements a function `matchMedia` that returns a response of type [MediaQueryList](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList). MediaQueryList extends `EventTarget`, meaning it can receive events and have listeners set up. It also adds two additional properties:
+Media queries are not only supported in CSS but also in JavaScript. The Window object implements a function `matchMedia` that returns a response of type [MediaQueryList](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList). MediaQueryList extends `EventTarget`, meaning it can receive events and have listeners set up. It also adds two additional properties:
 
 ```TypeScript
 interface MediaQueryList extends EventTarget {
@@ -212,7 +214,7 @@ Attaching the listener will only trigger our callback upon change, so we have to
 Each event listener produces a stream of events. This allows us to wrap the information in an Observable using the service.
 The consumer of the service can then subscribe to the stream of media changes and react upon them.
 
-The core of the service is `ReplaySubject` to which we will pass all the values from `matchMedia` function. The listener part if equivalent to the plain Vanilla TypeScript example above.
+The core of the service is a `ReplaySubject` to which we will pass all the values from the `matchMedia` function. The listener part is equivalent to the plain Vanilla TypeScript example above.
 
 ```TypeScript
 class MediaService {
@@ -234,6 +236,7 @@ class MediaService {
 ```
 
 We can now use this service in our components to control the visibility of parts of the template. Each time the media query match changes, our property `isDesktop` will be changed and influence the rendering of the template.
+
 ```TypeScript
 @Component({
   selector: 'foo-bar',
@@ -254,7 +257,7 @@ class FooBarComponent implements OnInit {
 }
 ```
 
-There are many use cases for `MediaService`, such as fetching different resources from the backend, calculations based on the media or complex business logic. However, if we only care about manipulating template we are better off with a dedicated component or directive implementation.
+There are many use cases for `MediaService`, such as fetching different resources from the backend, calculations based on the media or complex business logic. However, if we only care about manipulating the template we are better off with a dedicated component or directive implementation.
 
 ## Media component
 
@@ -288,9 +291,9 @@ class MediaComponent {
 }
 ```
 
-The first obvious difference between the component and service is the `removeListener`. While our service had the `query` set as read-only, the component can change the value of the query in runtime causing the creation of the new match media listener. We want to avoid having two or more listeners running in the race condition, so we are making sure all the previous listeners have been cleaned up.
+The first obvious difference between the component and service is the `removeListener`. While our service had the `query` set as read-only, the component can change the value of the query in runtime causing the creation of the new match media listener. We want to avoid having two or more listeners running in a race condition, so we are making sure all the previous listeners have been cleaned up.
 
-Our component would be used to control the template similarly like service was, but now all the magic happens in the template:
+Our component would be used to control the template in a similar way to how service does, but now all the magic happens in the template:
 
 ```TypeScript
 @Component({
@@ -406,8 +409,8 @@ class FooBarComponent { }
 
 ## Final words
 
-This post showed you why is responsive DOM important and how to achieve it in Angular using `matchMedia` and services, components and directives. To avoid being too cluttered, the examples are missing details on cleanup. Each time you create a listener in service, component and directive you need to make sure to also remove that listener once the instance has been destroyed (best done using `OnDestroy` lifecycle hook). Additionally, some browsers still support only old `MediaQueryList` methods so certain checks should be set in place.
+This post showed you why responsive DOM is important and how to achieve it in Angular using `matchMedia` and services, components and directives. To avoid being too cluttered, the examples are missing details on listener cleanup. Each time you create a listener in service, component or directive you need to make sure to also remove that listener once the instance has been destroyed (best done using `OnDestroy` lifecycle hook). Additionally, some browsers still support only old `MediaQueryList` methods so certain polyfills should be set in place.
 
-If you want to see the full code with all checks in place or you would rather use a `npm` package instead of reimplementing it yourself, you can find a working solution in my [ng-helpers](https://www.npmjs.com/package/ng-helpers) library. 
+If you want to see the full code with all checks and polyfills in place or you would rather just use the `npm` package instead of reimplementing it yourself, you can find a working solution in my [ng-helpers](https://www.npmjs.com/package/ng-helpers) library. 
 
-If you are using Angular's Material Design component library, they also implement [BreakpointObserver](https://material.angular.io/cdk/layout/overview) which does the similar thing as [MediaService](#media-service).
+If you are using [Angular's Material Design](https://material.angular.io) component library, you can use [BreakpointObserver](https://material.angular.io/cdk/layout/overview) which does similar thing to [MediaService](#media-service).
