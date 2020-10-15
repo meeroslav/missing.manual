@@ -8,6 +8,7 @@ import Bio from '../components/bio/Bio.jsx';
 import Layout from '../components/layout/Layout.jsx';
 import style from './blog-post.module.scss';
 import ExternalLink from '../components/external-link/ExternalLink.jsx';
+import H from '../components/heading/Heading';
 
 export default function BlogPostTemplate(props) {
   const post = props.data.mdx;
@@ -38,9 +39,9 @@ export default function BlogPostTemplate(props) {
         </small>
         {post.frontmatter.coverInfo && (<><br /><small dangerouslySetInnerHTML={{ __html: post.frontmatter.coverInfo }} /></>)}
       </p>
-      <h1 className={style.blogPostHeading}>
+      <H>
         {post.frontmatter.title}
-      </h1>
+      </H>
       <p className={style.blogPost}>
         <small>
           {tags && (
