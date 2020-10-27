@@ -1,19 +1,21 @@
 ---
 title: Responsive Angular Components
-date: '2020-08-13T09:00:00.121Z'
+date: "2020-08-13T09:00:00.121Z"
 published: false
 tags: Angular, Responsive design, Media queries
-cover: './domenico-loia-EhTcC9sYXsw-unsplash.jpg'
+cover: "./domenico-loia-EhTcC9sYXsw-unsplash.jpg"
 coverInfo: "<a href='https://unsplash.com/@domenicoloia' target='_blank'>Domenico Loia</a>"
 description: Ever since mobile devices became capable of accessing the web and showing web pages, it became obvious that not all web pages are usable on a small screen. Today most websites implement responsive design, but often at a cost of extra DOM. This post will show you how to solve that last step in Angular.
 ---
+
 Mobile phones used to be simple devices used for phone calls, short messages and simple games. As network protocols and screens progressed, new devices were capable of showing webpages. However, due to limited screen real estate and controls they could only open pages written in [WML language](https://en.wikipedia.org/wiki/Wireless_Markup_Language) specially made for the [WAP protocol](https://en.wikipedia.org/wiki/Wireless_Application_Protocol). The iPhone was the first phone truly capable of opening HTML pages. Ever since mobile devices became capable of accessing the web and showing web pages, it became obvious that not all web pages could work on a small screen. The most obvious was the UI.
 
 ## Responsive web design
 
-Early websites were built with the computer screen in mind. The images were big, the buttons were small. It looked nice on a big screen and was easy to click on using a mouse. But it was horror on a small screen. As a solution to this responsive web design was born. Using [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) in CSS developers could now define styles that would be applied for different devices:
+Early websites were built with the computer screen in mind. The images were big, the buttons were small. It looked nice on a big screen and was easy to click on using a mouse. But it was horror on a small screen. As a solution to this responsive web design was born. Using [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) in CSS developers could now define styles that would be applied for different devices.
 
 Take a look at the following CSS snippet:
+
 ```CSS
 header nav {
   display: block;
@@ -39,7 +41,7 @@ Media queries give us the possibility to target various parameters including wid
 
 ## Mobile-first design
 
-As computers and browsers became more capable, static websites began to be replaced by full-blown web applications. Those applications had more in common with desktop applications than websites. Changing bits and pieces to accommodate mobile devices was not enough anymore. The applications had to be redesigned from a scratch for smaller screens. 
+As computers and browsers became more capable, static websites began to be replaced by full-blown web applications. Those applications had more in common with desktop applications than websites. Changing bits and pieces to accommodate mobile devices was not enough anymore. The applications had to be redesigned from a scratch for smaller screens.
 
 That's how the `mobile-first approach` was born. In contrast to desktop-first, where the web application simplified for the mobile view, we now had web applications that were developed with the mobile view in mind, and later enriched for the desktop view. This allowed developers to target special small screen limitations early on.
 
@@ -91,16 +93,16 @@ However, once we pass the 800px limit suddenly the first five items in the main 
 .main-header {
   display: grid;
 }
-.nav-item-1, 
-.nav-item-2, 
-.nav-item-3, 
-.nav-item-4, 
-.nav-item-5, 
-.nav-item-6, 
-.nav-item-7, 
-.nav-item-8, 
+.nav-item-1,
+.nav-item-2,
+.nav-item-3,
+.nav-item-4,
+.nav-item-5,
+.nav-item-6,
+.nav-item-7,
+.nav-item-8,
 .nav-item-9,
-.nav-item-10, 
+.nav-item-10,
 .nav-item-11 {
   display: none;
 }
@@ -113,24 +115,24 @@ However, once we pass the 800px limit suddenly the first five items in the main 
 .show-secondary .secondary-nav {
   display: flex;
 }
-.secondary-nav .nav-item-1, 
-.secondary-nav .nav-item-2, 
-.secondary-nav .nav-item-3, 
-.secondary-nav .nav-item-4, 
-.secondary-nav .nav-item-5, 
-.secondary-nav .nav-item-6, 
-.secondary-nav .nav-item-7, 
-.secondary-nav .nav-item-8, 
+.secondary-nav .nav-item-1,
+.secondary-nav .nav-item-2,
+.secondary-nav .nav-item-3,
+.secondary-nav .nav-item-4,
+.secondary-nav .nav-item-5,
+.secondary-nav .nav-item-6,
+.secondary-nav .nav-item-7,
+.secondary-nav .nav-item-8,
 .secondary-nav .nav-item-9,
-.secondary-nav .nav-item-10, 
+.secondary-nav .nav-item-10,
 .secondary-nav .nav-item-11 {
   display: flex;
 }
 @media (min-width: 800px) {
-  .nav-item-1, 
-  .nav-item-2, 
-  .nav-item-3, 
-  .nav-item-4, 
+  .nav-item-1,
+  .nav-item-2,
+  .nav-item-3,
+  .nav-item-4,
   .nav-item-5 {
     display: flex;
   }
@@ -155,6 +157,7 @@ The splitting of the menus is allowing the website to play with shapes and posit
 ## Performance first
 
 As the application grows the price of keeping elements in the DOM that are only visible on certain devices/resolutions can become too expensive. While images on the desktop are usually in the full quality, small screens require less pixels. Playing a video in the background of your webpage is a popular thing to do. But you wouldn't want to do this on the mobile for several reasons:
+
 - Video would probably not be visible nicely
 - Page scrolling which happens often on small screens would interfere with video
 - It is an unnecessary impact on the battery and bandwidth
@@ -175,6 +178,7 @@ interface MediaQueryList extends EventTarget {
 ```
 
 A very simple example could look like this:
+
 ```TypeScript
 const query = '(orientation: portrait)';
 const mediaQueryList = window.matchMedia(query);
@@ -188,6 +192,7 @@ if (mediaQueryList.matches) {
 ```
 
 The MediaQueryList becomes even more usable once we attach listeners to it. Let's take the previous example and enhace it a bit:
+
 ```TypeScript
 const query = '(orientation: portrait)';
 const mediaQueryList = window.matchMedia(query);
@@ -334,7 +339,7 @@ class ChildComponent implements OnInit {
     </use-media>
   `
 })
-class FooBarComponent implements OnInit { 
+class FooBarComponent implements OnInit {
   ngOnInit() {
     console.log(`From FooBar`);
   }
@@ -342,6 +347,7 @@ class FooBarComponent implements OnInit {
 ```
 
 Despite expectation and final visibility, in both mobile and desktop the console log would be the same:
+
 ```
 From child: Desktop
 From child: Mobile
@@ -351,6 +357,7 @@ From FooBar
 ## Media directive
 
 A structural directive built on top of the same logic solves both of those issues:
+
 - No extra DOM element required
 - The content is only rendered if the positive value is received
 
@@ -378,7 +385,7 @@ class MediaDirective {
       // create view if true and not created already
       if (event.matches && !this.hasView) {
         this.hasView = true;
-        this.viewContainer.createEmbeddedView(this.template);   
+        this.viewContainer.createEmbeddedView(this.template);
       }
       // destroy view if false and created
       if (!event.matches && this.hasView) {
@@ -402,7 +409,7 @@ The only major difference between the media directive and component is in the `l
   selector: 'foo-bar',
   template: `
     <div *media="'(min-width: 768px)'">I am visible only on desktop</div>
-    <div *media="'(max-width: 767px)'">I am visible only on mobile</div>  
+    <div *media="'(max-width: 767px)'">I am visible only on mobile</div>
   `
 })
 class FooBarComponent { }
@@ -412,6 +419,6 @@ class FooBarComponent { }
 
 This post showed you why responsive DOM is important and how to achieve it in Angular using `matchMedia` and services, components and directives. To avoid being too cluttered, the examples are missing details on listener cleanup. Each time you create a listener in service, component or directive you need to make sure to also remove that listener once the instance has been destroyed (best done using `OnDestroy` lifecycle hook). Additionally, some browsers still support only old `MediaQueryList` methods so certain polyfills should be set in place.
 
-If you want to see the full code with all checks and polyfills in place or you would rather just use the `npm` package instead of reimplementing it yourself, you can find a working solution in my [ng-helpers](https://www.npmjs.com/package/ng-helpers) library. 
+If you want to see the full code with all checks and polyfills in place or you would rather just use the `npm` package instead of reimplementing it yourself, you can find a working solution in my [ng-helpers](https://www.npmjs.com/package/ng-helpers) library.
 
 If you are using the [Angular Material Design](https://material.angular.io) component library, you can use [BreakpointObserver](https://material.angular.io/cdk/layout/overview) which does similar thing to [MediaService](#media-service).
