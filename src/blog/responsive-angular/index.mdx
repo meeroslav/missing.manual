@@ -1,12 +1,14 @@
 ---
 title: Responsive Angular Components
-date: "2020-08-13T09:00:00.121Z"
-published: false
+date: "2020-11-04T09:00:00.121Z"
+published: true
 tags: Angular, Responsive design, Media queries
 cover: "./domenico-loia-EhTcC9sYXsw-unsplash.jpg"
 coverInfo: "<a href='https://unsplash.com/@domenicoloia' target='_blank'>Domenico Loia</a>"
 description: Ever since mobile devices became capable of accessing the web and showing web pages, it became obvious that not all web pages are usable on a small screen. Today most websites implement responsive design, but often at a cost of extra DOM. This post will show you how to solve that last step in Angular.
 ---
+
+_This post was originally published on [InDepth Dev](https://indepth.dev/responsive-angular)_
 
 Mobile phones used to be simple devices used for phone calls, short messages and simple games. As network protocols and screens progressed, new devices were capable of showing webpages. However, due to limited screen real estate and controls they could only open pages written in [WML language](https://en.wikipedia.org/wiki/Wireless_Markup_Language) specially made for the [WAP protocol](https://en.wikipedia.org/wiki/Wireless_Application_Protocol). The iPhone was the first phone truly capable of opening HTML pages. Ever since mobile devices became capable of accessing the web and showing web pages, it became obvious that not all web pages could work on a small screen. The most obvious was the UI.
 
@@ -47,7 +49,7 @@ That's how the `mobile-first approach` was born. In contrast to desktop-first, w
 
 Due to different limitations of the screen estate and accessibility (minimal clickable area, higher contrast) it's not seldom that mobile view and desktop view look completely different.
 
-Such large differences usually require big parts of DOM to be visually modified or hidden. This snippet is from a popular angular course website. As you can see, on the desktop (wide screen) view the navigation is horizontal with items inline aligned to right. On the mobile view, suddenly there are a bunch of styles that position navigation fixed, with fixed size and initially out of the screen. The inner list is vertically oriented. When the `opened` modifier class is applied, the navigation slides in from the left side. Additionally, you can see that some styles had to be overridden (`float`, `display`) for our magic to work.
+Such large differences usually require big parts of DOM to be visually modified or hidden. The following snippet is from a popular angular course website. As you can see, on the desktop (wide screen) view the navigation is horizontal with items inline aligned to right. On the mobile view, suddenly there are a bunch of styles that position navigation fixed, with fixed size and initially out of the screen. The inner list is vertically oriented. When the `opened` modifier class is applied, the navigation slides in from the left side. Additionally, you can see that some styles had to be overridden (`float`, `display`) for our magic to work.
 
 ```CSS
 nav {
