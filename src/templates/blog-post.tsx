@@ -2,27 +2,20 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import { Disqus } from 'gatsby-plugin-disqus';
 
-import Bio from '../components/bio/Bio.jsx';
-import Layout from '../components/layout/Layout.jsx';
-import style from './blog-post.module.scss';
-import ExternalLink from '../components/external-link/ExternalLink.jsx';
+import Bio from '../components/bio/Bio';
+import Layout from '../components/layout/Layout';
+import { blogPost, bioDivider, blogPostNavigation, blogPostNavigationPrev, blogPostNavigationNext } from './blog-post.module.scss';
+import ExternalLink from '../components/external-link/ExternalLink';
 import H from '../components/heading/Heading';
 
 export default function BlogPostTemplate(props) {
   const post = props.data.mdx;
-  const siteUrl = props.data.site.siteMetadata.siteUrl;
   const { previous, next } = props.pageContext;
   const location = props.location;
   const tags = post.frontmatter.tags
     ? post.frontmatter.tags.split(',').map(tag => tag.trim())
     : null;
-  const disqusConfig = {
-    url: `${siteUrl + location.pathname}`,
-    identifier: post.id,
-    title: post.frontmatter.title,
-  }
 
   const tweetLink = `https://twitter.com/intent/tweet?text=Check out this post by @meeroslav 👇%0ahttps://missing-manual.com${post.fields.slug}`;
   const fbLink = `https://www.facebook.com/sharer/sharer.php?u=https://missing-manual.com${post.fields.slug}`;
@@ -30,10 +23,10 @@ export default function BlogPostTemplate(props) {
 
   return (
     <Layout location={location}
-      hero={post.frontmatter.cover.childImageSharp.fluid}
+      hero={post.frontmatter.cover?.childImageSharp.gatsbyImageData}
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}>
-      <p className={style.blogPost}>
+      <p className={blogPost}>
         <small>
           {post.frontmatter.date} ・ {post.fields.readingTime.text}
         </small>
@@ -42,18 +35,18 @@ export default function BlogPostTemplate(props) {
       <H>
         {post.frontmatter.title}
       </H>
-      <p className={style.blogPost}>
+      <p className={blogPost}>
         <small>
           {tags && (
             <span className="tags">
-              { tags.map(t => (
+              {tags.map(t => (
                 <span className="tag" key={t}>{t}</span>
               ))}
             </span>
           )}
         </small>
       </p>
-      <div className={style.blogPost}>
+      <div className={blogPost}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </div>
       <hr />
@@ -63,20 +56,19 @@ export default function BlogPostTemplate(props) {
         <br />
         Did you find it helpful? Leaving <ExternalLink to="https://www.paypal.com/paypalme/meeroslav">a small tip <span role="img" aria-label="coffee">☕</span> </ExternalLink> helps.
       </p>
-      {post.frontmatter.published && <Disqus config={disqusConfig} />}
-      <hr className={style.bioDivider} />
-      <Bio className={style.blogPost} />
+      <hr className={bioDivider} />
+      <Bio className={blogPost} />
 
-      <ul className={style.blogPostNavigation}>
+      <ul className={blogPostNavigation}>
         {previous && (
-          <li className={style.blogPostNavigationPrev}>
+          <li className={blogPostNavigationPrev}>
             <Link to={previous.fields.slug} rel="prev">
               ← {previous.frontmatter.title}
             </Link>
           </li>
         )}
         {next && (
-          <li className={style.blogPostNavigationNext}>
+          <li className={blogPostNavigationNext}>
             <Link to={next.fields.slug} rel="next">
               {next.frontmatter.title} →
             </Link>
@@ -109,9 +101,7 @@ export const pageQuery = graphql`
         cover {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 2000, maxHeight: 600, cropFocus: CENTER) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(transformOptions: {cropFocus: CENTER}, layout: FULL_WIDTH)
           }
         }
         coverInfo

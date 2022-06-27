@@ -3,9 +3,9 @@ title: Uses
 description: List of my work and hobby equipment.
 ---
 
-import ExternalLink from '../components/external-link/ExternalLink';
-import H from '../components/heading/Heading';
-import { Link, graphql } from 'gatsby';
+import ExternalLink from "../components/external-link/ExternalLink";
+import H from "../components/heading/Heading";
+import { Link, graphql } from "gatsby";
 
 <H>Uses</H>
 
@@ -100,9 +100,10 @@ export const pageQuery = graphql`
   query {
     cover: file(absolutePath: { regex: "/pages/gear.jpeg/" }) {
       childImageSharp {
-        fluid(maxWidth: 2000, maxHeight: 800, cropFocus: CENTER) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(
+          transformOptions: { cropFocus: CENTER }
+          layout: FULL_WIDTH
+        )
       }
     }
   }

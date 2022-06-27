@@ -1,7 +1,7 @@
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import React from 'react';
-import style from './mini-post.module.scss';
+import { miniPost, miniPostImage, miniPostText, miniPostDate } from './mini-post.module.scss';
 
 const MiniPost = props => {
   const title = props.frontmatter.title || props.fields.slug;
@@ -11,19 +11,19 @@ const MiniPost = props => {
     : null;
 
   return (
-    <div key={props.fields.slug} className={style.miniPost}>
-      <Image className={style.miniPostImage} fluid={props.frontmatter.cover.childImageSharp.fluid} />
-      <section className={style.miniPostText}>
+    <div key={props.fields.slug} className={miniPost}>
+      <GatsbyImage className={miniPostImage} image={props.frontmatter.cover.childImageSharp.gatsbyImageData} alt={title} />
+      <section className={miniPostText}>
         <h3>
           <Link to={props.fields.slug}>
             {title}
           </Link>
         </h3>
-        <small className={style.miniPostDate}>
+        <small className={miniPostDate}>
           {props.frontmatter.date}
           {tags && (` ・ `)}
           {tags && (<span className="tags">
-            { tags.map(t => (
+            {tags.map(t => (
               <span className="tag" key={t}>{t}</span>
             ))}
           </span>)}

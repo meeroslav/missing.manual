@@ -18,6 +18,7 @@
 
 .hero {
   background: $gradient;
+  max-height: 600px;
 
   img {
     mix-blend-mode: luminosity;

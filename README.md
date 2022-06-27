@@ -1,6 +1,6 @@
 # The missing manual
 
-This is my personal website built with [Gatsby](https://www.gatsbyjs.org/).
+This is my website built with [Gatsby](https://www.gatsbyjs.org/).
 
 You can find the live website at [missing-manual.com](http://missing-manual.com/).
 

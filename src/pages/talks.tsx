@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout/Layout.jsx';
-import Talk from '../components/talk/Talk.jsx';
+import Layout from '../components/layout/Layout';
+import Talk from '../components/talk/Talk';
 import H from '../components/heading/Heading';
 
 const TalksPage = ({ data }) => {
@@ -11,7 +11,7 @@ const TalksPage = ({ data }) => {
 
   return (
     <Layout location={data.location}
-      hero={data.cover.childImageSharp.fluid}
+      hero={data.cover.childImageSharp.gatsbyImageData}
       title="Talks">
       <H>Talks</H>
       {upcoming.length && (<><h2>Upcoming talks</h2><span /></>)}
@@ -30,16 +30,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    cover: file(absolutePath: { regex: "/pages\/talk.jpeg/" }) {
+    cover: file(absolutePath: { regex: "/pages/talk.jpeg/" }) {
       childImageSharp {
-        fluid(maxWidth: 2000, maxHeight: 600, cropFocus: CENTER) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(transformOptions: {cropFocus: CENTER}, layout: FULL_WIDTH)
       }
     }
     upcoming: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { gt: "2020-05-28" }}
+      filter: { date: { gt: "2022-06-27" }}
     ) {
       edges {
         node {
@@ -56,7 +54,7 @@ export const pageQuery = graphql`
     }
     past: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { lt: "2020-05-28" }}
+      filter: { date: { lt: "2022-06-27" }}
     ) {
       edges {
         node {

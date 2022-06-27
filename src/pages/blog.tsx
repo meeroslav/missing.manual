@@ -29,9 +29,7 @@ export const pageQuery = graphql`
     }
     cover: file(absolutePath: { regex: "/pages\/blog.jpg/" }) {
       childImageSharp {
-        fluid(maxWidth: 2000, maxHeight: 600, cropFocus: CENTER) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(transformOptions: {cropFocus: CENTER}, layout: FULL_WIDTH)
       }
     }
     allMdx(
@@ -53,9 +51,7 @@ export const pageQuery = graphql`
             cover {
               publicURL
               childImageSharp {
-                fluid(maxWidth: 320, cropFocus: CENTER) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(transformOptions: {cropFocus: CENTER}, layout: FULL_WIDTH)
               }
             }
           }

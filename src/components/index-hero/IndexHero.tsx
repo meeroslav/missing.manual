@@ -1,9 +1,9 @@
 import React from 'react';
-import style from './index-hero.module.scss';
+import { indexHero } from './index-hero.module.scss';
 
 const IndexHero = ({ text }) => {
   return (
-    <div className={style.indexHero}>
+    <div className={indexHero}>
       <h1 className={'glitch'} data-text={text}>
         {text}
       </h1>

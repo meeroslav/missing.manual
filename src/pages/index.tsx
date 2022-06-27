@@ -1,18 +1,18 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-
-import Layout from '../components/layout/Layout.jsx';
-import Talk from '../components/talk/Talk.jsx';
+import * as React from "react";
+import Layout from '../components/layout/Layout';
+import Talk from '../components/talk/Talk';
 import MiniPost from '../components/mini-post/MiniPost';
+import { graphql } from 'gatsby';
 import IndexHero from '../components/index-hero/IndexHero';
 
-const Home = ({ data }) => {
+// markup
+const IndexPage = ({ data, location }) => {
   const posts = data.blogPosts.edges;
   const upcomingTalks = data.upcomingTalks.edges;
 
   return (
     <Layout
-      location={data.location}
+      location={location}
       heroComponent={<IndexHero text={'Miroslav Jonaš'} />}
       title="Home">
       <h2>Latest posts</h2>
@@ -21,10 +21,11 @@ const Home = ({ data }) => {
       <h2>Upcoming talks</h2>
       <span /><span />
       {upcomingTalks.map(({ node }, i) => <Talk {...node} key={i} />)}
-    </Layout>
-  );
-};
-export default Home;
+    </Layout >
+  )
+}
+
+export default IndexPage
 
 export const pageQuery = graphql`
   query {
@@ -53,9 +54,10 @@ export const pageQuery = graphql`
             cover {
               publicURL
               childImageSharp {
-                fluid(maxWidth: 320) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  transformOptions: { cropFocus: CENTER }
+                  layout: FULL_WIDTH
+                )
               }
             }
           }
@@ -64,7 +66,7 @@ export const pageQuery = graphql`
     }
     upcomingTalks: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { gt: "2020-05-01" }}
+      filter: { date: { gt: "2022-06-27" }}
     ) {
       edges {
         node {

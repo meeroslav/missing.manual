@@ -2,16 +2,29 @@
   {
     "title": "TBA",
     "type": "Talk",
-    "date": "2020-10-01T09:00:00.000Z",
-    "event": "ArmadaJS",
-    "image": "Armada-JS.png"
+    "date": "2022-10-06T09:00:00.000Z",
+    "event": "ArmadaJS"
   },
   {
-    "title": "TBA",
+    "title": "The Age of Monorepos",
     "type": "Talk",
-    "date": "2020-05-29T09:00:00.000Z",
-    "event": "Future.Works Lisbon",
-    "image": "future-works.jpeg"
+    "date": "2022-10-06T09:00:00.000Z",
+    "event": "NG-DE"
+  },
+  {
+    "title": "Nx - the easy choice",
+    "type": "Talk",
+    "date": "2021-11-23T17:00:00.000Z",
+    "event": "We Are Developers JavaScript Congress ’21",
+    "link": "https://www.wearedevelopers.com/javascript-congress"
+  },
+  {
+    "title": "Hello generics, goodbye boilerplate",
+    "type": "Talk",
+    "date": "2020-12-01T16:15:00.000Z",
+    "event": "We Are Developers Live Week",
+    "video": "https://www.wearedevelopers.com/en/videos/hello-generics-goodbye-boilerplate",
+    "link": "https://www.wearedevelopers.com/sessions/hello-generics-goodbye-boilerplate"
   },
   {
     "title": "Hello generics, goodbye boilerplate",
@@ -34,7 +47,6 @@
     "type": "Talk",
     "date": "2019-11-16T19:15:00.000Z",
     "event": "GDG DevFest Vienna",
-    "image": "devfest-vienna.png",
     "link": "https://devfest.at/speakers/",
     "slides": "https://speakerdeck.com/meeroslav/gdg-devfest-how-to-cook-with-rxjs"
   },
@@ -55,14 +67,6 @@
     "video": "https://www.youtube.com/embed/K1rckjbSN08",
     "link": "https://www.meetup.com/Vue-js-Vienna/events/njtrhqyxpbnc/",
     "slides": "https://speakerdeck.com/meeroslav/reactive-vue"
-  },
-  {
-    "title": "We are developers",
-    "type": "MC",
-    "date": "2018-05-17T09:15:00.000Z",
-    "event": "We Are Developers",
-    "video": "https://www.youtube.com/embed/WMPpOY_a900",
-    "link": "https://www.wearedevelopers.com/about/newsroom/wearedevelopers-world-congress-doubles-number-attendees-brings-8-000-developers-vienna/"
   },
   {
     "title": "Reactive State of Mind",
@@ -87,7 +91,6 @@
     "type": "Talk",
     "date": "2018-09-27T20:15:00.000Z",
     "event": "Angular Finland",
-    "image": "angular-finland.jpeg",
     "link": "https://www.meetup.com/Angular-Finland/events/254556097/",
     "slides": "https://speakerdeck.com/meeroslav/cooking-with-rxjs"
   }

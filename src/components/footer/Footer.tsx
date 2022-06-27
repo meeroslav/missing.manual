@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import style from './footer.module.scss';
+import { socialNav, socialLink, footer as footerStyle, menuNav, footerLink, footnote } from './footer.module.scss';
 import ExternalLink from '../external-link/ExternalLink';
 import { FaMediumM, FaGithub, FaLinkedin, FaTwitter, FaBehance, FaInstagram } from 'react-icons/fa';
 
@@ -34,48 +34,48 @@ const Footer = () => {
   const { social } = data.site.siteMetadata;
 
   return (
-    <footer className={`${style.footer}`}>
-      <nav className={style.socialNav}>
+    <footer className={`${footerStyle}`}>
+      <nav className={socialNav}>
         <ExternalLink
-          className={style.socialLink}
+          className={socialLink}
           to={`https://twitter.com/${social.twitter}`}>
           <FaTwitter />
         </ExternalLink>
         <ExternalLink
-          className={style.socialLink}
+          className={socialLink}
           to={`https://github.com/${social.github}`}>
           <FaGithub />
         </ExternalLink>
         <ExternalLink
-          className={style.socialLink}
+          className={socialLink}
           to={`https://www.linkedin.com/in/${social.linkedIn}`}>
           <FaLinkedin />
         </ExternalLink>
         <ExternalLink
-          className={style.socialLink}
+          className={socialLink}
           to={`https://www.instagram.com/${social.instagram}`}>
           <FaInstagram />
         </ExternalLink>
         <ExternalLink
-          className={style.socialLink}
+          className={socialLink}
           to={`https://www.behance.net/${social.behance}`}>
           <FaBehance />
         </ExternalLink>
         <ExternalLink
-          className={style.socialLink}
+          className={socialLink}
           to={`https://medium.com/@${social.medium}`}>
           <FaMediumM />
         </ExternalLink>
       </nav>
-      <nav className={style.menuNav}>
+      <nav className={menuNav}>
         {menuItems.map(({ node }, i) => {
           return <Link
             to={node.link}
-            className={style.footerLink}
+            className={footerLink}
             key={i}>{node.label}</Link>;
         })}
       </nav>
-      <div className={style.footnote}>
+      <div className={footnote}>
         Built using <ExternalLink to="https://www.gatsbyjs.com/">Gatsby</ExternalLink> ・ Source available on <ExternalLink to="https://github.com/meeroslav/missing.manual"><FaGithub /> GitHub</ExternalLink>
         <br />
         Miroslav Jonas © {new Date().getFullYear()}
