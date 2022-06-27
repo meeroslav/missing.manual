@@ -12,8 +12,9 @@ const Layout = ({ children, ...props }) => {
   const description = props.description;
   const hero = props.hero || (props.data && props.data.cover?.childImageSharp.gatsbyImageData);
   const heroComponent = props.heroComponent;
+  const canonical = props.canonical;
   return <>
-    <SEO title={title} description={description} image={hero} />
+    <SEO title={title} description={description} image={hero} canonical={canonical} />
     <div className={layout}>
       <Header />
       {hero && <GatsbyImage image={hero} className={heroStyle} alt="Hero image" />}

@@ -25,6 +25,7 @@ export default function BlogPostTemplate(props) {
     <Layout location={location}
       hero={post.frontmatter.cover?.childImageSharp.gatsbyImageData}
       title={post.frontmatter.title}
+      canonical={post.frontmatter.canonical}
       description={post.frontmatter.description || post.excerpt}>
       <p className={blogPost}>
         <small>
@@ -97,6 +98,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         published
+        canonical
         tags
         cover {
           publicURL
