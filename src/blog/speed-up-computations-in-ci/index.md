@@ -5,7 +5,6 @@ published: true
 tags: Nx, CI, CircleCI, GitHub Actions
 canonical: "https://blog.nrwl.io/using-nx-affected-on-ci-d3d2686295a0"
 cover: "./speed-cover.png"
-coverInfo: "Nx logo on the old race car"
 description: One of the most exciting features of Nx is using the project graph to run the target commands. This article exposes a bit of magic behind the affected commands, explains the common use cases, and shows you how to effectively use them in your CI environment.
 
 ---

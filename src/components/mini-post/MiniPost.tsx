@@ -20,8 +20,6 @@ const MiniPost = props => {
           </Link>
         </h3>
         <small className={miniPostDate}>
-          {props.frontmatter.date}
-          {tags && (` ・ `)}
           {tags && (<span className="tags">
             {tags.map(t => (
               <span className="tag" key={t}>{t}</span>
@@ -33,6 +31,9 @@ const MiniPost = props => {
             __html: excerpt,
           }}
         />
+        <small>
+          {props.frontmatter.date}{(` ・ `)}{props.fields.readingTime?.text}
+        </small>
       </section>
     </div>
   );
