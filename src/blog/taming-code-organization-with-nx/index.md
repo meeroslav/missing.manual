@@ -4,7 +4,7 @@ date: "2021-12-17T17:00:00.121Z"
 published: true
 tags: Monorepo, Nx, Architecture
 canonical: "https://blog.nrwl.io/mastering-the-project-boundaries-in-nx-f095852f5bf4"
-cover: "./cover.png"
+cover: "./taming-cover.png"
 coverInfo: "Nx logo"
 description: As your repository grows, it becomes more challenging to organize and name the applications and libraries. This organization, when done right, feels intuitive and allows team members to easily find projects and understand how they work together. When done poorly, it results in a mess we eventually end up calling "the legacy software".
 ---
