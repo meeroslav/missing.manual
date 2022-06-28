@@ -15,6 +15,13 @@
     "slides": "https://speakerdeck.com/meeroslav/the-age-of-monorepos-jsnation"
   },
   {
+    "title": "The Age of Monorepos",
+    "type": "Talk",
+    "date": "2022-05-18T19:15:00.000Z",
+    "event": "React Vienna",
+    "link": "https://www.meetup.com/reactvienna/events/285690454/"
+  },
+  {
     "title": "Build your own Nx Workspace from Scratch",
     "type": "Talk",
     "date": "2022-04-29T15:30:00.000Z",
