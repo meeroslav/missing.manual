@@ -1,5 +1,6 @@
 // palette
 $cl-outer-space: #2C3531;
+$cl-turquoise-dark: #246e6a;
 $cl-turquoise: #3AAFA9;
 $cl-abbey: #474b4f;
 $cl-burnt-sienna: #E85A4F;
@@ -11,7 +12,7 @@ $cl-twilight-blue: #FEFFFF;
 // target colors
 $cl-background: $cl-twilight-blue;
 $cl-foreground: $cl-outer-space;
-$cl-focus: $cl-daisy-bush;
+$cl-focus: $cl-turquoise-dark;
 $cl-secondary: $cl-abbey;
 $cl-main-back: $cl-alto;
 $cl-inverted-foreground: $cl-twilight-blue;
@@ -27,7 +28,7 @@ $cl-footer-border: $cl-abbey;
 $box-shadow: 0 6px 10px rgba(0, 0, 0, .25);
 
 // gradient
-$gradient: linear-gradient(90deg, $cl-electric-violet, $cl-turquoise);
+$gradient: linear-gradient(90deg, $cl-burnt-sienna, $cl-turquoise);
 
 // functions
 @function mixTransparent($color) {

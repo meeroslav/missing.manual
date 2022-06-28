@@ -1,11 +1,17 @@
 @import '../../styles/variables/layout';
+@import '../../styles/variables/colors';
 
 .indexHero {
+  background: $gradient;
+  padding: 2rem 0 2rem;
+  margin-bottom: -2rem;
+
   h1 {
     margin-top: 2rem;
     font-size: 5rem;
     text-align: center;
     margin-bottom: 2rem;
+    color: $cl-inverted-foreground;
   }
 }
 
