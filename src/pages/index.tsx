@@ -76,6 +76,7 @@ export const pageQuery = graphql`
           event
           video
           link
+          type
           slides
           coSpeaker
           coSpeakerHandle

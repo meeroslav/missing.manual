@@ -1,15 +1,10 @@
 [
   {
-    "title": "TBA",
+    "title": "-",
     "type": "Talk",
     "date": "2022-10-06T09:00:00.000Z",
-    "event": "ArmadaJS"
-  },
-  {
-    "title": "The Age of Monorepos",
-    "type": "Talk",
-    "date": "2022-10-06T09:00:00.000Z",
-    "event": "NG-DE"
+    "event": "ArmadaJS",
+    "link": "https://www.armada-js.com/"
   },
   {
     "title": "The Age of Monorepos",
