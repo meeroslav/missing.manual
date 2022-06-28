@@ -39,32 +39,32 @@ const Footer = () => {
         <ExternalLink
           className={socialLink}
           to={`https://twitter.com/${social.twitter}`}>
-          <FaTwitter />
+          <FaTwitter title="Link to Twitter acount" />
         </ExternalLink>
         <ExternalLink
           className={socialLink}
           to={`https://github.com/${social.github}`}>
-          <FaGithub />
+          <FaGithub title="Link to GitHub acount" />
         </ExternalLink>
         <ExternalLink
           className={socialLink}
           to={`https://www.linkedin.com/in/${social.linkedIn}`}>
-          <FaLinkedin />
+          <FaLinkedin title="Link to LinkedIn acount" />
         </ExternalLink>
         <ExternalLink
           className={socialLink}
           to={`https://www.instagram.com/${social.instagram}`}>
-          <FaInstagram />
+          <FaInstagram title="Link to Instagram acount" />
         </ExternalLink>
         <ExternalLink
           className={socialLink}
           to={`https://www.behance.net/${social.behance}`}>
-          <FaBehance />
+          <FaBehance title="Link to Behance acount" />
         </ExternalLink>
         <ExternalLink
           className={socialLink}
           to={`https://medium.com/@${social.medium}`}>
-          <FaMediumM />
+          <FaMediumM title="Link to Medium acount" />
         </ExternalLink>
       </nav>
       <nav className={menuNav}>
