@@ -3,7 +3,7 @@
 
 .layout {
   margin: auto;
-  max-width: 1920px;
+  max-width: $maxLayoutWidth;
   min-height: 100vh;
   padding-top: $header-feed;
 }

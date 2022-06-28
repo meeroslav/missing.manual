@@ -8,7 +8,7 @@
   background: mixTransparent($cl-background);
   top: 0;
   width: 100vw;
-  max-width: 1920px;
+  max-width: $maxLayoutWidth;
   z-index: $zHeader;
   box-shadow: $box-shadow;
   display: grid;
