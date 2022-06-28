@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 interface Props {
   to: string;
   className?: string;
+  children: React.ReactNode;
 }
 
 const ExternalLink: FC<Props> = ({ to, children, className }) => {

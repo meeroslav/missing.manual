@@ -44,11 +44,12 @@ export const pageQuery = graphql`
           title
           date(formatString: "MMMM DD, YYYY")
           event
-          image
           video
           link
           slides
           type
+          coSpeaker
+          coSpeakerHandle
         }
       }
     }
@@ -61,11 +62,12 @@ export const pageQuery = graphql`
           title
           date(formatString: "MMMM DD, YYYY")
           event
-          image
           video
           link
           slides
           type
+          coSpeaker
+          coSpeakerHandle
         }
       }
     }
