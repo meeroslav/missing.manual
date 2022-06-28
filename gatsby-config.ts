@@ -107,6 +107,18 @@ const config: GatsbyConfig = {
         path: `./src/data`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `The missing manual`,
+        short_name: `miro`,
+        start_url: `/`,
+        background_color: `#FEFFFF`,
+        theme_color: `#246e6a`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+      },
+    },
   ]
 };
 
