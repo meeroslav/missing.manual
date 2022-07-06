@@ -9,6 +9,13 @@
   {
     "title": "The Age of Monorepos",
     "type": "Talk",
+    "date": "2022-10-07T09:00:00.000Z",
+    "event": "NG-DE",
+    "link": "https://ng-de.org/speakers/miroslav-jonas/"
+  },
+  {
+    "title": "The Age of Monorepos",
+    "type": "Talk",
     "date": "2022-06-16T15:30:00.000Z",
     "event": "JSNation",
     "link": "https://jsnation.com/schedule-offline",
