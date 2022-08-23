@@ -4,7 +4,6 @@ date: "2022-08-23T00:00:00.121Z"
 published: true
 tags: Nx,Linter,Performance
 cover: "./butterfly.png"
-coverInfo: "Nx logo covering the butterfly silhouette"
 description: Recently we had a significant performance improvement in our linter rule. In some benchmarks, the increase was up to 100x! While one would expect such a dramatic change to result from implementing a sophisticated algorithm, the reality is that this resulted from minor tweaks. Like the butterfly effect - changing a few lines of code created a ripple effect that tremendously improved the overall performance..
 ---
 
