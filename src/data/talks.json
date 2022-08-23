@@ -1,5 +1,12 @@
 [
   {
+    "title": "Monorepos, Linting, and CI, Oh My!",
+    "type": "Podcast",
+    "date": "2021-08-11T16:30:00.000Z",
+    "event": "Adventures in Angular",
+    "link": "https://topenddevs.com/podcasts/adventures-in-angular/episodes/monorepos-linting-and-ci-oh-my-aia-354"
+  },
+  {
     "title": "The Age of Monorepos",
     "type": "Talk",
     "date": "2022-10-06T09:00:00.000Z",
