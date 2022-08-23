@@ -100,6 +100,7 @@ const config: GatsbyConfig = {
         path: './src/assets',
       },
     },
+    `gatsby-plugin-twitter`,
     'gatsby-transformer-json',
     {
       resolve: `gatsby-source-filesystem`,

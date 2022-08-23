@@ -242,7 +242,7 @@ for (let i = 0; i < nodes.length; i++) {
 ```
 
 The original tweet showed the performance improvement numbers on the client's project:
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">🤫 Coming soon to your <a href="https://twitter.com/NxDevTools?ref_src=twsrc%5Etfw">@NxDevTools</a> monorepo<br/><br/>More info later... <a href="https://t.co/vKPyax3J3g">pic.twitter.com/vKPyax3J3g</a></p>&mdash; Miro (@meeroslav) <a href="https://twitter.com/meeroslav/status/1550058325236191232?ref_src=twsrc%5Etfw">July 21, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">🤫 Coming soon to your <a href="https://twitter.com/NxDevTools?ref_src=twsrc%5Etfw">@NxDevTools</a> monorepo<br/><br/>More info later... <a href="https://t.co/vKPyax3J3g">pic.twitter.com/vKPyax3J3g</a></p>&mdash; Miro (@meeroslav) <a href="https://twitter.com/meeroslav/status/1550058325236191232?ref_src=twsrc%5Etfw">July 21, 2022</a></blockquote>
 
 ---
 
