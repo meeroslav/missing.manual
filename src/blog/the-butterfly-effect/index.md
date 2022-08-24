@@ -22,7 +22,7 @@ The code looked like this (we replaced some functions with pseudo-code for simpl
 
 ```TypeScript
 const allReachableProjects = Object.keys(graph.nodes)
-	.filter(pathExistsBetweenSourceAndNode && graph.dependencies[project]);
+  .filter(pathExistsBetweenSourceAndNode && graph.dependencies[project]);
 
 const externalDependencies = allReachableProjects
   .map((project) =>
@@ -71,7 +71,7 @@ for (let i = 0; i < reachableProjects.length; i++) {
       const dependency = dependencies[d];
       if (graph.externalNodes[dependency.target] && !externalDependenciesMap[dependency.target]) {
         externalDependencies.push(dependency);
-		 externalDependenciesMap[dependency.target] = true;
+        externalDependenciesMap[dependency.target] = true;
       }
     }
   }
@@ -102,7 +102,11 @@ Before:
       "data": {
         // ... other fields
         "files": [
-          { "file": "packages/project-a/a.ts", "hash": "...", "ext": "ts" },
+          { 
+            "file": "packages/project-a/a.ts", 
+            "hash": "...", 
+            "ext": "ts" 
+          },
           // ...
         ]
       }
@@ -123,8 +127,12 @@ After (notice the files section):
       "data": {
         // ... other fields
         "files": {
-          "packages/project-a/a": { "file": "packages/project-a/a.ts", "hash": "...", "ext": "ts" },
-			// ...
+          "packages/project-a/a": { 
+            "file": "packages/project-a/a.ts", 
+            "hash": "...", 
+            "ext": "ts" 
+          },
+          // ...
         }
       }
     },
@@ -147,8 +155,12 @@ The solution was simple. Instead of modifying the files section of each project 
       "data": {
         // ... other fields
         "files": [
-          { "file": "packages/project-a/a.ts", "hash": "...", "ext": "ts" },
-			// ...
+          { 
+            "file": "packages/project-a/a.ts", 
+            "hash": "...", 
+            "ext": "ts" 
+          },
+          // ...
         ]
       }
     },
@@ -157,7 +169,7 @@ The solution was simple. Instead of modifying the files section of each project 
   "externalNodes": { ... },
   "dependencies": [...],
   "allFiles": {
-  	"packages/project-a/a": "project-a",
+    "packages/project-a/a": "project-a",
     // ...
   }
 }
