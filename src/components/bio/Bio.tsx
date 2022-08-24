@@ -9,6 +9,7 @@ const Bio = ({ className }) => {
       site {
         siteMetadata {
           author
+          siteUrl
           social {
             twitter
           }

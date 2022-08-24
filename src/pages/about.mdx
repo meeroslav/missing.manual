@@ -47,6 +47,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         author
+        siteUrl
       }
     }
     cover: file(absolutePath: { regex: "/pages/m.jpg/" }) {
