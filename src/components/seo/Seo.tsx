@@ -47,6 +47,10 @@ function SEO({ description, lang, meta, title, image, canonical }) {
           content: metaDescription,
         },
         {
+          property: `image`,
+          content: metaImage,
+        },
+        {
           property: `og:title`,
           content: title,
         },
@@ -64,7 +68,7 @@ function SEO({ description, lang, meta, title, image, canonical }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,

@@ -6935,6 +6935,11 @@ gatsby-plugin-sitemap@^5.17.0:
     minimatch "^3.1.2"
     sitemap "^7.0.0"
 
+gatsby-plugin-social-cards@^0.5.18-rc5:
+  version "0.5.18-rc5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-social-cards/-/gatsby-plugin-social-cards-0.5.18-rc5.tgz#f8c5afb399649b5aa179fc614c09ffd6be231198"
+  integrity sha512-gVIsKD4Y6BxsP3C0asgg58nnyTDWVeRdqQ3+XLPzA9bNbjdiaIeKbqiScoYYxyTULXshXJhZ7qlMSTB8A7YkUQ==
+
 gatsby-plugin-twitter@^4.21.0:
   version "4.21.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-twitter/-/gatsby-plugin-twitter-4.21.0.tgz#f34dc3eb8b33d8a171b93e3e5d83f04b765cb27d"

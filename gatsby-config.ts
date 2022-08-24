@@ -4,7 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `Miroslav Jonas`,
     author: `Miroslav Jonas`,
-    description: `A personal website of one Miroslav Jonas`,
+    description: `A personal website of Miroslav Jonas`,
     siteUrl: `https://missing-manual.com/`,
     social: {
       twitter: `meeroslav`,
@@ -101,6 +101,19 @@ const config: GatsbyConfig = {
       },
     },
     `gatsby-plugin-twitter`,
+    {
+      resolve: 'gatsby-plugin-social-cards',
+      options: {
+        // ommit to skip
+        // authorImage: "./static/img/coffee-art.jpg",
+        // image to use when no cover in frontmatter
+        backgroundImage: "./static/img/blog.jpg",
+        // author to use when no auth in frontmatter
+        defaultAuthor: 'Miroslav Jonas',
+        // card design
+        design: 'default', // 'default' or 'card'
+      },
+    },
     'gatsby-transformer-json',
     {
       resolve: `gatsby-source-filesystem`,
