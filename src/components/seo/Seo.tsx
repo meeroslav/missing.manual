@@ -27,7 +27,9 @@ function SEO({ description, lang, meta, title, image, canonical }) {
 
   const metaDescription = description || site.siteMetadata.description;
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
-  const metaImage = image && image.images && (origin + image.images.fallback.src);
+  const metaImage = image && image.images
+    ? (origin + image.images.fallback.src)
+    : (origin + '/static/img/blog.jpg');
 
   return (
     <Helmet
