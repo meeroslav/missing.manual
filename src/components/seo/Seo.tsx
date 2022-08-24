@@ -30,7 +30,7 @@ function SEO({ description, lang, meta, title, image, canonical }) {
   const origin = typeof window !== 'undefined' ? window.location.origin : site.siteMetadata.siteUrl;
   const metaImage = image && image.images
     ? (origin + image.images.fallback.src)
-    : (origin + '/static/img/blog.jpg');
+    : (origin + '/default.jpg');
 
   return (
     <Helmet

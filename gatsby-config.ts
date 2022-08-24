@@ -107,7 +107,7 @@ const config: GatsbyConfig = {
         // ommit to skip
         // authorImage: "./static/img/coffee-art.jpg",
         // image to use when no cover in frontmatter
-        backgroundImage: "./static/img/blog.jpg",
+        backgroundImage: "./default.jpg",
         // author to use when no auth in frontmatter
         defaultAuthor: 'Miroslav Jonas',
         // card design
