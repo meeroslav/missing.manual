@@ -8,7 +8,7 @@ import Header from '../header/Header';
 
 const Layout = ({ children, ...props }) => {
   const title = props.title || props.pageContext?.frontmatter?.title;
-  console.log(props);
+
   const description = props.description;
   const hero = props.hero || (props.data && props.data.cover?.childImageSharp.gatsbyImageData);
   const heroComponent = props.heroComponent;
