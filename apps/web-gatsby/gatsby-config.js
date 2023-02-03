@@ -1,6 +1,4 @@
-import type { GatsbyConfig } from 'gatsby';
-
-const config: GatsbyConfig = {
+module.exports = {
   siteMetadata: {
     title: `Miroslav Jonas`,
     author: `Miroslav Jonas`,
@@ -15,12 +13,8 @@ const config: GatsbyConfig = {
       medium: `meeroslav`
     },
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-google-analytics',
@@ -28,21 +22,21 @@ const config: GatsbyConfig = {
         trackingId: 'UA-145350512-1'
       }
     },
-    'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        svgo: false,
+        ref: true,
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'src/images/icon.png'
-      }
-    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
-          "gatsby-remark-images",
+          'gatsby-remark-images',
           {
             resolve: `gatsby-remark-vscode`,
             options: {
@@ -50,16 +44,16 @@ const config: GatsbyConfig = {
             }
           },
 
-        ],
-        // plugins: [require(`gatsby-remark-vscode`)]
+        ]
       }
     },
+    'gatsby-remark-reading-time',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          "gatsby-remark-reading-time",
-          "gatsby-remark-external-links",
+          'gatsby-remark-reading-time',
+          'gatsby-remark-external-links',
           {
             resolve: `gatsby-remark-vscode`,
             options: {
@@ -69,39 +63,11 @@ const config: GatsbyConfig = {
         ],
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: './src/images/'
-      },
-      __key: 'images'
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'pages',
-        path: './src/pages/'
-      },
-      __key: 'pages'
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'blog',
-        path: './src/blog',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'assets',
-        path: './src/assets',
-      },
-    },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-twitter`,
+    'gatsby-transformer-json',
     {
       resolve: 'gatsby-plugin-social-cards',
       options: {
@@ -115,11 +81,46 @@ const config: GatsbyConfig = {
         design: 'default', // 'default' or 'card'
       },
     },
-    'gatsby-transformer-json',
+    {
+      resolve: require.resolve(`@nrwl/gatsby/plugins/nx-gatsby-ext-plugin`),
+      options: {
+        path: __dirname,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data`,
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+      __key: 'images'
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/src/pages/`
+      },
+      __key: 'pages'
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'blog',
+        path: `${__dirname}/src/blog`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'assets',
+        path: `${__dirname}/src/assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/data`,
       },
     },
     {
@@ -131,10 +132,8 @@ const config: GatsbyConfig = {
         background_color: `#FEFFFF`,
         theme_color: `#246e6a`,
         display: `standalone`,
-        icon: `src/images/icon.png`,
+        icon: `./src/images/icon.png`,
       },
     },
-  ]
+  ],
 };
-
-export default config;

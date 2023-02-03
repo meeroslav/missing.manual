@@ -3,7 +3,7 @@ import * as path from 'path';
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
+  const blogPost = path.resolve(`${__dirname}/src/templates/blog-post.tsx`);
 
   const result = await graphql(`
       {

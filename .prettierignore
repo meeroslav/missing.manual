@@ -1,0 +1,8 @@
+# Add files here to ignore them from prettier formatting
+
+/dist
+/coverage
+
+/apps/web-gatsby/node_modules
+/apps/web-gatsby/public
+/apps/web-gatsby/.cache
