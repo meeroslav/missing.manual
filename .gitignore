@@ -38,6 +38,4 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/apps/web-gatsby/node_modules
-/apps/web-gatsby/public
-/apps/web-gatsby/.cache
+
