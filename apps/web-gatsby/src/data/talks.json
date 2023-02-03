@@ -1,5 +1,41 @@
 [
   {
+    "title": "Don't let compilation set the length of your coffee break",
+    "type": "Talk",
+    "date": "2023-03-24T20:30:00.000Z",
+    "event": "NG-BE",
+    "coSpeaker": "Rareș Matei",
+    "coSpeakerHandle": "__rares",
+    "link": "https://ng-be.org/talks/2023/3/24/rares-matei-miroslav-jonas"
+  },
+  {
+    "title": "Advanced Nx Concepts",
+    "type": "Workshop",
+    "date": "2023-03-23T07:00:00.000Z",
+    "event": "NG-BE",
+    "coSpeaker": "Rareș Matei",
+    "coSpeakerHandle": "__rares",
+    "link": "https://ng-be.org/workshops/2023/03/advanced-nx-concepts"
+  },
+  {
+    "title": "Don't let compilation set the length of your coffee break",
+    "type": "Talk",
+    "date": "2023-02-23T16:30:00.000Z",
+    "event": "Agent Conf",
+    "coSpeaker": "Rareș Matei",
+    "coSpeakerHandle": "__rares",
+    "link": "https://www.alpine-conferences.com/agent-conf-2023/"
+  },
+  {
+    "title": "The other JavaScript performance (no one is talking about)",
+    "type": "Talk",
+    "date": "2022-11-29T21:00:00.000Z",
+    "event": "ViennaJS Meetup",
+    "link": "https://viennajs.org/en/meetup/viennajs-november-2022/the-other-js-performance",
+    "slides": "https://speakerdeck.com/meeroslav/the-other-javascript-performance-no-one-is-talking-about",
+    "video": "https://www.youtube.com/watch?v=dKejyTDvdq4"
+  },
+  {
     "title": "Monorepos, Linting, and CI, Oh My!",
     "type": "Podcast",
     "date": "2021-08-11T16:30:00.000Z",
@@ -11,14 +47,17 @@
     "type": "Talk",
     "date": "2022-10-06T09:00:00.000Z",
     "event": "ArmadaJS",
-    "link": "https://www.armada-js.com/"
+    "link": "https://www.armada-js.com/",
+    "slides": "https://speakerdeck.com/meeroslav/age-of-monorepos-armada-js-2022"
   },
   {
     "title": "The Age of Monorepos",
     "type": "Talk",
     "date": "2022-10-07T09:00:00.000Z",
     "event": "NG-DE",
-    "link": "https://ng-de.org/speakers/miroslav-jonas/"
+    "link": "https://ng-de.org/speakers/miroslav-jonas/",
+    "slides": "https://speakerdeck.com/meeroslav/age-of-monorepos-ngde",
+    "video": "https://www.youtube.com/watch?v=Z9VSXUaoBnM"
   },
   {
     "title": "The Age of Monorepos",

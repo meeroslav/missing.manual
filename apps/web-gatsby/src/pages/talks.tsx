@@ -5,9 +5,11 @@ import Layout from '../components/layout/Layout';
 import Talk from '../components/talk/Talk';
 import H from '../components/heading/Heading';
 
+const today = Date.now();
+
 const TalksPage = ({ data }) => {
-  const upcoming = data.upcoming.edges;
-  const past = data.past.edges;
+  const upcoming = data.allTalks.edges.filter(({ node }) => new Date(node.date).getTime() > today);
+  const past = data.allTalks.edges.filter(({ node }) => new Date(node.date).getTime() < today);
 
   return (
     <Layout location={data.location}
@@ -36,27 +38,8 @@ export const pageQuery = graphql`
         gatsbyImageData(transformOptions: {cropFocus: CENTER}, layout: FULL_WIDTH)
       }
     }
-    upcoming: allTalksJson(
+    allTalks: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { gt: "2022-06-27" }}
-    ) {
-      edges {
-        node {
-          title
-          date(formatString: "MMMM DD, YYYY")
-          event
-          video
-          link
-          slides
-          type
-          coSpeaker
-          coSpeakerHandle
-        }
-      }
-    }
-    past: allTalksJson(
-      sort: { fields: [date], order: DESC },
-      filter: { date: { lt: "2022-06-27" }}
     ) {
       edges {
         node {

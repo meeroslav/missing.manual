@@ -5,10 +5,12 @@ import MiniPost from '../components/mini-post/MiniPost';
 import { graphql } from 'gatsby';
 import IndexHero from '../components/index-hero/IndexHero';
 
+const today = Date.now();
+
 // markup
 const IndexPage = ({ data, location }) => {
   const posts = data.blogPosts.edges;
-  const upcomingTalks = data.upcomingTalks.edges;
+  const upcomingTalks = data.talks.edges.filter(({ node }) => new Date(node.date).getTime() > today);
 
   return (
     <Layout
@@ -18,9 +20,11 @@ const IndexPage = ({ data, location }) => {
       <h2>Latest posts</h2>
       <span /><span />
       {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
-      <h2>Upcoming talks</h2>
-      <span /><span />
-      {upcomingTalks.map(({ node }, i) => <Talk {...node} key={i} />)}
+      {upcomingTalks.length > 0 && <>
+        <h2>Upcoming talks</h2>
+        <span /><span />
+        {upcomingTalks.map(({ node }, i) => <Talk {...node} key={i} />)}
+      </>}
     </Layout >
   )
 }
@@ -69,9 +73,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    upcomingTalks: allTalksJson(
+    talks: allTalksJson(
       sort: { fields: [date], order: DESC },
-      filter: { date: { gt: "2022-06-27" }}
+      limit: 10
     ) {
       edges {
         node {
