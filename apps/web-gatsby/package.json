@@ -7,5 +7,12 @@
   "dependencies": {
     "gatsby": "*",
     "gatsby-plugin-image": "*"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
   }
 }

@@ -1,9 +1,10 @@
 import { createFilePath } from 'gatsby-source-filesystem';
 import * as path from 'path';
 
-exports.createPages = async ({ graphql, actions }) => {
+const blogPost = path.resolve(`${__dirname}/src/templates/blog-post.tsx`);
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  const blogPost = path.resolve(`${__dirname}/src/templates/blog-post.tsx`);
 
   const result = await graphql(`
       {
@@ -29,7 +30,11 @@ exports.createPages = async ({ graphql, actions }) => {
     `);
 
   if (result.errors) {
-    throw result.errors;
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      result.errors
+    )
+    return
   }
 
   const createBlogPostPage = (post, previous = null, next = null) => {
@@ -38,6 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: blogPost,
       context: {
         slug: post.node.fields.slug,
+        id: post.id,
         previous,
         next
       }
@@ -62,6 +68,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode });
+
     createNodeField({
       name: `slug`,
       node,

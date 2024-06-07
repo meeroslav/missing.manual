@@ -1,0 +1,235 @@
+[
+  {
+    "title": "Don't let compilation set the length of your coffee break",
+    "type": "Talk",
+    "date": "2023-03-24T20:30:00.000Z",
+    "event": "NG-BE",
+    "coSpeaker": "Rareș Matei",
+    "coSpeakerHandle": "__rares",
+    "link": "https://ng-be.org/talks/2023/3/24/rares-matei-miroslav-jonas"
+  },
+  {
+    "title": "Advanced Nx Concepts",
+    "type": "Workshop",
+    "date": "2023-03-23T07:00:00.000Z",
+    "event": "NG-BE",
+    "coSpeaker": "Rareș Matei",
+    "coSpeakerHandle": "__rares",
+    "link": "https://ng-be.org/workshops/2023/03/advanced-nx-concepts"
+  },
+  {
+    "title": "Don't let compilation set the length of your coffee break",
+    "type": "Talk",
+    "date": "2023-02-23T16:30:00.000Z",
+    "event": "Agent Conf",
+    "coSpeaker": "Rareș Matei",
+    "coSpeakerHandle": "__rares",
+    "link": "https://www.alpine-conferences.com/agent-conf-2023/"
+  },
+  {
+    "title": "The other JavaScript performance (no one is talking about)",
+    "type": "Talk",
+    "date": "2022-11-29T21:00:00.000Z",
+    "event": "ViennaJS Meetup",
+    "link": "https://viennajs.org/en/meetup/viennajs-november-2022/the-other-js-performance",
+    "slides": "https://speakerdeck.com/meeroslav/the-other-javascript-performance-no-one-is-talking-about",
+    "video": "https://www.youtube.com/watch?v=dKejyTDvdq4"
+  },
+  {
+    "title": "Monorepos, Linting, and CI, Oh My!",
+    "type": "Podcast",
+    "date": "2021-08-11T16:30:00.000Z",
+    "event": "Adventures in Angular",
+    "link": "https://topenddevs.com/podcasts/adventures-in-angular/episodes/monorepos-linting-and-ci-oh-my-aia-354"
+  },
+  {
+    "title": "The Age of Monorepos",
+    "type": "Talk",
+    "date": "2022-10-06T09:00:00.000Z",
+    "event": "ArmadaJS",
+    "link": "https://www.armada-js.com/",
+    "slides": "https://speakerdeck.com/meeroslav/age-of-monorepos-armada-js-2022"
+  },
+  {
+    "title": "The Age of Monorepos",
+    "type": "Talk",
+    "date": "2022-10-07T09:00:00.000Z",
+    "event": "NG-DE",
+    "link": "https://ng-de.org/speakers/miroslav-jonas/",
+    "slides": "https://speakerdeck.com/meeroslav/age-of-monorepos-ngde",
+    "video": "https://www.youtube.com/watch?v=Z9VSXUaoBnM"
+  },
+  {
+    "title": "The Age of Monorepos",
+    "type": "Talk",
+    "date": "2022-06-16T15:30:00.000Z",
+    "event": "JSNation",
+    "link": "https://jsnation.com/schedule-offline",
+    "slides": "https://speakerdeck.com/meeroslav/the-age-of-monorepos-jsnation"
+  },
+  {
+    "title": "The Age of Monorepos",
+    "type": "Talk",
+    "date": "2022-05-18T19:15:00.000Z",
+    "event": "React Vienna",
+    "link": "https://www.meetup.com/reactvienna/events/285690454/"
+  },
+  {
+    "title": "Build your own Nx Workspace from Scratch",
+    "type": "Talk",
+    "date": "2022-04-29T15:30:00.000Z",
+    "event": "Nx Conf Lite",
+    "coSpeaker": "Jason Jean",
+    "coSpeakerHandle": "FrozenPandaz",
+    "link": "https://nx.dev/conf",
+    "video": "https://www.youtube.com/watch?v=0WADb34Yjmg"
+  },
+  {
+    "title": "Nx - the obvious choice",
+    "type": "Talk",
+    "date": "2022-03-23T19:00:00.000Z",
+    "event": "#28 Angular Munich Meetup",
+    "link": "https://www.meetup.com/angular-munich/events/284201966/",
+    "slides": "https://speakerdeck.com/meeroslav/nx-the-obvious-choice"
+  },
+  {
+    "title": "Taming Code Organization with Module Boundaries in Nx",
+    "type": "Podcast",
+    "date": "2022-02-15T18:00:00.000Z",
+    "event": "Nx Show",
+    "video": "https://www.youtube.com/watch?v=Fj18Y1uq0pQ&list=PLakNactNC1dE8KLQ5zd3fQwu_yQHjTmR5",
+    "link": "https://www.youtube.com/watch?v=Fj18Y1uq0pQ&list=PLakNactNC1dE8KLQ5zd3fQwu_yQHjTmR5"
+  },
+  {
+    "title": "The Age of Monorepos",
+    "type": "Talk",
+    "date": "2022-02-10T18:00:00.000Z",
+    "event": "Agent Conf",
+    "link": "https://www.alpine-conferences.com/agent-conf-2022/schedule/",
+    "video": "https://www.youtube.com/watch?v=22dzmf9LmqA",
+    "slides": "https://speakerdeck.com/meeroslav/the-age-of-monorepos"
+  },
+  {
+    "title": "Nx - the easy choice",
+    "type": "Talk",
+    "date": "2021-11-23T17:00:00.000Z",
+    "event": "We Are Developers JavaScript Congress",
+    "link": "https://www.wearedevelopers.com/javascript-congress"
+  },
+  {
+    "title": "Nx - the easy choice",
+    "type": "Talk",
+    "date": "2021-10-28T20:00:00.000Z",
+    "event": "Angular Vienna - Nx Deep Dive Meetup",
+    "link": "https://www.meetup.com/angular-vienna/events/281356115/",
+    "slides": "https://speakerdeck.com/meeroslav/angularvienna"
+  },
+  {
+    "title": "Nx - the easy choice",
+    "type": "Talk",
+    "date": "2021-10-27T20:00:00.000Z",
+    "event": "ViennaJS Meetup October 2021",
+    "link": "https://viennajs.org/en/meetup/viennajs-october-2021",
+    "slides": "https://speakerdeck.com/meeroslav/nx-the-easy-choice"
+  },
+  {
+    "title": "Responsive Angular Components",
+    "type": "Podcast",
+    "date": "2021-07-12T17:00:00.000Z",
+    "event": "Adventures in Angular",
+    "link": "https://topenddevs.com/podcasts/adventures-in-angular/episodes/responsive-angular-components-ft-miroslav-jonas-aia-320"
+  },
+  {
+    "title": "@angular-component Router",
+    "type": "Talk",
+    "date": "2020-12-21T20:00:00.000Z",
+    "event": "#3 Angular Belgrade Meetup",
+    "link": "https://twitter.com/angularbelgrade/status/1383031708702887937",
+    "video": "https://www.youtube.com/watch?v=xdQlOZabDtM",
+    "slides": "https://speakerdeck.com/meeroslav/angular-component-router-serbian"
+  },
+  {
+    "title": "New router on the block",
+    "type": "Talk",
+    "date": "2020-12-21T20:00:00.000Z",
+    "event": "Angular Vienna Meetup - Xmas Online Special",
+    "link": "https://www.meetup.com/angular-vienna/events/275181399/",
+    "slides": "https://speakerdeck.com/meeroslav/new-router-on-the-block-angular-vienna-dec-20"
+  },
+  {
+    "title": "Hello generics, goodbye boilerplate",
+    "type": "Talk",
+    "date": "2020-12-01T16:15:00.000Z",
+    "event": "We Are Developers Live Week",
+    "video": "https://www.wearedevelopers.com/en/videos/hello-generics-goodbye-boilerplate",
+    "link": "https://www.wearedevelopers.com/sessions/hello-generics-goodbye-boilerplate"
+  },
+  {
+    "title": "Hello generics, goodbye boilerplate",
+    "type": "Talk",
+    "date": "2020-01-24T16:45:00.000Z",
+    "event": "Agent Conf",
+    "video": "https://www.youtube.com/embed/6dXkkdhnhcQ",
+    "link": "https://agent.sh/index#schedule"
+  },
+  {
+    "title": "Hello generics, goodbye boilerplate",
+    "type": "Talk",
+    "date": "2019-12-11T21:00:00.000Z",
+    "event": "Angular Vienna Christmas Edition",
+    "video": "https://www.youtube.com/embed/LesJdh4uRmk",
+    "link": "https://www.meetup.com/Angular-Vienna/events/266777701/"
+  },
+  {
+    "title": "How to cook with RxJS",
+    "type": "Talk",
+    "date": "2019-11-16T19:15:00.000Z",
+    "event": "GDG DevFest Vienna",
+    "link": "https://devfest.at/speakers/",
+    "slides": "https://speakerdeck.com/meeroslav/gdg-devfest-how-to-cook-with-rxjs"
+  },
+  {
+    "title": "How to cook with RxJS",
+    "type": "Talk",
+    "date": "2019-09-19T09:15:00.000Z",
+    "event": "ArmadaJS",
+    "video": "https://www.youtube.com/embed/jYuSwn5voNM",
+    "link": "https://www.armada-js.com/speakers/miroslav-jonas/",
+    "slides": "https://speakerdeck.com/meeroslav/how-to-cook-with-rxjs-armada-js"
+  },
+  {
+    "title": "Reactive Vue",
+    "type": "Talk",
+    "date": "2018-11-30T19:15:00.000Z",
+    "event": "Vue.js Vienna",
+    "video": "https://www.youtube.com/embed/K1rckjbSN08",
+    "link": "https://www.meetup.com/Vue-js-Vienna/events/njtrhqyxpbnc/",
+    "slides": "https://speakerdeck.com/meeroslav/reactive-vue"
+  },
+  {
+    "title": "Reactive State of Mind",
+    "type": "Talk",
+    "date": "2018-02-08T20:15:00.000Z",
+    "event": "Angular Vienna",
+    "video": "https://www.youtube.com/embed/Doyn3oZPrY4",
+    "link": "https://www.meetup.com/Angular-Vienna/events/247035489/",
+    "slides": "https://speakerdeck.com/meeroslav/reactive-state-of-mind"
+  },
+  {
+    "title": "Angular route localization",
+    "type": "Talk",
+    "date": "2017-05-10T20:15:00.000Z",
+    "event": "Angular Vienna",
+    "image": "angular-vienna.jpeg",
+    "link": "https://www.meetup.com/Angular-Vienna/events/239381695/",
+    "slides": "https://speakerdeck.com/meeroslav/angular-route-localization"
+  },
+  {
+    "title": "Cooking with RxJS",
+    "type": "Talk",
+    "date": "2018-09-27T20:15:00.000Z",
+    "event": "Angular Finland",
+    "link": "https://www.meetup.com/Angular-Finland/events/254556097/",
+    "slides": "https://speakerdeck.com/meeroslav/cooking-with-rxjs"
+  }
+]

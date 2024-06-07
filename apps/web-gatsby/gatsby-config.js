@@ -69,39 +69,12 @@ module.exports = {
     `gatsby-plugin-twitter`,
     'gatsby-transformer-json',
     {
-      resolve: 'gatsby-plugin-social-cards',
-      options: {
-        // ommit to skip
-        // authorImage: "./static/img/coffee-art.jpg",
-        // image to use when no cover in frontmatter
-        backgroundImage: "./default.jpg",
-        // author to use when no auth in frontmatter
-        defaultAuthor: 'Miroslav Jonas',
-        // card design
-        design: 'default', // 'default' or 'card'
-      },
-    },
-    {
-      resolve: require.resolve(`@nrwl/gatsby/plugins/nx-gatsby-ext-plugin`),
-      options: {
-        path: __dirname,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
       __key: 'images'
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'pages',
-        path: `${__dirname}/src/pages/`
-      },
-      __key: 'pages'
     },
     {
       resolve: 'gatsby-source-filesystem',

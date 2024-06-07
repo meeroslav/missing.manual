@@ -13,13 +13,12 @@ glitch">glitch</h1>
 ```scss
 // Ignore all of this, scroll down until you see the next comment.
 // I just like my eye candy. 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:800');
 
 
 html, body, h1 {
 	padding: 0;
 	margin: 0;
-	font-family: 'Montserrat', sans-serif;
+	font-family: sans-serif;
 }
 
 #app {

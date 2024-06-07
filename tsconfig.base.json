@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@miro-rs/data/*": ["libs/data/src/*"]
+      "@miro-rs/data/*": ["libs/data/src/*"],
+      "@miro-rs/gatsby-plugin": ["libs/gatsby-plugin/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
