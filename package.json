@@ -22,7 +22,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^7.13.1",
     "gatsby-remark-prismjs": "^7.13.1",
-    "gatsby-remark-reading-time": "^1.1.0",
+    "gatsby-remark-reading-time": "patch:gatsby-remark-reading-time@npm%3A1.1.0#~/.yarn/patches/gatsby-remark-reading-time-npm-1.1.0-d04a5261b5.patch",
     "gatsby-remark-responsive-iframe": "^6.13.1",
     "gatsby-remark-vscode": "^3.3.1",
     "gatsby-source-filesystem": "^5.13.1",
