@@ -7,7 +7,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 function SEO({ description, lang, meta, title, image, canonical }) {
@@ -27,10 +26,14 @@ function SEO({ description, lang, meta, title, image, canonical }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const origin = typeof window !== 'undefined' ? window.location.origin : site.siteMetadata.siteUrl;
-  const metaImage = image && image.images
-    ? (origin + image.images.fallback.src)
-    : (origin + '/default.jpg');
+  const origin =
+    typeof window !== 'undefined'
+      ? window.location.origin
+      : site.siteMetadata.siteUrl;
+  const metaImage =
+    image && image.images
+      ? origin + image.images.fallback.src
+      : origin + '/default.jpg';
 
   return (
     <Helmet
@@ -39,11 +42,7 @@ function SEO({ description, lang, meta, title, image, canonical }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      link={
-        canonical
-          ? [{ rel: 'canonical', href: canonical }]
-          : []
-      }
+      link={canonical ? [{ rel: 'canonical', href: canonical }] : []}
       meta={[
         {
           name: `description`,
@@ -95,7 +94,7 @@ function SEO({ description, lang, meta, title, image, canonical }) {
         },
       ].concat(meta)}
     />
-  )
+  );
 }
 
 SEO.defaultProps = {
@@ -111,4 +110,4 @@ SEO.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default SEO
+export default SEO;

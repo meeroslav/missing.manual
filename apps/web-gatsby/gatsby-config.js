@@ -29,7 +29,6 @@ module.exports = {
         ref: true,
       },
     },
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-mdx`,
