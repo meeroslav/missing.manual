@@ -171,7 +171,7 @@ To achieve this, we need to be able to detect devices and remove/add DOM element
 
 Media queries are not only supported in CSS but also in JavaScript. The Window object implements a function `matchMedia` that returns a response of type [MediaQueryList](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList). MediaQueryList extends `EventTarget`, meaning it can receive events and have listeners set up. It also adds two additional properties:
 
-```TypeScript
+```typescript
 interface MediaQueryList extends EventTarget {
   matches: boolean; // => true if document matches the passed media query, false if not
   media: string; // => the media query used for the matching
@@ -180,7 +180,7 @@ interface MediaQueryList extends EventTarget {
 
 A very simple example could look like this:
 
-```TypeScript
+```typescript
 const query = '(orientation: portrait)';
 const mediaQueryList = window.matchMedia(query);
 
@@ -194,7 +194,7 @@ if (mediaQueryList.matches) {
 
 The MediaQueryList becomes even more usable once we attach listeners to it. Let's take the previous example and enhance it a bit:
 
-```TypeScript
+```typescript
 const query = '(orientation: portrait)';
 const mediaQueryList = window.matchMedia(query);
 
@@ -221,9 +221,9 @@ Attaching the listener will only trigger our callback upon change, so we have to
 Each event listener produces a stream of events. This allows us to wrap the information in an Observable using the service.
 The consumer of the service can then subscribe to the stream of media changes and react upon them.
 
-The core of the service is a `ReplaySubject` to which we will pass all the values from the `matchMedia` function. The listener part is equivalent to the plain Vanilla TypeScript example above.
+The core of the service is a `ReplaySubject` to which we will pass all the values from the `matchMedia` function. The listener part is equivalent to the plain Vanilla typescript example above.
 
-```TypeScript
+```typescript
 class MediaService {
   private matches = new ReplaySubject<boolean>(1);
   public match$ = this.matches.asObservable();
@@ -244,7 +244,7 @@ class MediaService {
 
 We can now use this service in our components to control the visibility of parts of the template. Each time the media query match changes, our property `isDesktop` will be changed and influence the rendering of the template.
 
-```TypeScript
+```typescript
 @Component({
   selector: 'foo-bar',
   template: `
@@ -270,7 +270,7 @@ There are many use cases for `MediaService`, such as fetching different resource
 
 Instead of using service to subscribe to media changes we can listen to them directly in the component.
 
-```TypeScript
+```typescript
 @Component({
   selector: 'use-media',
   template: '<ng-content *ngIf="isMatch"></ng-content>'
@@ -302,7 +302,7 @@ The first obvious difference between the component and service is the `removeLis
 
 Our component would be used to control the template in a similar way to how service does, but now all the magic happens in the template:
 
-```TypeScript
+```typescript
 @Component({
   selector: 'foo-bar',
   template: `
@@ -319,7 +319,7 @@ class FooBarComponent { }
 
 Of course, for better readability and reusability we can extract two media queries `(min-width: 768px)` and `(max-width: 767px)` to constants and use them across our application. Although, this example exposes clear intent, we still have two extra `use-media` DOM elements, whose sole purpose is to control the visibility. Additionally, since we use content projection, the inner content will always be processed before `ngIf` takes over.
 
-```TypeScript
+```typescript
 @Component({ selector: 'child-component' })
 class ChildComponent implements OnInit {
   @Input() value: string;
@@ -362,7 +362,7 @@ A structural directive built on top of the same logic solves both of those issue
 - No extra DOM element required
 - The content is only rendered if the positive value is received
 
-```TypeScript
+```typescript
 @Directive({ selector: '[media]' })
 class MediaDirective {
   @Input() set media(query: string) {
@@ -405,7 +405,7 @@ class MediaDirective {
 
 The only major difference between the media directive and component is in the `listener` callback. While the component was setting public property `isMatch`, the directive is creating or clearing the view based on the value.
 
-```TypeScript
+```typescript
 @Component({
   selector: 'foo-bar',
   template: `

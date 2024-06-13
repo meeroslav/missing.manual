@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-plugin",
+  "name": "local-plugin",
   "version": "0.0.1",
   "dependencies": {
     "@nx/devkit": "18.2.4",

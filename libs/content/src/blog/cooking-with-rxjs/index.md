@@ -82,7 +82,7 @@ Let’s see now how we would do this functionally.
       )
     )
 
-It’s now a bit clear that heating the butter in the pan and beating the eggs can be parallelized. We also see that we should only serve once** **the mixture had thickened. Also, we must stir the mixture in the medium heated pan until thickened.
+It’s now a bit clear that heating the butter in the pan and beating the eggs can be parallelized. We also see that we should only serve once** **the mixture has thickened. Also, we must stir the mixture in the medium heated pan until thickened.
 
 If we consider that stirring the mixture does the same thing as beating (mixing) them we could even do this:
 
@@ -94,23 +94,23 @@ If we consider that stirring the mixture does the same thing as beating (mixing)
       )
     )
 
-We mark the second param, the ingredients, with a dollar sign to note that it’s a stream of items. It also tells us that as long as the mixture hasn’t thickened we can still add spices or more eggs to the ingredients stream. We can see the dependencies, hierarchy and a clear flow — something enters the function, something (else) exits the function.
+We mark the second parameter, the ingredients, with a dollar sign to note that it’s a stream of items. It also tells us that as long as the mixture hasn’t thickened we can still add spices or more eggs to the ingredients stream. We can see the dependencies, hierarchy and a clear flow — something enters the function, and something (else) exits the function.
 
-While not always applicable in the kitchen, in functional programming functions should be always pure:
-* have no side effects (e.g. heating the pan will not melt ice-cream in your freezer)
+While not always applicable in the kitchen, functional programming functions should be always pure:
+* have no side effects (e.g. heating the pan will not melt ice cream in your freezer)
 * input parameters are not mutated, functions return new objects (this would require eggs to remain intact after stirring)
 
 ## Iterator pattern
 
-The iterator pattern is one of the original [**Gang of Four** design patterns](https://en.wikipedia.org/wiki/Design_Patterns) along with the observer pattern. In order to understand how iterator works, we can imagine a pizza.
+The iterator pattern is one of the original [**Gang of Four** design patterns](https://en.wikipedia.org/wiki/Design_Patterns) along with the observer pattern. In order to understand how the iterator works, we can imagine a pizza.
 
 ![Photo by Fancycrave on Unsplash](pizza.jpeg)
 
-Your pizza works according to the iterator pattern. You take one slice, then take another one, and another one… until there are no more slices left. At any time you can ask (or rather look at) pizza to find out are there more slices available. Iterator helps you to iterate over a collection of items — in this case, a collection of pizza slices. It could be an “endless” collection — like pouring a glass of tap water.
+Your pizza works according to the iterator pattern. You take one slice, then take another one, and another one… until there are no more slices left. At any time you can ask (or rather look at) pizza to find out if there are more slices available. Iterator helps you to iterate over a collection of items — in this case, a collection of pizza slices. It could be an “endless” collection — like pouring a glass of tap water.
 
 ## Observer pattern
 
-While pizza required you to do some manual labor — taking the slices, observer requires you to just “subscribe” to pizza and the slices will come to you. But, maybe pizza is not the best metaphor here.
+While pizza requires you to do some manual labor — taking the slices, the observer requires you to just “subscribe” to pizza and the slices will come to you. But, maybe pizza is not the best metaphor here.
 
 ![Photo by Yakynina Anastasia on Unsplash](pancake.jpeg)
 
@@ -126,21 +126,21 @@ The process of making pancakes can actually explain a lot of RX operators:
 
 ## Hot and cold observables
 
-Everything can be an Observable. Observable is an object to which an observer can subscribe. An item, next to you, is an Observable . In our example, pancake-making-grandma is an Observable. Just like pizza, it exposes a collection of items. We can apply multiple functions (called operators) upon observable responses to further enhance or shape the output we need.
+Everything can be Observable. Observable is an object to which an observer can subscribe. An item, next to you, is an Observable. In our example, pancake-making-grandma is an Observable. Just like pizza, it exposes a collection of items. We can apply multiple functions (called operators) upon observable responses to further enhance or shape the output we need.
 
 You might notice two sub-classes here — some observables are a one-time thing, while others come in a stream, but they generally work the same way — you request something (or some things) and you receive it once it’s ready. You can also unsubscribe before the next item arrives.
 
-Some observables, however, produce items regardless of whether you asked for them or not.
+Some observables, however, produce items regardless of whether you ask for them or not.
 
 ![Photo by Florian Metzner on Unsplash](sushi.jpeg)
 
-Imagine going to a Japanese restaurant and ordering sushi. Your sushi does not exist up front. It is being made for you once you order it (subscribe to it). You have a window of opportunity, where you might cancel the order if you change your mind. This type of observable is called **cold **observable. The most common example is fetching data from the server.
+Imagine going to a Japanese restaurant and ordering sushi. Your sushi does not exist upfront. It is being made for you once you order it (subscribe to it). You have a window of opportunity, where you might cancel the order if you change your mind. This type of observable is called **cold **observable. The most common example is fetching data from the server.
 
 Now imagine a [conveyor belt sushi](https://en.wikipedia.org/wiki/Conveyor_belt_sushi) (also known as the running sushi, or sushi train) restaurant. Cooks prepare sushi the whole day, and ready-made sushi rotates on a track for customers to pick. The sushi was there before you arrived and will be coming out of the kitchen even after you leave. It does not wait for your “subscription”. You can unsubscribe (stop eating) but that won’t stop the production. This is called **hot **observable. The most common example is listening to mouse events.
 
 ## Food for thought
 
-Now once you’ve mastered the basics of ReactiveX, select your favorite operator or observable and try to find an analogy in your surrounding.
+Now once you’ve mastered the basics of ReactiveX, select your favorite operator or observable and try to find an analogy in your surroundings.
 
 ---
 

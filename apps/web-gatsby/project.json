@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@miro-rs/gatsby-plugin:build",
+      "executor": "@miro-rs/local-plugin:build-gatsby",
       "options": {
         "outputPath": "apps/web-gatsby/public"
       },
@@ -15,7 +15,7 @@
       }
     },
     "serve": {
-      "executor": "@miro-rs/gatsby-plugin:serve",
+      "executor": "@miro-rs/local-plugin:serve-gatsvy",
       "options": {
         "buildTarget": "web-gatsby:build"
       },

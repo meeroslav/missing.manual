@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-plugin",
+  "name": "local-plugin",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/gatsby-plugin/src",
+  "sourceRoot": "libs/local-plugin/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -9,28 +9,28 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/gatsby-plugin",
-        "main": "libs/gatsby-plugin/src/index.ts",
-        "tsConfig": "libs/gatsby-plugin/tsconfig.lib.json",
+        "outputPath": "dist/libs/local-plugin",
+        "main": "libs/local-plugin/src/index.ts",
+        "tsConfig": "libs/local-plugin/tsconfig.lib.json",
         "assets": [
-          "libs/gatsby-plugin/*.md",
+          "libs/local-plugin/*.md",
           {
-            "input": "./libs/gatsby-plugin/src",
+            "input": "./libs/local-plugin/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./libs/gatsby-plugin/src",
+            "input": "./libs/local-plugin/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./libs/gatsby-plugin",
+            "input": "./libs/local-plugin",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./libs/gatsby-plugin",
+            "input": "./libs/local-plugin",
             "glob": "executors.json",
             "output": "."
           }

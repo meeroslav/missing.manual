@@ -1,7 +1,7 @@
-# gatsby-plugin
+# local-plugin
 
 This library was generated with [Nx](https://nx.dev).
 
 ## Building
 
-Run `nx build gatsby-plugin` to build the library.
+Run `nx build local-plugin` to build the library.

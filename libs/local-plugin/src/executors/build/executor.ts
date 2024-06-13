@@ -32,11 +32,11 @@ export function runGatsbyBuild(
     process.on('exit', () => cp.kill());
     process.on('SIGTERM', () => cp.kill());
 
-    cp.on('error', (err) => {
+    cp.on('error', err => {
       reject(err);
     });
 
-    cp.on('exit', (code) => {
+    cp.on('exit', code => {
       if (code === 0) {
         resolve();
       } else {

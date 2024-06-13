@@ -20,7 +20,7 @@ At a first glimpse, nothing seemed off. The code was logical, didn't have unnece
 
 The code looked like this (we replaced some functions with pseudo-code for simplicity):
 
-```TypeScript
+```typescript
 const allReachableProjects = Object.keys(graph.nodes)
   .filter(pathExistsBetweenSourceAndNode && graph.dependencies[project]);
 
@@ -49,7 +49,7 @@ This led to a **hidden inner loop**. What initially looked like a single loop, i
 To avoid this, we used `for` loops with `Array.push`. We start with an empty `reachableProjects` array, and every time project satisfies the condition, we push it to our array. We applied the same logic to `externalDependencies`. Instead of a `map`, `filter`, and `flat`, we use loops and `if` conditions. We introduce a hash table to ensure no duplicates in our resulting collection. Once we add the project to the array, we mark it in our hash table with `true`, so we can quickly check if we have added it already.
 
 This is what the resulting code looked like:
-```TypeScript
+```typescript
 if (!graph.externalNodes) {
   return [];
 }
@@ -187,7 +187,7 @@ We started digging and time-tracking each code block using the `console.time` un
 So that couldn't have been it. Also, the matrix was only generated once and used from memory until the graph changed. It turned out that single matrix generation was **extremely slow in large monorepos** with thousands of projects.
 The code looked like this:
 
-```TypeScript
+```typescript
 function buildMatrix(graph) {
   const dependencies = graph.dependencies;
   const nodes = Object.keys(graph.nodes);
@@ -234,7 +234,7 @@ function buildMatrix(graph) {
 ```
 
 As you might have learned in this article, using `reduce` isn't the smartest thing to do when you care about performance, so our first step was to replace `reduce` with `for` loop and `Array.push`. We then focused on the usual suspect - the recursion in the `traverse` function. But all potential improvements failed to make a difference. So we again added `console.time` to establish what was going on. It turned out, that the problematic line was: 
-```TypeScript
+```typescript
 matrix[v] = { ...initMatrixValues };
 ```
 So what was going on there?
@@ -245,7 +245,7 @@ Unfortunately, we forgot that spreading the object iterates through all its memb
 
 The first step in the optimization was to generate matrix values for every node in an inner loop instead of spreading the prebuilt one.
 
-```TypeScript
+```typescript
 for (let i = 0; i < nodes.length; i++) {
   const node = nodes[i];
   adjList[node] = [];
@@ -260,7 +260,7 @@ for (let i = 0; i < nodes.length; i++) {
 And then **Stefan**, who helped with the performance investigation, had a **brilliant revelation**  -  we explicitly use `false` to mark that there is no connection between two nodes. Still, we could also assume that no value means there is no connection. Instead of generating an object with pre-filled nodes with an explicit false value, we could start with an empty object. This finally brought us to ideal **O(n)** and gave us **100x improvement** in the original run (the function itself is exponentially faster, as seen in [this benchmark](https://medium.com/r/?url=https%3A%2F%2Fjsbench.me%2Fpvl5tmriuh%2F2)).
 The code now looked like this:
 
-```TypeScript
+```typescript
 for (let i = 0; i < nodes.length; i++) {
   const node = nodes[i];
   adjList[node] = [];

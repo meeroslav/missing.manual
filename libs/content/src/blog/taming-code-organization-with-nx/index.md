@@ -22,7 +22,7 @@ But the code organization is just one piece of the puzzle. The physical organiza
 
 When you generate the first project in your workspace using one of our generators, one of the things you get for free is the full linter setup. The linter is preconfigured with a default ruleset that includes a set of best practices. Alongside the standard set of rules, the initial generated configuration includes a setup for `enforce-module-boundaries` rule.
 
-```JSON
+```json
 {
   // ... more project configuration here
 
@@ -40,7 +40,7 @@ The `depConstraints` section is the one you will be spending most time fine-tuni
 
 The circular dependency chains such as `lib A -> lib B -> lib C -> lib A` are also not allowed. The self circular dependency (when lib imports from a named alias of itself), while not recommended, can be overridden by setting the flag `allowCircularSelfDependency` to `true`.
 
-```JSON
+```json
 {
   // ... default ESLint config here
   
@@ -95,7 +95,7 @@ Let’s define the types of projects. We will use the following tags:
 
 Your changed project configuration should now have the tags section defined.
 
-```JSON
+```json
 // ... more ESLint config here
 
 "@nrwl/nx/enforce-module-boundaries": [
@@ -119,7 +119,7 @@ The above list of library types is not complete. You might add specific ones for
 
 Now, that we have marked all of our projects, we can continue to define the rules in the root `.eslintrc.json`.
 
-```JSON
+```json
 {
   // ... more ESLint config here
   
@@ -166,7 +166,7 @@ Our diagram should now look like this:
 
 Let us now define our missing rules!
 
-```JSON
+```json
 {
   // ... more ESLint config here
 
@@ -206,7 +206,7 @@ You may want to constrain what external packages a project may import. In our ex
 
 We can now enhance our rule configuration by providing additional information.
 
-```JSON
+```json
 {
   // ... more ESLint config here
 
@@ -254,7 +254,7 @@ Our solution doesn’t contain only internal projects but also depends on variou
 
 Therefore it’s wise not to allow developers to import transitive dependencies in their projects. Our ESLint plugin provides a simple flag to turn this restriction on.
 
-```JSON
+```json
 {
   // ... more ESLint config here
 
@@ -276,7 +276,7 @@ If you now try to import a transitive dependency, your linter responds with an e
 
 Sometimes, we just need to override this configuration for a given project. The scenario for this might be testing or during the development, if we are unsure yet how a certain project will be tagged. While we strongly encourage you to plan your architecture carefully and never override the boundaries configuration, you still have an option to bale out and override it.
 
-```JSON
+```json
 {
   // ... default ESLint config here
 

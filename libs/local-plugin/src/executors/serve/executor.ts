@@ -1,16 +1,24 @@
-import { ExecutorContext, parseTargetString, readTargetOptions } from '@nx/devkit';
+import {
+  ExecutorContext,
+  parseTargetString,
+  readTargetOptions,
+} from '@nx/devkit';
 import { ServeExecutorSchema } from './schema';
 import { fork } from 'child_process';
 import { join } from 'path';
 import { runGatsbyBuild } from '../build/executor';
 
 let childProcess;
-export default async function* serverExecutor(options: ServeExecutorSchema, context: ExecutorContext) {
+export default async function* serverExecutor(
+  options: ServeExecutorSchema,
+  context: ExecutorContext
+) {
   console.log('Executor ran for Serve', options);
 
   const buildTarget = parseTargetString(options.buildTarget, context);
-  const baseUrl = `${options.https ? 'https' : 'http'}://${options.host}:${options.port
-    }`;
+  const baseUrl = `${options.https ? 'https' : 'http'}://${options.host}:${
+    options.port
+  }`;
   const projectRoot = context.workspace.projects[context.projectName].root;
   const buildOptions = readTargetOptions(buildTarget, context);
 
@@ -41,7 +49,7 @@ export default async function* serverExecutor(options: ServeExecutorSchema, cont
 
     // This Promise intentionally never resolves, leaving the process running
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    await new Promise<{ success: boolean }>(() => { });
+    await new Promise<{ success: boolean }>(() => {});
   } finally {
     if (childProcess) {
       childProcess.kill();
@@ -81,11 +89,11 @@ async function runGatsbyDevelop(workspaceRoot, projectRoot, options) {
       }
     });
 
-    childProcess.on('error', (err) => {
+    childProcess.on('error', err => {
       reject(err);
     });
 
-    childProcess.on('exit', (code) => {
+    childProcess.on('exit', code => {
       if (code !== 0) {
         reject(
           new Error(
@@ -119,11 +127,11 @@ function runGatsbyServe(
       }
     });
 
-    childProcess.on('error', (err) => {
+    childProcess.on('error', err => {
       reject(err);
     });
 
-    childProcess.on('exit', (code) => {
+    childProcess.on('exit', code => {
       if (code === 0) {
         resolve(code);
       } else {
@@ -140,8 +148,7 @@ function runGatsbyServe(
 function createGatsbyServeOptions(options) {
   return Object.keys(options).reduce((acc, k) => {
     const val = options[k];
-    if (typeof val === 'undefined')
-      return acc;
+    if (typeof val === 'undefined') return acc;
     switch (k) {
       case 'host':
         return val ? acc.concat([`--host`, val]) : acc;
