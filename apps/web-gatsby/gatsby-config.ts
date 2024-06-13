@@ -1,3 +1,14 @@
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
+ */
+
+import path from 'path';
+
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
 module.exports = {
   siteMetadata: {
     title: `Miroslav Jonas`,
@@ -10,23 +21,16 @@ module.exports = {
       github: `meeroslav`,
       behance: `meeroslav`,
       instagram: `missing.manual`,
-      medium: `meeroslav`
+      medium: `meeroslav`,
     },
   },
-  graphqlTypegen: true,
   plugins: [
+    `gatsby-plugin-image`,
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-145350512-1'
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-svgr',
-      options: {
-        svgo: false,
-        ref: true,
+        trackingId: 'UA-145350512-1',
       },
     },
     'gatsby-plugin-sitemap',
@@ -35,51 +39,45 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
-          'gatsby-remark-images',
           {
-            resolve: `gatsby-remark-vscode`,
+            resolve: `gatsby-remark-images`,
             options: {
-              colorTheme: 'Dark+ (default dark)'
-            }
+              maxWidth: 630,
+            },
+          },
+          'gatsby-remark-external-links',
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
           },
 
         ]
       }
     },
-    'gatsby-remark-reading-time',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        plugins: [
-          'gatsby-remark-reading-time',
-          'gatsby-remark-external-links',
-          {
-            resolve: `gatsby-remark-vscode`,
-            options: {
-              theme: 'Dark+ (default dark)'
-            }
-          },
-        ],
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
     },
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-twitter`,
-    'gatsby-transformer-json',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/content/blog`,
+        name: `blog`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-      __key: 'images'
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'blog',
-        path: `${__dirname}/src/blog`,
       },
     },
     {
@@ -95,6 +93,16 @@ module.exports = {
         path: `${__dirname}/src/data`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${path.join(__dirname, '../..')}/libs/data/src`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-twitter`,
+    'gatsby-transformer-json',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

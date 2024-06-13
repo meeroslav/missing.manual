@@ -89,15 +89,15 @@ code {
   font-family: 'Missing Code', monospace;
   font-size: 0.85em;
 }
-code:not(.grvsc-code) {
+code.language-text {
   background: $cl-inline-code-background;
   margin: -2px;
   padding: 4px;
   border-radius: $block-radius;
 }
-.vscode-highlight.dark-default-dark {
-  background: $cl-code-background;
-}
+// pre[class*="language-"] {
+//   background: $cl-code-background;
+// }
 
 // SOME HACKS
 .iframeContainer {

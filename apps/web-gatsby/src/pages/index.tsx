@@ -1,82 +1,93 @@
-import * as React from "react";
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
+
 import Layout from '../components/layout/Layout';
+import Seo from '../components/seo/Seo';
+import IndexHero from '../components/index-hero/IndexHero';
 import Talk from '../components/talk/Talk';
 import MiniPost from '../components/mini-post/MiniPost';
-import { graphql } from 'gatsby';
-import IndexHero from '../components/index-hero/IndexHero';
 
 const today = Date.now();
 
-// markup
 const IndexPage = ({ data, location }) => {
-  const posts = data.blogPosts.edges;
-  const upcomingTalks = data.talks.edges.filter(({ node }) => new Date(node.date).getTime() > today);
+  const siteTitle = data.site.siteMetadata?.title || `Home`;
+  const posts = data.allMdx.nodes;
+  const upcomingTalks = data.talks.edges.filter(
+    ({ node }) => new Date(node.date).getTime() > today
+  );
 
   return (
     <Layout
       location={location}
+      title={siteTitle}
       heroComponent={<IndexHero text={'Miroslav Jonaš'} />}
-      title="Home">
+    >
       <h2>Latest posts</h2>
-      <span /><span />
-      {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
-      {upcomingTalks.length > 0 && <>
-        <h2>Upcoming talks</h2>
-        <span /><span />
-        {upcomingTalks.map(({ node }, i) => <Talk {...node} key={i} />)}
-      </>}
-    </Layout >
-  )
-}
+      <span />
+      <span />
+      {posts.map((node, i) => (
+        <MiniPost {...node} key={i} />
+      ))}
+      {upcomingTalks.length > 0 && (
+        <>
+          <h2>Upcoming talks</h2>
+          <span />
+          <span />
+          {upcomingTalks.map(({ node }, i) => (
+            <Talk {...node} key={i} />
+          ))}
+        </>
+      )}
+    </Layout>
+  );
+};
 
-export default IndexPage
+export default IndexPage;
+
+/**
+ * Head export to define metadata for the page
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+ */
+export const Head = () => <Seo title="Home" />;
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
-        siteUrl
       }
     }
-    blogPosts: allMdx(
-        filter: { frontmatter: { published: { eq: true } }},
-        limit: 3,
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-            readingTime {
-              text
-            }
+    allMdx(
+      filter: { frontmatter: { published: { eq: true } } }
+      limit: 3
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+          readingTime {
+            text
           }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            published
-            canonical
-            description
-            tags
-            cover {
-              publicURL
-              childImageSharp {
-                gatsbyImageData(
-                  transformOptions: { cropFocus: CENTER }
-                  layout: FULL_WIDTH
-                )
-              }
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          cover {
+            publicURL
+            childImageSharp {
+              gatsbyImageData(
+                transformOptions: { cropFocus: CENTER }
+                layout: FULL_WIDTH
+              )
             }
           }
         }
       }
     }
-    talks: allTalksJson(
-      sort: { fields: [date], order: DESC },
-      limit: 10
-    ) {
+    talks: allTalksJson(sort: { date: DESC }, limit: 10) {
       edges {
         node {
           title

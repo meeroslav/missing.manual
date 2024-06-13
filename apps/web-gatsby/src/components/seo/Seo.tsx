@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title, image, canonical }) {
+function SEO({ description, title, image, canonical }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +19,9 @@ function SEO({ description, lang, meta, title, image, canonical }) {
             description
             author
             siteUrl
+            social {
+              twitter
+            }
           }
         }
       }
@@ -26,6 +29,7 @@ function SEO({ description, lang, meta, title, image, canonical }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const defaultTitle = site.siteMetadata?.title;
   const origin =
     typeof window !== 'undefined'
       ? window.location.origin
@@ -36,76 +40,37 @@ function SEO({ description, lang, meta, title, image, canonical }) {
       : origin + '/default.jpg';
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      link={canonical ? [{ rel: 'canonical', href: canonical }] : []}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `image`,
-          content: metaImage,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:image`,
-          content: metaImage,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary_large_image`,
-        },
-        {
-          name: `twitter:creator`,
-          content: '@meeroslav',
-        },
-        {
-          name: `twitter:site`,
-          content: '@meeroslav',
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: `twitter:image`,
-          content: metaImage,
-        },
-      ].concat(meta)}
-    />
+    <>
+      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
+      <meta name="description" content={metaDescription} />
+      <meta property="image" content={metaImage} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content={metaImage} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@meeroslav" />
+      <meta
+        name="twitter:creator"
+        content={site.siteMetadata?.social?.twitter || ``}
+      />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:image" content={metaImage} />
+      <meta name="twitter:description" content={metaDescription} />
+      {canonical && <link rel="canonical" href={canonical} />}
+    </>
   );
 }
 
 SEO.defaultProps = {
-  lang: `en`,
   meta: [],
   description: ``,
+  canonical: null,
+  image: null,
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
-  lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 };

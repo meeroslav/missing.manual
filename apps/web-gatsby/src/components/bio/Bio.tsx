@@ -21,14 +21,21 @@ const Bio = ({ className }) => {
   const { author } = data.site.siteMetadata;
   return (
     <div className={`${className} ${bio}`}>
-      <StaticImage src="../../images/profile-pic.jpg" alt={author} className={bioImage} width={50}
-        height={50} />
+      <StaticImage
+        src="../../images/profile-pic.jpg"
+        alt={author}
+        className={bioImage}
+        width={50}
+        height={50}
+      />
       <div className={bioText}>
-        Written by <strong>{author}</strong>, a software developer focusing on the front-end of things.<br />
+        Written by <strong>{author}</strong>, a software developer focusing on
+        the front-end of things.
+        <br />
         He lives and works in Vienna, Austria.
       </div>
     </div>
-  )
+  );
 };
 
 export default Bio;

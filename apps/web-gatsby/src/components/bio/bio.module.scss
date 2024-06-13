@@ -1,4 +1,4 @@
-@import "../../styles/variables/layout";
+@import '../../styles/variables/layout';
 
 .bio {
   display: grid;
@@ -7,7 +7,7 @@
 .bioImage {
   min-width: $bioImageWidth;
   border-radius: $full-round-radius;
-  grid-column: 1/2
+  grid-column: 1/2;
 }
 .bioText {
   grid-column: 3/15;
