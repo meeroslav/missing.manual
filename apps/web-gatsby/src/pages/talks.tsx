@@ -8,18 +8,33 @@ import H from '../components/heading/Heading';
 const today = Date.now();
 
 const TalksPage = ({ data }) => {
-  const upcoming = data.allTalks.edges.filter(({ node }) => new Date(node.date).getTime() > today);
-  const past = data.allTalks.edges.filter(({ node }) => new Date(node.date).getTime() < today);
+  const upcoming = data.allTalks.edges.filter(
+    ({ node }) => new Date(node.date).getTime() > today
+  );
+  const past = data.allTalks.edges.filter(
+    ({ node }) => new Date(node.date).getTime() < today
+  );
 
   return (
-    <Layout location={data.location}
+    <Layout
+      location={data.location}
       hero={data.cover.childImageSharp.gatsbyImageData}
-      title="Talks">
+      title="Talks"
+    >
       <H>Talks</H>
-      {upcoming.length && (<><h2>Upcoming talks</h2><span /></>)}
-      {upcoming.map(({ node }, i) => <Talk {...node} key={i} />)}
+      {upcoming.length && (
+        <>
+          <h2>Upcoming talks</h2>
+          <span />
+        </>
+      )}
+      {upcoming.map(({ node }, i) => (
+        <Talk {...node} key={i} />
+      ))}
       <h2>Previous talks</h2>
-      {past.map(({ node }, i) => <Talk {...node} key={i} />)}
+      {past.map(({ node }, i) => (
+        <Talk {...node} key={i} />
+      ))}
     </Layout>
   );
 };
@@ -35,12 +50,13 @@ export const pageQuery = graphql`
     }
     cover: file(absolutePath: { regex: "/pages/talk.jpeg/" }) {
       childImageSharp {
-        gatsbyImageData(transformOptions: {cropFocus: CENTER}, layout: FULL_WIDTH)
+        gatsbyImageData(
+          transformOptions: { cropFocus: CENTER }
+          layout: FULL_WIDTH
+        )
       }
     }
-    allTalks: allTalksJson(
-      sort: { fields: [date], order: DESC },
-    ) {
+    allTalks: allTalksJson(sort: { date: DESC }) {
       edges {
         node {
           title

@@ -3,6 +3,8 @@
 /dist
 /coverage
 
-/apps/web-gatsby/node_modules
-/apps/web-gatsby/public
-/apps/web-gatsby/.cache
+node_modules
+public
+.cache
+
+/.nx/cache

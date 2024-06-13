@@ -1,11 +1,29 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and develop quickly with Gatsby",
-  "version": "0.0.0",
-  "license": "MIT",
+  "name": "web-gatsby",
   "dependencies": {
-    "gatsby": "*",
-    "gatsby-plugin-image": "*"
+    "gatsby": "^5.13.5",
+    "gatsby-plugin-feed": "^5.13.1",
+    "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-manifest": "^5.13.1",
+    "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-remark-images": "^7.13.1",
+    "gatsby-remark-prismjs": "^7.13.1",
+    "gatsby-remark-responsive-iframe": "^6.13.1",
+    "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-remark": "^6.13.1",
+    "gatsby-transformer-sharp": "^5.13.1",
+    "prismjs": "^1.29.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
   }
 }

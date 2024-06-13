@@ -1,7 +1,12 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import React from 'react';
-import { miniPost, miniPostImage, miniPostText, miniPostDate } from './mini-post.module.scss';
+import {
+  miniPost,
+  miniPostImage,
+  miniPostText,
+  miniPostDate,
+} from './mini-post.module.scss';
 
 const MiniPost = props => {
   const title = props.frontmatter.title || props.fields.slug;
@@ -12,19 +17,25 @@ const MiniPost = props => {
 
   return (
     <div key={props.fields.slug} className={miniPost}>
-      <GatsbyImage className={miniPostImage} image={props.frontmatter.cover.childImageSharp.gatsbyImageData} alt={title} />
+      <GatsbyImage
+        className={miniPostImage}
+        image={props.frontmatter.cover.childImageSharp.gatsbyImageData}
+        alt={title}
+      />
       <section className={miniPostText}>
         <h3>
-          <Link to={props.fields.slug}>
-            {title}
-          </Link>
+          <Link to={props.fields.slug}>{title}</Link>
         </h3>
         <small className={miniPostDate}>
-          {tags && (<span className="tags">
-            {tags.map(t => (
-              <span className="tag" key={t}>{t}</span>
-            ))}
-          </span>)}
+          {tags && (
+            <span className="tags">
+              {tags.map(t => (
+                <span className="tag" key={t}>
+                  {t}
+                </span>
+              ))}
+            </span>
+          )}
         </small>
         <p
           dangerouslySetInnerHTML={{
@@ -32,7 +43,9 @@ const MiniPost = props => {
           }}
         />
         <small>
-          {props.frontmatter.date}{(` ・ `)}{props.fields.readingTime?.text}
+          {props.frontmatter.date}
+          {` ・ `}
+          {props.fields.readingTime?.text}
         </small>
       </section>
     </div>

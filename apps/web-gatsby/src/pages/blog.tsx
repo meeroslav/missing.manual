@@ -6,15 +6,20 @@ import MiniPost from '../components/mini-post/MiniPost';
 import H from '../components/heading/Heading';
 
 const BlogPage = ({ data }) => {
-  const posts = data.allMdx.edges;
+  const posts = data.allMdx.nodes;
 
   return (
-    <Layout location={data.location}
+    <Layout
+      location={data.location}
       hero={data.cover.childImageSharp.fluid}
-      title="Blog">
+      title="Blog"
+    >
       <H>Blog</H>
-      <span /><span />
-      {posts.map(({ node }, i) => <MiniPost {...node} key={i} />)}
+      <span />
+      <span />
+      {posts.map((node, i) => (
+        <MiniPost {...node} key={i} />
+      ))}
     </Layout>
   );
 };
@@ -28,36 +33,38 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    cover: file(absolutePath: { regex: "/pages\/blog.jpg/" }) {
+    cover: file(absolutePath: { regex: "/pages/blog.jpg/" }) {
       childImageSharp {
-        gatsbyImageData(transformOptions: {cropFocus: CENTER}, layout: FULL_WIDTH)
+        gatsbyImageData(
+          transformOptions: { cropFocus: CENTER }
+          layout: FULL_WIDTH
+        )
       }
     }
     allMdx(
-        filter: { frontmatter: { published: { eq: true } }},
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-            readingTime {
-              text
-            }
+      filter: { frontmatter: { published: { eq: true } } }
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+          readingTime {
+            text
           }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            published
-            canonical
-            description
-            tags
-            cover {
-              publicURL
-              childImageSharp {
-                gatsbyImageData(transformOptions: {cropFocus: CENTER}, layout: FULL_WIDTH)
-              }
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          tags
+          cover {
+            publicURL
+            childImageSharp {
+              gatsbyImageData(
+                transformOptions: { cropFocus: CENTER }
+                layout: FULL_WIDTH
+              )
             }
           }
         }

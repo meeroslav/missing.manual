@@ -1,0 +1,13 @@
+diff --git a/gatsby-node.js b/gatsby-node.js
+index c7494ee97a507528be189ee478d7dd5a0bd16952..aeed32218f1187880c204273183f151820dac8b9 100644
+--- a/gatsby-node.js
++++ b/gatsby-node.js
+@@ -14,7 +14,7 @@ exports.onCreateNode = ({ node, actions }) => {
+     createNodeField({
+       node,
+       name: `readingTime`,
+-      value: readingTime(node.rawBody)
++      value: readingTime(node.body)
+     });
+   }
+ };
