@@ -6,20 +6,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection('blog'))
+.filter((post) => post.data.published)
+.sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
-const globalPosts = (await Astro.glob('../../../../../libs/content/src/blog/**/*.md'))
-  .filter((post) => post.frontmatter.published === true)
-  .map((post) => ({
-    slug: post.file.split('/').slice(-2)[0],
-    data: {
-      ...post.frontmatter,
-      date: new Date(post.frontmatter.date),
-    },
-  }))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);;
 ---
 
 <!doctype html>
@@ -105,7 +96,7 @@ const globalPosts = (await Astro.glob('../../../../../libs/content/src/blog/**/*
 						posts.map((post) => (
 							<li>
 								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.cover} alt="" />
+									<img width={720} height={360} src={post.data.cover?.src} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.date} />
@@ -114,19 +105,6 @@ const globalPosts = (await Astro.glob('../../../../../libs/content/src/blog/**/*
 							</li>
 						))
 					}
-          					{
-                      globalPosts.map((post) => (
-                        <li>
-                          <a href={`/blog/${post.slug}/`}>
-                            <img width={720} height={360} src={post.data.cover} alt="" />
-                            <h4 class="title">{post.data.title}</h4>
-                            <p class="date">
-                              <FormattedDate date={post.data.date} />
-                            </p>
-                          </a>
-                        </li>
-                      ))
-                    }
 				</ul>
 			</section>
 		</main>
