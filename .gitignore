@@ -2,7 +2,6 @@
 
 # compiled output
 /dist
-/apps/web-astro/dist
 /tmp
 /out-tsc
 
@@ -40,6 +39,7 @@ testem.log
 Thumbs.db
 
 public
+!/apps/web-astro/public
 .cache
 
 .nx
@@ -47,3 +47,5 @@ public
 
 .claude/worktrees
 .claude/settings.local.json
+
+.astro

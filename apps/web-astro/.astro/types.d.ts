@@ -136,13 +136,97 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"using-mdx.mdx": {
-	id: "using-mdx.mdx";
-  slug: "using-mdx";
+"angular-fragment-component/index.md": {
+	id: "angular-fragment-component/index.md";
+  slug: "angular-fragment-component";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"cooking-with-rxjs/index.md": {
+	id: "cooking-with-rxjs/index.md";
+  slug: "cooking-with-rxjs";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"duration-parser/index.mdx": {
+	id: "duration-parser/index.mdx";
+  slug: "duration-parser";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"immutable-arrays-and-objects/index.md": {
+	id: "immutable-arrays-and-objects/index.md";
+  slug: "immutable-arrays-and-objects";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"node-script-in-orb/index.md": {
+	id: "node-script-in-orb/index.md";
+  slug: "node-script-in-orb";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"passsing-env-vars-to-reusable-workflows/index.md": {
+	id: "passsing-env-vars-to-reusable-workflows/index.md";
+  slug: "passsing-env-vars-to-reusable-workflows";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"responsive-angular/index.mdx": {
+	id: "responsive-angular/index.mdx";
+  slug: "responsive-angular";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+"speed-up-computations-in-ci/index.md": {
+	id: "speed-up-computations-in-ci/index.md";
+  slug: "speed-up-computations-in-ci";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"taming-code-organization-with-nx/index.md": {
+	id: "taming-code-organization-with-nx/index.md";
+  slug: "taming-code-organization-with-nx";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"the-butterfly-effect/index.md": {
+	id: "the-butterfly-effect/index.md";
+  slug: "the-butterfly-effect";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"til-return-type/index.md": {
+	id: "til-return-type/index.md";
+  slug: "til-return-type";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"til-sentence-case/index.md": {
+	id: "til-sentence-case/index.md";
+  slug: "til-sentence-case";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"you-dont-need-fullstack/index.md": {
+	id: "you-dont-need-fullstack/index.md";
+  slug: "you-dont-need-fullstack";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 };
 
 	};
