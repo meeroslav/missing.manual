@@ -38,8 +38,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-public
-!/apps/web-astro/public
+apps/web-gatsby/public
 .cache
 
 .nx
