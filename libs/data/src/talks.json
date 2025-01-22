@@ -1,5 +1,60 @@
 [
   {
+    "title": "Drum 'n' JS",
+    "type": "Talk",
+    "date": "2024-12-06T16:30:00.000Z",
+    "event": "NG-BE",
+    "link": "https://ng-be.org/talks/2024/12/6/miroslav-jonas",
+    "video": "https://www.youtube.com/watch?v=gch3qh-cdlI",
+    "slides": "https://speakerdeck.com/meeroslav/drum-n-js"
+  },
+  {
+    "title": "Monorepo demystified: Breaking the myth",
+    "type": "Talk",
+    "date": "2024-10-07T16:30:00.000Z",
+    "event": "Monorepo World",
+    "slides": "https://speakerdeck.com/meeroslav/monorepo-world-2024-monorepos-demystified",
+    "link": "https://monorepo.world/talks/monorepo-demystified-breaking-the-myth",
+    "video": "https://www.youtube.com/live/Z5tg6_eIphc?si=c8HT7_32RJgYlzYq&t=4776"
+  },
+  {
+    "title": "Making the Argument for Monorepos",
+    "type": "Talk",
+    "date": "2024-04-17T16:30:00.000Z",
+    "event": "Nx Webinar",
+    "link": "https://go.nx.dev/april-webinar"
+  },
+  {
+    "title": "Scaling Vendure with Nx",
+    "type": "Talk",
+    "date": "2023-12-09T16:30:00.000Z",
+    "event": "Vendure Developer Day",
+    "slides": "https://speakerdeck.com/meeroslav/scaling-vendure-with-nx"
+  },
+  {
+    "title": "Don't let compilation set the length of your Glühwein break",
+    "type": "Talk",
+    "date": "2023-12-02T16:30:00.000Z",
+    "event": "ngGlühwein",
+    "slides": "https://speakerdeck.com/meeroslav/dont-let-compilation-set-the-length-of-your-gluhwein-break",
+    "link": "https://www.meetup.com/angular-vienna/events/297518543/"
+  },
+  {
+    "title": "Vanquishing deployment dragons with Nx wizardry",
+    "type": "Talk",
+    "date": "2023-09-26T16:30:00.000Z",
+    "event": "Nx Conf",
+    "link": "https://speakerdeck.com/meeroslav/vanquishing-deployment-dragons-with-nx-wizardry",
+    "video": "https://youtu.be/jGF8vo2ChfI"
+  },
+  {
+    "title": "Don't let compilation set the length of your coffee break",
+    "type": "Talk",
+    "date": "2023-06-28T16:30:00.000Z",
+    "event": "NodeTLV",
+    "video": "https://www.youtube.com/watch?v=cNFDiMKmzGs"
+  },
+  {
     "title": "Don't let compilation set the length of your coffee break",
     "type": "Talk",
     "date": "2023-03-24T20:30:00.000Z",
@@ -64,7 +119,6 @@
     "type": "Talk",
     "date": "2022-06-16T15:30:00.000Z",
     "event": "JSNation",
-    "link": "https://jsnation.com/schedule-offline",
     "slides": "https://speakerdeck.com/meeroslav/the-age-of-monorepos-jsnation"
   },
   {
@@ -81,7 +135,6 @@
     "event": "Nx Conf Lite",
     "coSpeaker": "Jason Jean",
     "coSpeakerHandle": "FrozenPandaz",
-    "link": "https://nx.dev/conf",
     "video": "https://www.youtube.com/watch?v=0WADb34Yjmg"
   },
   {
