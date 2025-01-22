@@ -22,7 +22,8 @@
     "type": "Talk",
     "date": "2024-04-17T16:30:00.000Z",
     "event": "Nx Webinar",
-    "link": "https://go.nx.dev/april-webinar"
+    "link": "https://go.nx.dev/april-webinar",
+    "slides": "https://speakerdeck.com/meeroslav/nx-making-an-argument-webinar-2024"
   },
   {
     "title": "Scaling Vendure with Nx",
