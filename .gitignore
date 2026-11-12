@@ -43,3 +43,5 @@ public
 
 .nx
 !.nx/pipelines
+
+.claude/worktrees
