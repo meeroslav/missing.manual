@@ -2,9 +2,9 @@
   "name": "local-plugin",
   "version": "0.0.1",
   "dependencies": {
-    "@nx/devkit": "18.2.4",
+    "@nx/devkit": "24.0.6",
     "tslib": "^2.3.0",
-    "gatsby-cli": "4.25.0"
+    "gatsby-cli": "5.13.3"
   },
   "type": "commonjs",
   "main": "./src/index.js",
