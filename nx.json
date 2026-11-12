@@ -41,6 +41,5 @@
   "analytics": false,
   "migrate": {
     "agentic": true
-  },
-  "useLegacyCache": true
+  }
 }
