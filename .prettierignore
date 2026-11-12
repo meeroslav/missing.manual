@@ -8,3 +8,5 @@ public
 .cache
 
 /.nx/cache
+
+/.nx/workspace-data
