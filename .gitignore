@@ -45,3 +45,4 @@ public
 !.nx/pipelines
 
 .claude/worktrees
+.claude/settings.local.json
