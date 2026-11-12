@@ -41,4 +41,5 @@ Thumbs.db
 public
 .cache
 
-.nx/cache
+.nx
+!.nx/pipelines
