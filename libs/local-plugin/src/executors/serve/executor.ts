@@ -19,7 +19,8 @@ export default async function* serverExecutor(
   const baseUrl = `${options.https ? 'https' : 'http'}://${options.host}:${
     options.port
   }`;
-  const projectRoot = context.workspace.projects[context.projectName].root;
+  const projectRoot =
+    context.projectsConfigurations.projects[context.projectName].root;
   const buildOptions = readTargetOptions(buildTarget, context);
 
   try {
