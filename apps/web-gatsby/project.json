@@ -24,10 +24,6 @@
           "buildTarget": "web-gatsby:build:production"
         }
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
     }
   }
 }
