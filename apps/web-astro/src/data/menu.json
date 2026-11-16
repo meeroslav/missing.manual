@@ -1,0 +1,28 @@
+[
+  {
+    "label": "Home",
+    "link": "/",
+    "home": true
+  },
+  {
+    "label": "About",
+    "link": "/about"
+  },
+  {
+    "label": "Blog",
+    "link": "/blog"
+  },
+  {
+    "label": "Talks",
+    "link": "/talks"
+  },
+  {
+    "label": "Imprint",
+    "link": "/imprint",
+    "footerOnly": true
+  },
+  {
+    "label": "Contact",
+    "link": "/contact"
+  }
+]

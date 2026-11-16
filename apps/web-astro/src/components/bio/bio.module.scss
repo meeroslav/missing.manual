@@ -1,0 +1,14 @@
+@import '../../styles/variables/layout';
+
+.bio {
+  display: grid;
+  grid-template-columns: $bioImageWidth $spacing $grid-body;
+}
+.bioImage {
+  min-width: $bioImageWidth;
+  border-radius: $full-round-radius;
+  grid-column: 1/2;
+}
+.bioText {
+  grid-column: 3/15;
+}

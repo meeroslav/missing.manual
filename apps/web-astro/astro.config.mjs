@@ -2,11 +2,9 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from "@astrojs/react";
-import remarkGfm from 'remark-gfm'
-import remarkSmartypants from 'remark-smartypants'
+import { unified } from '@astrojs/markdown-remark';
 import rehypeExternalLinks from 'rehype-external-links'
-
-import tailwind from "@astrojs/tailwind";
+import rehypeGatsbyPrism from './src/plugins/rehype-gatsby-prism.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,25 +14,40 @@ export default defineConfig({
     mdx(),
     sitemap(),
     react(),
-    tailwind()
   ],
   vite: {
-    resolve: {
-      preserveSymlinks: true
-    }
+    environments: {
+      prerender: {
+        resolve: {
+          // Bare imports in the prerender bundle resolve from the workspace root, where the
+          // hoisted `cookie@0.6` (needed by Gatsby) shadows the version Astro depends on.
+          // `react-icons@4` uses directory imports that Node's ESM loader rejects.
+          noExternal: ['cookie', 'react-icons'],
+        },
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // The styles are shared with the Gatsby site, which is still on the legacy Sass API.
+          silenceDeprecations: ['import', 'global-builtin', 'color-functions'],
+        },
+      },
+    },
   },
   markdown: {
-    shikiConfig: {
-      theme: 'nord',
-    },
-    remarkPlugins: [remarkGfm, remarkSmartypants],
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          target: '_blank',
-        },
+    syntaxHighlight: 'prism',
+    processor: unified({
+      rehypePlugins: [
+        [
+          rehypeExternalLinks,
+          {
+            target: '_blank',
+            rel: ['nofollow', 'noopener', 'noreferrer'],
+          },
+        ],
+        rehypeGatsbyPrism,
       ],
-    ],
+    }),
   },
 });

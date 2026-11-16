@@ -1,0 +1,13 @@
+---
+import styles from './index-hero.module.scss';
+
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class={styles.indexHero}>
+  <h1 class="glitch" data-text={text}>{text}</h1>
+</div>

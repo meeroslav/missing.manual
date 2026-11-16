@@ -8,7 +8,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     // Enable module resolution without file extensions on relative paths, for things like npm package imports.
-    // "moduleResolution": "Bundler",
+    "moduleResolution": "Bundler",
     // Allow importing TypeScript files using their native extension (.ts(x)).
     "allowImportingTsExtensions": true,
     // Enable JSON imports.
@@ -31,5 +31,5 @@
     // Enable strict mode. This enables a few options at a time, see https://www.typescriptlang.org/tsconfig#strict for a list.
     "strict": true
   },
-  "include": ["src"]
+  "include": [".astro/types.d.ts", "src"]
 }

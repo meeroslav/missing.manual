@@ -1,0 +1,45 @@
+---
+import menu from '../../data/menu.json';
+import styles from './header.module.scss';
+---
+
+<header class={styles.header} data-expanded-class={styles.expanded}>
+  <nav class={styles.horizontalNav}>
+    <a class={`${styles.link} ${styles.mainLink}`} href="/">Miroslav Jonaš</a>
+    {
+      menu
+        .filter((item) => !item.home && !item.footerOnly)
+        .map((item) => (
+          <a href={item.link} class={styles.link}>
+            {item.label}
+          </a>
+        ))
+    }
+  </nav>
+  <div class={styles.burger} role="navigation">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 9">
+      <path class={styles.bar1} fill="currentColor" d="M0,0H11V1.44H0Z"></path>
+      <path class={styles.bar2} fill="currentColor" d="M0,3.78H5.5V5.22H0Z"></path>
+      <path class={styles.bar2} fill="currentColor" d="M5.5,3.78H11V5.22H5.5Z"></path>
+      <path class={styles.bar3} fill="currentColor" d="M0,7.56H11V9H0Z"></path>
+    </svg>
+  </div>
+  <nav class={styles.verticalNav}>
+    {
+      menu.map((item) => (
+        <a href={item.link} class={styles.link}>
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('header[data-expanded-class]');
+  const burger = header?.querySelector('[role="navigation"]');
+  burger?.addEventListener('click', () => {
+    header!.classList.toggle(header!.dataset.expandedClass!);
+    document.body.classList.toggle('navExpanded');
+  });
+</script>

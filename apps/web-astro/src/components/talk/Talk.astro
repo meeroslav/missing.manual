@@ -1,0 +1,53 @@
+---
+import ExternalLink from '../external-link/ExternalLink.astro';
+import styles from './talk.module.scss';
+
+interface Props {
+  title: string;
+  date: string;
+  event: string;
+  type: string;
+  slides?: string;
+  link?: string;
+  video?: string;
+  coSpeaker?: string;
+  coSpeakerHandle?: string;
+}
+
+const { title, date, event, type, slides, link, video, coSpeaker } = Astro.props;
+const coSpeakerHandle = Astro.props.coSpeakerHandle
+  ? `https://twitter.com/${Astro.props.coSpeakerHandle}`
+  : '';
+---
+
+<div class={styles.talk}>
+  <small><span class={styles.pill}>{type}</span> {date}</small>
+  <h3>{link ? <ExternalLink to={link}>{title}</ExternalLink> : title}</h3>
+  <div class={styles.talkText}>
+    <div>{event}</div>
+    {
+      coSpeaker &&
+        (coSpeakerHandle ? (
+          <div>
+            Co-Speaker: <ExternalLink to={coSpeakerHandle}>{coSpeaker}</ExternalLink>
+          </div>
+        ) : (
+          <div>Co-Speaker: {coSpeaker}</div>
+        ))
+    }
+    {
+      slides && (
+        <div>
+          <ExternalLink to={slides}>Slides</ExternalLink>
+        </div>
+      )
+    }
+    {
+      video && (
+        <div>
+          <ExternalLink to={video}>Video</ExternalLink>
+        </div>
+      )
+    }
+  </div>
+</div>

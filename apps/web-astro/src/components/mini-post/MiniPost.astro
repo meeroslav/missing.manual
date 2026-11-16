@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import {
+  type Post,
+  formatDate,
+  getDescription,
+  getReadingTime,
+  getTags,
+  postUrl,
+} from '../../utils/posts';
+import styles from './mini-post.module.scss';
+
+interface Props {
+  post: Post;
+  showTags?: boolean;
+}
+
+const { post, showTags = true } = Astro.props;
+const title = post.data.title || post.id;
+const tags = showTags ? getTags(post) : [];
+---
+
+<div class={styles.miniPost}>
+  <div class={styles.miniPostImage}>
+    {post.data.cover && <Image src={post.data.cover} alt={title} width={640} widths={[320, 640]} sizes="320px" />}
+  </div>
+  <section class={styles.miniPostText}>
+    <h3><a href={postUrl(post)}>{title}</a></h3>
+    <small class={styles.miniPostDate}>
+      {
+        tags.length > 0 && (
+          <span class="tags">
+            {tags.map((t) => (
+              <span class="tag">{t}</span>
+            ))}
+          </span>
+        )
+      }
+    </small>
+    <p set:html={getDescription(post)} />
+    <small>{formatDate(post.data.date)} ・ {getReadingTime(post)}</small>
+  </section>
+</div>

@@ -1,0 +1,46 @@
+---
+import { FaBehance, FaGithub, FaInstagram, FaLinkedin, FaMediumM, FaTwitter } from 'react-icons/fa';
+import menu from '../../data/menu.json';
+import { SOCIAL } from '../../consts';
+import ExternalLink from '../external-link/ExternalLink.astro';
+import styles from './footer.module.scss';
+---
+
+<footer class={styles.footer}>
+  <nav class={styles.socialNav}>
+    <ExternalLink class={styles.socialLink} to={`https://twitter.com/${SOCIAL.twitter}`}>
+      <FaTwitter title="Link to Twitter acount" />
+    </ExternalLink>
+    <ExternalLink class={styles.socialLink} to={`https://github.com/${SOCIAL.github}`}>
+      <FaGithub title="Link to GitHub acount" />
+    </ExternalLink>
+    <ExternalLink class={styles.socialLink} to={`https://www.linkedin.com/in/${SOCIAL.linkedIn}`}>
+      <FaLinkedin title="Link to LinkedIn acount" />
+    </ExternalLink>
+    <ExternalLink class={styles.socialLink} to={`https://www.instagram.com/${SOCIAL.instagram}`}>
+      <FaInstagram title="Link to Instagram acount" />
+    </ExternalLink>
+    <ExternalLink class={styles.socialLink} to={`https://www.behance.net/${SOCIAL.behance}`}>
+      <FaBehance title="Link to Behance acount" />
+    </ExternalLink>
+    <ExternalLink class={styles.socialLink} to={`https://medium.com/@${SOCIAL.medium}`}>
+      <FaMediumM title="Link to Medium acount" />
+    </ExternalLink>
+  </nav>
+  <nav class={styles.menuNav}>
+    {
+      menu.map((item) => (
+        <a href={item.link} class={styles.footerLink}>
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+  <div class={styles.footnote}>
+    Built using <ExternalLink to="https://astro.build/">Astro</ExternalLink> ・ Source available on <ExternalLink
+      to="https://github.com/meeroslav/missing.manual"><FaGithub /> GitHub</ExternalLink
+    >
+    <br />
+    Miroslav Jonas © {new Date().getFullYear()}
+  </div>
+</footer>

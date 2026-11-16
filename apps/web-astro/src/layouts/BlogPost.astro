@@ -1,85 +1,67 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import Layout from '../components/layout/Layout.astro';
+import H from '../components/heading/Heading.astro';
+import Bio from '../components/bio/Bio.astro';
+import ExternalLink from '../components/external-link/ExternalLink.astro';
+import { type Post, formatDate, getDescription, getReadingTime, getTags, postUrl } from '../utils/posts';
+import styles from './blog-post.module.scss';
 
-type Props = CollectionEntry<'blog'>['data'];
+interface Props {
+  post: Post;
+}
 
-const { title, description, date, updatedDate, cover } = Astro.props;
+const { post } = Astro.props;
+const { title, date, cover, coverInfo, canonical } = post.data;
+const tags = getTags(post);
+const hasTweets = post.body?.includes('twitter-tweet') ?? false;
+const url = new URL(postUrl(post), Astro.site).href;
+const tweetLink = `https://twitter.com/intent/tweet?text=Check out this post by @meeroslav 👇%0a${url}`;
+const fbLink = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+const linkedInLink = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+<Layout title={title} description={getDescription(post)} canonical={canonical} hero={cover}>
+  <article class={styles.blogPost} itemscope itemtype="http://schema.org/Article">
+    <small>{formatDate(date)} ・ {getReadingTime(post)}</small>
+    {
+      coverInfo && (
+        <>
+          {' '}
+          ・{' '}
+          <small>
+            Cover by <span set:html={coverInfo} />
+          </small>
+        </>
+      )
+    }
+    <H>{title}</H>
+    <small>
+      {
+        tags.length > 0 && (
+          <span class="tags">
+            {tags.map((t) => (
+              <span class="tag">{t}</span>
+            ))}
+          </span>
+        )
+      }
+    </small>
+    <section itemprop="articleBody"><slot /></section>
+  </article>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{cover && <img width={1020} height={510} src={cover.src} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={date} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+  <hr />
+  <p>
+    <br />
+    Did you like the post? Share it on <ExternalLink to={tweetLink}>Twitter <FaTwitter /></ExternalLink>, <ExternalLink
+      to={linkedInLink}>LinkedIn <FaLinkedin /></ExternalLink
+    > or <ExternalLink to={fbLink}>Facebook <FaFacebook /></ExternalLink>.
+    <br />
+    Did you find it helpful? Leaving <ExternalLink to="https://www.paypal.com/paypalme/meeroslav"
+      >a small tip <span role="img" aria-label="coffee">☕</span>
+    </ExternalLink> helps.
+  </p>
+  <hr class={styles.bioDivider} />
+  <Bio class={styles.blogPost} />
+  {hasTweets && <script is:inline async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>}
+</Layout>
