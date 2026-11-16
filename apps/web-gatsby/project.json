@@ -15,7 +15,7 @@
       }
     },
     "serve": {
-      "executor": "@miro-rs/local-plugin:serve-gatsvy",
+      "executor": "@miro-rs/local-plugin:serve-gatsby",
       "options": {
         "buildTarget": "web-gatsby:build"
       },

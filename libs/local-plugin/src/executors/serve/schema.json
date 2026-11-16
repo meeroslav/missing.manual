@@ -1,8 +1,11 @@
 {
   "$schema": "https://json-schema.org/schema",
   "version": 2,
+  "continuous": true,
+  "outputCapture": "direct-nodejs",
+  "cli": "nx",
   "title": "Serve executor",
-  "description": "",
+  "description": "Serve a Gatsby application.",
   "type": "object",
   "properties": {
     "buildTarget": {
@@ -26,7 +29,13 @@
     },
     "open": {
       "type": "boolean",
-      "description": "Open the site in your (default) browser for you."
+      "description": "Open the site in your (default) browser for you.",
+      "default": false
+    },
+    "prefixPaths": {
+      "type": "boolean",
+      "description": "Serve the site with link paths prefixed (set pathPrefix in your config).",
+      "default": false
     }
   },
   "required": []

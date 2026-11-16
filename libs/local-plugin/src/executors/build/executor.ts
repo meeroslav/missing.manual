@@ -7,9 +7,13 @@ export default async function buildExecutor(
   options: BuildExecutorSchema,
   context: ExecutorContext
 ) {
-  const projectRoot =
-    context.projectsConfigurations.projects[context.projectName].root;
-  await runGatsbyBuild(context.root, projectRoot, context.projectName, options);
+  const projectName = context.projectName;
+  if (!projectName) {
+    throw new Error('Build executor requires a project name.');
+  }
+
+  const projectRoot = context.projectsConfigurations.projects[projectName].root;
+  await runGatsbyBuild(context.root, projectRoot, projectName, options);
 
   return { success: true };
 }
@@ -26,6 +30,7 @@ export function runGatsbyBuild(
       ['build', ...createGatsbyBuildOptions(options)],
       {
         cwd: join(workspaceRoot, projectRoot),
+        stdio: 'inherit',
       }
     );
 
@@ -49,28 +54,25 @@ export function runGatsbyBuild(
   });
 }
 
-function createGatsbyBuildOptions(options: BuildExecutorSchema) {
-  return Object.keys(options).reduce((acc, k) => {
-    const val = options[k];
-    if (typeof val === 'undefined') return acc;
-    switch (k) {
-      case 'prefixPaths':
-        return val ? acc.concat(`--prefix-paths`) : acc;
-      case 'uglify':
-        return val ? acc : acc.concat('--no-uglify');
-      case 'color':
-        return val ? acc : acc.concat('--no-color');
-      case 'profile':
-        return val ? acc.concat('--profile') : acc;
-      case 'openTracingConfigFile':
-        return val ? acc.concat([`--open-tracing-config-file`, val]) : acc;
-      case 'graphqlTracing':
-        return val ? acc.concat('--graphql-tracing') : acc;
-      case 'serve':
-      case 'host':
-      case 'port':
-      default:
-        return acc;
-    }
-  }, []);
+function createGatsbyBuildOptions(options: BuildExecutorSchema): string[] {
+  const args: string[] = [];
+  if (options.prefixPaths) {
+    args.push('--prefix-paths');
+  }
+  if (options.uglify === false) {
+    args.push('--no-uglify');
+  }
+  if (options.color === false) {
+    args.push('--no-color');
+  }
+  if (options.profile) {
+    args.push('--profile');
+  }
+  if (options.openTracingConfigFile) {
+    args.push('--open-tracing-config-file', options.openTracingConfigFile);
+  }
+  if (options.graphqlTracing) {
+    args.push('--graphql-tracing');
+  }
+  return args;
 }

@@ -1,7 +1,8 @@
 export interface ServeExecutorSchema {
   buildTarget: string;
   host: string;
-  port: string;
-  open: boolean;
-  https: boolean;
+  port: number;
+  open?: boolean;
+  https?: boolean;
+  prefixPaths?: boolean;
 }

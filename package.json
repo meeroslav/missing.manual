@@ -5,6 +5,7 @@
   "private": true,
   "description": "Miroslav Jonas's personal website",
   "author": "Miroslav Jonas",
+  "packageManager": "pnpm@12.4.2",
   "dependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/mdx": "^3.1.0",
