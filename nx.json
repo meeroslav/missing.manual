@@ -37,5 +37,6 @@
   "useInferencePlugins": false,
   "defaultBase": "master",
   "nxCloudAccessToken": "OTRiOWY1ZjgtNWI4NC00NjI3LWIzMTUtMDRlZGY1ZDQ2OWI0fHJlYWQtd3JpdGU=",
-  "nxCloudUrl": "https://staging.nx.app"
+  "nxCloudUrl": "https://staging.nx.app",
+  "nxCloudId": "6afb1a1c68b3f38ada1490b4"
 }
