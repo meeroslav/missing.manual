@@ -31,6 +31,7 @@
   },
   "useInferencePlugins": false,
   "defaultBase": "master",
+  "nxCloudId": "6afb1a1c68b3f38ada1490b4",
   "analytics": false,
   "migrate": {
     "agentic": true
