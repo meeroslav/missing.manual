@@ -1,5 +1,5 @@
 import nx from '@nx/eslint-plugin';
-import jsoncEslintParser from 'jsonc-eslint-parser';
+import * as jsoncEslintParser from 'jsonc-eslint-parser';
 
 export default [
   {
