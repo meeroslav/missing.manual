@@ -8,6 +8,9 @@ on:
   master-pushes:
     event: PUSH
     branches: [master]
+  merge-queue:
+    event: MERGE_GROUP
+    branches: [master]
 
 jobs:
   main:

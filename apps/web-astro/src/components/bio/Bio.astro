@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import profilePic from '../../images/profile-pic.jpg';
+import { SITE_AUTHOR } from '../../consts';
+import styles from './bio.module.scss';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class={`${className} ${styles.bio}`}>
+  <Image src={profilePic} alt={SITE_AUTHOR} class={styles.bioImage} width={50} height={50} densities={[1, 2]} />
+  <div class={styles.bioText}>
+    Written by <strong>{SITE_AUTHOR}</strong>, a software developer focusing on the front-end of
+    things.
+    <br />
+    He lives and works in Vienna, Austria.
+  </div>
+</div>

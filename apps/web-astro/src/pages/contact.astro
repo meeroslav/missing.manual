@@ -1,0 +1,17 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import H from '../components/heading/Heading.astro';
+import ExternalLink from '../components/external-link/ExternalLink.astro';
+import cover from '../images/pages/contact.jpeg';
+---
+
+<Layout title="Contact" description="Contact information" hero={cover}>
+  <H>Contact</H>
+
+  <h4>Miroslav Jonas</h4>
+
+  <p>
+    E-mail: <ExternalLink to="mailto:missing.manual@gmail.com">missing.manual@gmail.com</ExternalLink><br />
+    Vienna, Austria
+  </p>
+</Layout>
