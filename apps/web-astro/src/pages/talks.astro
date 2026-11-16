@@ -1,0 +1,28 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import H from '../components/heading/Heading.astro';
+import Talk from '../components/talk/Talk.astro';
+import talks from '../../../../libs/data/src/talks.json';
+import cover from '../images/pages/talk.jpeg';
+import { formatDate } from '../utils/posts';
+
+const today = Date.now();
+const sorted = [...talks].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const upcoming = sorted.filter((talk) => new Date(talk.date).getTime() > today);
+const past = sorted.filter((talk) => new Date(talk.date).getTime() < today);
+---
+
+<Layout title="Talks" hero={cover}>
+  <H>Talks</H>
+  {
+    upcoming.length > 0 && (
+      <>
+        <h2>Upcoming talks</h2>
+        <span />
+      </>
+    )
+  }
+  {upcoming.map((talk) => <Talk {...talk} date={formatDate(talk.date)} />)}
+  <h2>Previous talks</h2>
+  {past.map((talk) => <Talk {...talk} date={formatDate(talk.date)} />)}
+</Layout>
